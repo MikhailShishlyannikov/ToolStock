@@ -1,0 +1,24 @@
+﻿html {
+    height: 100%;
+}
+
+body {
+    background: url(Images/bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+    height: 100%;
+}
+
+/*.center-element {
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}*/
+
+.bg-white {
+    background-color: white
+}

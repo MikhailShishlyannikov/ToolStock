@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@if (!Request.IsAuthenticated)
+{
+    <h1 class="display-5 text-center">Вход</h1>
+    <p class="lead text-center">Пожалуйста, войдите или зарегестрируйтесь</p>
+    <p class="lead text-center">
+        @Html.ActionLink("Sign In", "Login", "Account", null, new { @class = "btn btn-primary btn-lg" })
+        @Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-primary btn-lg" })
+    </p>
+}
+

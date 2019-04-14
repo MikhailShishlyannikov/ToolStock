@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.AspNet.Identity;
+using Sam.ToolStock.Model.Models;
 using Sam.ToolStock.Model.ViewModels;
 
 namespace Sam.ToolStock.Logic.Interfaces
@@ -10,6 +12,8 @@ namespace Sam.ToolStock.Logic.Interfaces
 
         IdentityResult AddToUserRole(RegisterViewModel registerViewModel);
 
-        
+        User GetUser(LoginViewModel loginViewModel);
+
+        IEnumerable<string> GetRoles(string userId);
     }
 }

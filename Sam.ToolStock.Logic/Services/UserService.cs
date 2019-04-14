@@ -1,8 +1,10 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
 using Sam.ToolStock.DataProvider.Models;
 using Sam.ToolStock.Logic.Interfaces;
+using Sam.ToolStock.Model.Models;
 using Sam.ToolStock.Model.ViewModels;
 
 namespace Sam.ToolStock.Logic.Services
@@ -39,6 +41,16 @@ namespace Sam.ToolStock.Logic.Services
         {
             return _userManager.AddToRole(_userManager.Users.First(u => u.UserName == registerViewModel.Email).Id,
                 _roleManager.Roles.First(r => r.Name == "User").Name);
+        }
+
+        public User GetUser(LoginViewModel loginViewModel)
+        {
+            return _mapper.Map<User>(_userManager.Find(loginViewModel.Email, loginViewModel.Password));
+        }
+
+        public IEnumerable<string> GetRoles(string userId)
+        {
+            return _userManager.GetRoles(userId);
         }
 
         public void Dispose()

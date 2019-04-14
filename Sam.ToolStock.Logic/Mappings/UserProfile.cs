@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Sam.ToolStock.DataProvider.Models;
+using Sam.ToolStock.Model.Models;
 using Sam.ToolStock.Model.ViewModels;
 
 namespace Sam.ToolStock.Logic.Mappings
@@ -9,9 +10,9 @@ namespace Sam.ToolStock.Logic.Mappings
         public UserProfile()
         {
             CreateMap<RegisterViewModel, UserModel>()
-                .ForMember(u => u.UserName, opt => opt.MapFrom(r => r.Email))
-                .ForMember(u => u.Email, opt => opt.MapFrom(r => r.Email))
-                .ForMember(u => u.DepartmentId, opt => opt.MapFrom(r => r.DepartmentId));
+                .ForMember(um => um.UserName, opt => opt.MapFrom(r => r.Email))
+                .ForMember(um => um.Email, opt => opt.MapFrom(r => r.Email))
+                .ForMember(um => um.DepartmentId, opt => opt.MapFrom(r => r.DepartmentId));
 
             CreateMap<RegisterViewModel, UserInfoModel>()
                 .ForMember(ui => ui.Id, opt => opt.Ignore())
@@ -20,6 +21,9 @@ namespace Sam.ToolStock.Logic.Mappings
                 .ForMember(ui => ui.Surname, opt => opt.MapFrom(r => r.Surname))
                 .ForMember(ui => ui.Email, opt => opt.MapFrom(r => r.Email))
                 .ForMember(ui => ui.Phone, opt => opt.MapFrom(r => r.Phone));
+
+            CreateMap<UserModel, User>()
+                .ForMember(u => u.Id, opt => opt.MapFrom(um => um.Id));
         }
     }
 }

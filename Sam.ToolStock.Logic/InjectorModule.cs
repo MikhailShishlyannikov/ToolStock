@@ -34,6 +34,8 @@ namespace Sam.ToolStock.Logic
             Bind<IUserService>().To<UserService>();
             Bind<IUserInfoService>().To<UserInfoService>();
             Bind<ISignInService>().To<SignInService>();
+            Bind<IDepartmentService>().To<DepartmentService>();
+            Bind<IRoleService>().To<RoleService>();
         }
     }
 }

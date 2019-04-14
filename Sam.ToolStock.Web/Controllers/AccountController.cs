@@ -1,12 +1,8 @@
 ﻿using System.Linq;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using Sam.ToolStock.DataProvider.Interfaces;
-using Sam.ToolStock.DataProvider.Models;
 using Sam.ToolStock.Logic.Interfaces;
-using Sam.ToolStock.Logic.Services;
 using Sam.ToolStock.Model.ViewModels;
 
 namespace Sam.ToolStock.Web.Controllers
@@ -46,9 +42,15 @@ namespace Sam.ToolStock.Web.Controllers
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = _signInService.PasswordSignIn(loginViewModel);
+
             switch (result)
             {
                 case SignInStatus.Success:
+                    var user = _userService.GetUser(loginViewModel);
+                    var roles = _userService.GetRoles(user.Id);
+
+                    if (roles.Contains("Admin"))
+                        return RedirectToAction("Index", new {area = "Admin", controller = "Home"});
                     return RedirectToAction("Index", "Home");
                 case SignInStatus.LockedOut:
                     return View("_Lockout");
@@ -89,7 +91,7 @@ namespace Sam.ToolStock.Web.Controllers
                 // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                 // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                return RedirectToAction("555", "Home");
+                return RedirectToAction("Index", new {});
 
             }
             AddErrors(result);

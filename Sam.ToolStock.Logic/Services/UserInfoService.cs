@@ -9,11 +9,13 @@ namespace Sam.ToolStock.Logic.Services
 {
     public class UserInfoService : IUserInfoService
     {
+        private readonly ApplicationUserManager _userManager;
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
 
-        public UserInfoService(IMapper mapper, IUnitOfWork unitOfWork)
+        public UserInfoService(ApplicationUserManager userManager, IMapper mapper, IUnitOfWork unitOfWork)
         {
+            _userManager = userManager;
             _mapper = mapper;
             _unitOfWork = unitOfWork;
         }
@@ -25,6 +27,11 @@ namespace Sam.ToolStock.Logic.Services
 
             _unitOfWork.UserInfoRepository.Create(userInfo);
             _unitOfWork.Save();
+        }
+
+        public ProfileViewModel GetProfile(string userId)
+        {
+            return _mapper.Map<ProfileViewModel>(_unitOfWork.UserInfoRepository.GetById(userId));
         }
 
         public void Dispose()

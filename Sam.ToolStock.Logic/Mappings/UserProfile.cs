@@ -24,6 +24,11 @@ namespace Sam.ToolStock.Logic.Mappings
 
             CreateMap<UserModel, User>()
                 .ForMember(u => u.Id, opt => opt.MapFrom(um => um.Id));
+
+            CreateMap<UserInfoModel, ProfileViewModel>()
+                .ForMember(pvm => pvm.Name, opt => opt.MapFrom(ui => ui.Name))
+                .ForMember(pvm => pvm.Patronymic, opt => opt.MapFrom(ui => ui.Patronymic))
+                .ForMember(pvm => pvm.Surname, opt => opt.MapFrom(ui => ui.Surname));
         }
     }
 }

@@ -7,5 +7,7 @@ namespace Sam.ToolStock.Logic.Interfaces
     public interface IUserInfoService : IDisposable
     {
         void Add(RegisterViewModel registerViewModel, UserModel user);
+
+        ProfileViewModel GetProfile(string userId);
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using Bogus;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Sam.ToolStock.DataProvider.Contexts;
@@ -11,6 +13,28 @@ namespace Sam.ToolStock.DataProvider.Initializers
         public static void Initialize(ToolContext toolContext)
         {
             if(toolContext.Roles.First(r=>r.Name == "Stock keeper").Users.Any()) return;
+
+            Randomizer.Seed = new Random(835661);
+
+            var departments = toolContext.Departments.ToList();
+            var stocks = toolContext.Stocks.ToList();
+
+            var testUser = new Faker<UserModel>("en")
+                .StrictMode(false)
+                .RuleFor(u => u.Email, f => f.Internet.Email())
+                .RuleFor(u => u.UserName, (f, u) => u.Email)
+                .RuleFor(u => u.Department, f => f.PickRandom(departments))
+                .RuleFor(u => u.Stock, f => f.PickRandom(stocks));
+
+            var testUserInfo = new Faker<UserInfoModel>("en")
+                .StrictMode(false)
+                .RuleFor(ui => ui.User, f => testUser.Generate())
+                .RuleFor(ui => ui.Name, f => f.Name.FirstName())
+                .RuleFor(ui => ui.Surname, f => f.Name.LastName())
+                .RuleFor(ui => ui.Email, (f, ui) => ui.User.Email)
+                .RuleFor(ui => ui.Phone, f => f.Phone.PhoneNumberFormat(0));
+
+            var userInfos = testUserInfo.Generate(15);
 
             var keeper3 = new UserModel
             {
@@ -51,14 +75,23 @@ namespace Sam.ToolStock.DataProvider.Initializers
             toolContext.UserInfos.Add(keeperUserInfo3);
             toolContext.UserInfos.Add(keeperUserInfo6);
 
+            foreach (var userInfoModel in userInfos)
+            {
+                var result = uManager.Create(userInfoModel.User, "Keeper");
+                if (result.Succeeded) uManager.AddToRole(userInfoModel.User.Id, "Stock keeper");
+            }
+
+            toolContext.UserInfos.AddRange(userInfos);
+
             if (result3.Succeeded)
             {
-                // create role for default admin
+                // create role for default keeper
                 uManager.AddToRole(keeper3.Id, toolContext.Roles.FirstOrDefault(r => r.Name == "Stock keeper")?.Name);
+
             }
             if (result6.Succeeded)
             {
-                // create role for default admin
+                // create role for default keeper
                 uManager.AddToRole(keeper6.Id, toolContext.Roles.FirstOrDefault(r => r.Name == "Stock keeper")?.Name);
             }
         }

@@ -84,6 +84,6 @@
         /// <summary>
         /// Max length of the Phone property of the UserInfoModel.
         /// </summary>
-        public const int MaxLengthOfUserInfoPhone = 16;
+        public const int MaxLengthOfUserInfoPhone = 20;
     }
 }

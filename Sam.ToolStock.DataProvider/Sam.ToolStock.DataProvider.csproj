@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bogus, Version=26.0.2.0, Culture=neutral, PublicKeyToken=fa1bb3f3f218129a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bogus.26.0.2\lib\net40\Bogus.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -79,12 +82,13 @@
     <Compile Include="Initializers\StockInitializer.cs" />
     <Compile Include="Initializers\AdminInitializer.cs" />
     <Compile Include="Initializers\StockKeeperInitializer.cs" />
+    <Compile Include="Initializers\UserInitializer.cs" />
     <Compile Include="InjectorModule.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
-    <Compile Include="Migrations\201904121416256_Seeding.cs" />
-    <Compile Include="Migrations\201904121416256_Seeding.Designer.cs">
-      <DependentUpon>201904121416256_Seeding.cs</DependentUpon>
+    <Compile Include="Migrations\201904162157500_Seeding.cs" />
+    <Compile Include="Migrations\201904162157500_Seeding.Designer.cs">
+      <DependentUpon>201904162157500_Seeding.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelConfigurations\DepartmentConfiguration.cs" />
@@ -118,8 +122,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904121416256_Seeding.resx">
-      <DependentUpon>201904121416256_Seeding.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904162157500_Seeding.resx">
+      <DependentUpon>201904162157500_Seeding.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

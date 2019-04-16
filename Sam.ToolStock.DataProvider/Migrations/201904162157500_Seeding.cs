@@ -150,7 +150,7 @@ namespace Sam.ToolStock.DataProvider.Migrations
                         Name = c.String(nullable: false, maxLength: 60),
                         Patronymic = c.String(maxLength: 70),
                         Surname = c.String(nullable: false, maxLength: 80),
-                        Phone = c.String(maxLength: 16),
+                        Phone = c.String(maxLength: 20),
                         Email = c.String(nullable: false, maxLength: 100),
                     })
                 .PrimaryKey(t => t.Id)

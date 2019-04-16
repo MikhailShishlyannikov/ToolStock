@@ -1,3 +1,4 @@
+using Sam.ToolStock.DataProvider.Contexts;
 using Sam.ToolStock.DataProvider.Initializers;
 
 namespace Sam.ToolStock.DataProvider.Migrations
@@ -22,6 +23,7 @@ namespace Sam.ToolStock.DataProvider.Migrations
             StockInitializer.Initialize(context);
             AdminInitializer.Initialize(context);
             StockKeeperInitializer.Initialize(context);
+            UserInitializer.Initialize(context);
             context.SaveChanges();
         }
     }

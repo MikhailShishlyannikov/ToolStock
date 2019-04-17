@@ -48,6 +48,17 @@ namespace Sam.ToolStock.Logic.Services
             return _mapper.Map<User>(_userManager.Find(loginViewModel.Email, loginViewModel.Password));
         }
 
+        public IEnumerable<TableUserViewModel> GetAllTableUser()
+        {
+            var tableUsers = _mapper.Map<IEnumerable<TableUserViewModel>>(_userInfoService.GetAll()).ToList();
+            foreach (var tableUser in tableUsers)
+            {
+                tableUser.Role = GetRoles(tableUser.Id).Single();
+            }
+
+            return tableUsers;
+        }
+
         public IEnumerable<string> GetRoles(string userId)
         {
             return _userManager.GetRoles(userId);

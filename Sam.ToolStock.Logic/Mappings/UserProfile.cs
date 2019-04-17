@@ -1,5 +1,9 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
+using Microsoft.AspNet.Identity;
 using Sam.ToolStock.DataProvider.Models;
+using Sam.ToolStock.Logic.Interfaces;
+using Sam.ToolStock.Logic.Services;
 using Sam.ToolStock.Model.Models;
 using Sam.ToolStock.Model.ViewModels;
 
@@ -7,6 +11,7 @@ namespace Sam.ToolStock.Logic.Mappings
 {
     public class UserProfile : Profile
     {
+
         public UserProfile()
         {
             CreateMap<RegisterViewModel, UserModel>()
@@ -29,6 +34,17 @@ namespace Sam.ToolStock.Logic.Mappings
                 .ForMember(pvm => pvm.Name, opt => opt.MapFrom(ui => ui.Name))
                 .ForMember(pvm => pvm.Patronymic, opt => opt.MapFrom(ui => ui.Patronymic))
                 .ForMember(pvm => pvm.Surname, opt => opt.MapFrom(ui => ui.Surname));
+
+            CreateMap<UserInfoModel, TableUserViewModel>()
+                .ForMember(tu => tu.Id, opt => opt.MapFrom(ui => ui.User.Id))
+                .ForMember(tu => tu.FullName,
+                    opt => opt.MapFrom(ui =>
+                        ui.Patronymic == null
+                            ? $"{ui.Name} {ui.Surname}"
+                            : $"{ui.Name} {ui.Patronymic} {ui.Surname}"))
+                .ForMember(tu => tu.Department,
+                    opt => opt.MapFrom(ui => ui.User.Department == null ? "" : ui.User.Department.Name))
+                .ForMember(tu => tu.Stock, opt => opt.MapFrom(ui => ui.User.Stock == null ? "" : ui.User.Stock.Name));
         }
     }
 }

@@ -14,6 +14,8 @@ namespace Sam.ToolStock.Logic.Interfaces
 
         User GetUser(LoginViewModel loginViewModel);
 
+        IEnumerable<TableUserViewModel> GetAllTableUser();
+
         IEnumerable<string> GetRoles(string userId);
     }
 }

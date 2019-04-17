@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using AutoMapper;
 using Sam.ToolStock.DataProvider.Interfaces;
 using Sam.ToolStock.DataProvider.Models;
@@ -32,6 +32,11 @@ namespace Sam.ToolStock.Logic.Services
         public ProfileViewModel GetProfile(string userId)
         {
             return _mapper.Map<ProfileViewModel>(_unitOfWork.UserInfoRepository.GetById(userId));
+        }
+
+        public IEnumerable<UserInfoModel> GetAll()
+        {
+            return _unitOfWork.UserInfoRepository.GetAll();
         }
 
         public void Dispose()

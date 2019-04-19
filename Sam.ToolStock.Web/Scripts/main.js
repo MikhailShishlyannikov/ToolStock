@@ -88,7 +88,18 @@ jQuery(document).ready(function($) {
 
     // -------------------------------------------------
 
-    $(".table-row").click(function() {
-        window.document.location = $(this).data("href");
-    });
+    //$(".table-row").click(function() {
+    //    window.document.location = $(this).data("href");
+    //});
+    
+    //$(".table-row").click(function (e) {
+    //    e.preventDefault();
+    //    var link = $(this).attr("id");
+    //    $("#results").load(link);
+    //});
 });
+
+jQuery(document).on('click', '.table-row', function () {
+    var id = $(this).attr("id");
+    $("#results").load("/Admin/Home/ShowUser/" + id);
+})

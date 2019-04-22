@@ -23,8 +23,7 @@ namespace Sam.ToolStock.DataProvider.Initializers
                 .StrictMode(false)
                 .RuleFor(u => u.Email, f => f.Internet.Email())
                 .RuleFor(u => u.UserName, (f, u) => u.Email)
-                .RuleFor(u => u.Department, f => f.PickRandom(departments))
-                .RuleFor(u => u.Stock, f => f.PickRandom(strocks));
+                .RuleFor(u => u.Department, f => f.PickRandom(departments));
 
             var testUserInfo = new Faker<UserInfoModel>("en")
                 .StrictMode(false)

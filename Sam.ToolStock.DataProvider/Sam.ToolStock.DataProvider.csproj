@@ -86,9 +86,9 @@
     <Compile Include="InjectorModule.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
-    <Compile Include="Migrations\201904162157500_Seeding.cs" />
-    <Compile Include="Migrations\201904162157500_Seeding.Designer.cs">
-      <DependentUpon>201904162157500_Seeding.cs</DependentUpon>
+    <Compile Include="Migrations\201904222156158_Seeding.cs" />
+    <Compile Include="Migrations\201904222156158_Seeding.Designer.cs">
+      <DependentUpon>201904222156158_Seeding.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelConfigurations\DepartmentConfiguration.cs" />
@@ -122,8 +122,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904162157500_Seeding.resx">
-      <DependentUpon>201904162157500_Seeding.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904222156158_Seeding.resx">
+      <DependentUpon>201904222156158_Seeding.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

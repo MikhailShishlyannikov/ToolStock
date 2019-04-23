@@ -9,6 +9,7 @@ namespace Sam.ToolStock.DataProvider.Models
 {
     public class UserModel : IdentityUser
     {
+        public bool IsDeleted { get; set; }
 
         public virtual UserInfoModel UserInfo { get; set; }
 

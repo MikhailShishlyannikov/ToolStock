@@ -210,6 +210,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Keepers\KeepersAreaRegistration.cs" />
     <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
+    <Compile Include="Attributes\MultipleButtonAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -306,6 +307,8 @@
     <Content Include="fonts\icomoon\icomoon.woff" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_ProfileBar.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\ShowUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\SuccessfulMessage.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\fullcalendar-init.js" />
     <Content Include="Scripts\fullcalendar.js" />
@@ -365,6 +368,8 @@
     <Content Include="Scripts\jquery.matchHeight.min.js" />
     <Content Include="Scripts\jquery.simpleWeather.js" />
     <Content Include="Scripts\jquery.simpleWeather.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />

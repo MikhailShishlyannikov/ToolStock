@@ -7,17 +7,17 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
 {
     public class AccountController : Controller
     {
-        private IUserInfoService _userInfoService;
+        private IUserService _userService;
 
-        public AccountController(IUserInfoService userInfoService)
+        public AccountController(IUserService userService)
         {
-            _userInfoService = userInfoService;
+            _userService = userService;
         }
 
         // GET: Admin/Account
         public ActionResult UserInfo()
         {
-            var profile = _userInfoService.GetProfile(User.Identity.GetUserId());
+            var profile = _userService.GetProfile(User.Identity.GetUserId());
 
             return PartialView("_ProfileBar", profile);
         }

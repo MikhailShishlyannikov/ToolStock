@@ -13,6 +13,7 @@ namespace Sam.ToolStock.DataProvider.Migrations
                     {
                         Id = c.String(nullable: false, maxLength: 128),
                         Name = c.String(nullable: false, maxLength: 350),
+                        IsDeleted = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -22,6 +23,7 @@ namespace Sam.ToolStock.DataProvider.Migrations
                     {
                         Id = c.String(nullable: false, maxLength: 128),
                         Name = c.String(nullable: false, maxLength: 70),
+                        IsDeleted = c.Boolean(nullable: false),
                         DepartmentId = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
@@ -55,6 +57,7 @@ namespace Sam.ToolStock.DataProvider.Migrations
                         Name = c.String(nullable: false, maxLength: 60),
                         Manufacturer = c.String(maxLength: 60),
                         Status = c.Int(nullable: false),
+                        IsDeleted = c.Boolean(nullable: false),
                         ToolTypeId = c.String(maxLength: 128),
                         StockId = c.String(maxLength: 128),
                         UserId = c.String(maxLength: 128),
@@ -81,6 +84,7 @@ namespace Sam.ToolStock.DataProvider.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
+                        IsDeleted = c.Boolean(nullable: false),
                         DepartmentId = c.String(maxLength: 128),
                         StockId = c.String(maxLength: 128),
                         Email = c.String(),
@@ -152,6 +156,7 @@ namespace Sam.ToolStock.DataProvider.Migrations
                         Surname = c.String(nullable: false, maxLength: 80),
                         Phone = c.String(maxLength: 20),
                         Email = c.String(nullable: false, maxLength: 100),
+                        IsDeleted = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Users", t => t.Id)

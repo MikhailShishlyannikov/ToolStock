@@ -12,6 +12,8 @@ namespace Sam.ToolStock.DataProvider.Models
         public string Manufacturer { get; set; }
         public Statuses Status { get; set; }
 
+        public bool IsDeleted { get; set; }
+
         public virtual ICollection<ToolLogModel> ToolLogs { get; set; }
 
         public string ToolTypeId { get; set; }

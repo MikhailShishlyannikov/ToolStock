@@ -30,17 +30,19 @@ namespace Sam.ToolStock.Web
                     "~/Content/jqvmap.css",
                     "~/Content/weather-icons.css",
                     "~/Content/fullcalendar.css",
-                    "~/Content/style.css",
                     "~/Content/style.css"
             ));
 
             bundles.Add(new ScriptBundle("~/Content/Template/js").Include(
                 "~/Scripts/jquery-{version}.js",
                 "~/Scripts/jquery.validate.js",
+                "~/Scripts/jquery.unobtrusive-ajax.js",
                 "~/Scripts/jquery.validate.unobtrusive.js",
                 "~/Scripts/modernizr-{version}.js",
                 "~/Scripts/bootstrap.bundle.js",
                 "~/Scripts/jquery.matchHeight.js",
+                "~/Scripts/inputmask/inputmask.js",
+                "~/Scripts/inputmask/jquery.inputmask.js",
                 "~/Scripts/main.js",
                 "~/Scripts/data-table/datatables.min.js",
                 "~/Scripts/data-table/dataTables.bootstrap.min.js",
@@ -63,9 +65,7 @@ namespace Sam.ToolStock.Web
                 "~/Scripts/moment.js",
                 "~/Scripts/fullcalendar.js",
                 "~/Scripts/fullcalendar-init.js",
-                "~/Scripts/jquery.validate.js",
-                "~/Scripts/jquery.validate.js",
-                "~/Scripts/jquery.validate.js"
+                "~/Scripts/CustomScript.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/js").Include(

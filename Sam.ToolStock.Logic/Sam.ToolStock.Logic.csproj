@@ -95,10 +95,11 @@
     <Compile Include="Interfaces\IDepartmentService.cs" />
     <Compile Include="Interfaces\IRoleService.cs" />
     <Compile Include="Interfaces\ISignInService.cs" />
-    <Compile Include="Interfaces\IUserInfoService.cs" />
+    <Compile Include="Interfaces\IStockService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Mappings\DepartmentProfile.cs" />
     <Compile Include="Mappings\RoleProfile.cs" />
+    <Compile Include="Mappings\StockProfile.cs" />
     <Compile Include="Mappings\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ApplicationRoleManager.cs" />
@@ -108,7 +109,7 @@
     <Compile Include="Services\ApplicationUserManager.cs" />
     <Compile Include="Services\RoleService.cs" />
     <Compile Include="Services\SignInService.cs" />
-    <Compile Include="Services\UserInfoService.cs" />
+    <Compile Include="Services\StockService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>

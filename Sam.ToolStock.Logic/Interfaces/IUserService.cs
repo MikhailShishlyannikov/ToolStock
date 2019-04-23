@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.AspNet.Identity;
+using Sam.ToolStock.DataProvider.Models;
 using Sam.ToolStock.Model.Models;
 using Sam.ToolStock.Model.ViewModels;
 
@@ -10,12 +11,22 @@ namespace Sam.ToolStock.Logic.Interfaces
     {
         IdentityResult Create(RegisterViewModel registerViewModel);
 
+        void Add(RegisterViewModel registerViewModel, UserModel user);
+
         IdentityResult AddToUserRole(RegisterViewModel registerViewModel);
 
         User GetUser(LoginViewModel loginViewModel);
 
+        User GetUser(string userId);
+
+        ProfileViewModel GetProfile(string userId);
+
         IEnumerable<TableUserViewModel> GetAllTableUser();
 
         IEnumerable<string> GetRoles(string userId);
+
+        bool Update(User user);
+
+        void Delete(User user);
     }
 }

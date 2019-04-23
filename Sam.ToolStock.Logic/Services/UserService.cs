@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
+using Sam.ToolStock.DataProvider.Interfaces;
 using Sam.ToolStock.DataProvider.Models;
 using Sam.ToolStock.Logic.Interfaces;
 using Sam.ToolStock.Model.Models;
@@ -13,34 +15,41 @@ namespace Sam.ToolStock.Logic.Services
     {
         private readonly IMapper _mapper;
         private readonly ApplicationUserManager _userManager;
-        private readonly ApplicationRoleManager _roleManager;
-        private readonly IUserInfoService _userInfoService;
+        private readonly IRoleService _roleService;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public UserService(
-            IMapper mapper, 
-            ApplicationUserManager userManager, 
-            ApplicationRoleManager roleManager, 
-            IUserInfoService userInfoService)
+        public UserService(IMapper mapper, ApplicationUserManager userManager, IRoleService roleService, IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
             _userManager = userManager;
-            _roleManager = roleManager;
-            _userInfoService = userInfoService;
+            _roleService = roleService;
+            _unitOfWork = unitOfWork;
         }
-        
+
+        public void Add(RegisterViewModel registerViewModel, UserModel user)
+        {
+            var userInfo = _mapper.Map<UserInfoModel>(registerViewModel);
+            userInfo.Id = user.Id;
+
+            _unitOfWork.UserInfoRepository.Create(userInfo);
+            _unitOfWork.Save();
+        }
+
         public IdentityResult Create(RegisterViewModel registerViewModel)
         {
             var user = _mapper.Map<UserModel>(registerViewModel);
 
             var result = _userManager.Create(user, registerViewModel.Password);
-            _userInfoService.Add(registerViewModel, user);
+            Add(registerViewModel, user);
             return result;
         }
 
         public IdentityResult AddToUserRole(RegisterViewModel registerViewModel)
         {
-            return _userManager.AddToRole(_userManager.Users.First(u => u.UserName == registerViewModel.Email).Id,
-                _roleManager.Roles.First(r => r.Name == "User").Name);
+            var userId = _userManager.Users.First(u => u.UserName == registerViewModel.Email).Id;
+            var roleName = _roleService.GetAll().First(r => r.Name == "User").Name;
+
+            return _userManager.AddToRole(userId, roleName);
         }
 
         public User GetUser(LoginViewModel loginViewModel)
@@ -48,9 +57,34 @@ namespace Sam.ToolStock.Logic.Services
             return _mapper.Map<User>(_userManager.Find(loginViewModel.Email, loginViewModel.Password));
         }
 
+        public User GetUser(string userId)
+        {
+            var userModel = _unitOfWork.UserInfoRepository.GetById(userId);
+
+            var user = _mapper.Map<User>(userModel);
+            user.Role = _userManager.GetRoles(userId).First();
+
+            if (user.DepartmentId == null)
+            {
+                user.DepartmentId = new Guid().ToString();
+            }
+
+            if (user.StockId == null)
+            {
+                user.StockId = new Guid().ToString();
+            }
+
+            return user;
+        }
+
+        public ProfileViewModel GetProfile(string userId)
+        {
+            return _mapper.Map<ProfileViewModel>(_unitOfWork.UserInfoRepository.GetById(userId));
+        }
+
         public IEnumerable<TableUserViewModel> GetAllTableUser()
         {
-            var tableUsers = _mapper.Map<IEnumerable<TableUserViewModel>>(_userInfoService.GetAll()).ToList();
+            var tableUsers = _mapper.Map<IEnumerable<TableUserViewModel>>(GetUserInfoAll().Where(ui => ui.IsDeleted == false)).ToList();
             foreach (var tableUser in tableUsers)
             {
                 tableUser.Role = GetRoles(tableUser.Id).Single();
@@ -64,9 +98,38 @@ namespace Sam.ToolStock.Logic.Services
             return _userManager.GetRoles(userId);
         }
 
+        public bool Update(User user)
+        {
+            if (user.DepartmentId == new Guid().ToString()) user.DepartmentId = null;
+            if (user.StockId == new Guid().ToString()) user.StockId = null;
+
+            var userInfoModel = _unitOfWork.UserInfoRepository.GetById(user.Id);
+            var userModel = _userManager.FindById(user.Id);
+
+            _mapper.Map(user, userModel);
+            _mapper.Map(user, userInfoModel);
+
+            _userManager.Update(userModel);
+            _unitOfWork.UserInfoRepository.Update(userInfoModel);
+            _unitOfWork.Save();
+
+            return true;
+        }
+
+        public void Delete(User user)
+        {
+            user.IsDeleted = true;
+            Update(user);
+        }
+
         public void Dispose()
         {
             throw new System.NotImplementedException();
+        }
+
+        private IEnumerable<UserInfoModel> GetUserInfoAll()
+        {
+            return _unitOfWork.UserInfoRepository.GetAll();
         }
     }
 }

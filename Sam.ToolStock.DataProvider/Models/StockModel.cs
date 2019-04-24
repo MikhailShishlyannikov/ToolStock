@@ -8,6 +8,8 @@ namespace Sam.ToolStock.DataProvider.Models
         public string Id { get; set; }
         public string Name { get; set; }
 
+        public bool IsDeleted { get; set; }
+
         public string DepartmentId { get; set; }
         public virtual DepartmentModel Department { get; set; }
 

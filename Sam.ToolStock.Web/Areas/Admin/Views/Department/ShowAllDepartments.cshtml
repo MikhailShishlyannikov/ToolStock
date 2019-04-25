@@ -2,8 +2,8 @@
 
 <div class="col-sm-12">
     <div class="card">
-        <div class="card-header">
-            <strong class="card-title">Department Table</strong>
+        <div class="card-header d-flex align-items-center">
+            <strong class="card-title">Department Table</strong> @Html.ActionLink("Create new department", "Create", null, new { @class = "btn btn-primary ml-auto" })
         </div>
         <div class="table-stats order-table ov-h">
             <table class="table ">
@@ -36,7 +36,8 @@
                                 <span class="name">@departmentViewModel.IsDeleted</span>
                             </td>
                             <td>
-                                <span class="badge badge-complete">Complete</span>
+                                @Html.ActionLink("Update", "Create", null, new { @class = "btn btn-success ml-auto" })
+                                @Html.ActionLink("Delete", "Create", null, new { @class = "btn btn-danger ml-auto" })
                             </td>
                         </tr>
                     }

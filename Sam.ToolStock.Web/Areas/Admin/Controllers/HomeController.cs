@@ -4,7 +4,6 @@ using System.Web.Mvc;
 using Sam.ToolStock.Logic.Interfaces;
 using Sam.ToolStock.Model.Models;
 using Sam.ToolStock.Model.ViewModels;
-using Sam.ToolStock.Web.Attributes;
 
 namespace Sam.ToolStock.Web.Areas.Admin.Controllers
 {
@@ -58,8 +57,17 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
         {
             var result = _userService.Update(user);
 
-            if (result) return PartialView("SuccessfulMessage", user);
-            return RedirectToAction("ShowUser", new { id = user.Id });
+            if (!result) return RedirectToAction("ShowUser", new {id = user.Id});
+
+            var message = new SuccessfulMessageViewModel
+            {
+                Message = $"User {user.Id} was updated successfully!",
+                MessageType = "success",
+                PageName = "the users page",
+                Action = "Index",
+                Controller = "Home"
+            };
+            return PartialView("ModalMessage", message);
         }
 
         public ActionResult Reset(string userId)

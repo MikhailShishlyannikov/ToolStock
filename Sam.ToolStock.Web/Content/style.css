@@ -454,11 +454,17 @@ Googel Fonts  */
     transition: all 0.3s ease;
 }
 
+html {
+    background: #f1f2f7;
+    min-height: 100%;
+}
+
 body {
     display: table;
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
     width: 100%;
+    /*margin-bottom: 90px;*/
 }
 
 p {
@@ -1125,9 +1131,12 @@ aside.left-panel {
 
 /* Right panel */
 .right-panel {
+    position: relative;
     background: #f1f2f7;
     margin-left: 280px;
-    margin-top: 55px;
+    /*margin-top: 55px;*/
+    padding-top: 55px;
+    padding-bottom: 90px;
 }
 
     .right-panel .top-left {
@@ -2820,6 +2829,16 @@ header .form-inline {
         }
 
 /* Footer */
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 90px;
+    line-height: 90px; /* Vertically center the text there */
+    background-color: #f5f5f5;
+}
+
 footer.site-footer {
     padding: 0 1.875em;
 }
@@ -3456,6 +3475,30 @@ footer.site-footer {
 
 .table-row {
     cursor: pointer;
+}
+
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

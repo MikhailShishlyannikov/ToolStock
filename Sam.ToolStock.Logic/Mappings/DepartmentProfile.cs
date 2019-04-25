@@ -11,6 +11,9 @@ namespace Sam.ToolStock.Logic.Mappings
             CreateMap<DepartmentViewModel, DepartmentModel>()
                 .ForMember(d => d.Id, opt => opt.MapFrom(dvm => dvm.Id))
                 .ForMember(d => d.Name, opt => opt.MapFrom(dvm => dvm.Name))
+                .ForMember(d => d.IsDeleted, opt => opt.MapFrom(dvm => dvm.IsDeleted))
+                .ForMember(d => d.Users, opt => opt.MapFrom(dvm => dvm.Users))
+                .ForMember(d => d.Stocks, opt => opt.MapFrom(dvm => dvm.Stocks))
                 .ReverseMap();
         }
     }

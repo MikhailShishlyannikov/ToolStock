@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AutoMapper;
 using Sam.ToolStock.DataProvider.Interfaces;
+using Sam.ToolStock.DataProvider.Models;
 using Sam.ToolStock.Logic.Interfaces;
 using Sam.ToolStock.Model.ViewModels;
 
@@ -16,6 +17,13 @@ namespace Sam.ToolStock.Logic.Services
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+        }
+
+        public void Create(DepartmentViewModel departmentViewModel)
+        {
+            departmentViewModel.Id = Guid.NewGuid().ToString();
+            _unitOfWork.DepartmentRepository.Create(_mapper.Map<DepartmentModel>(departmentViewModel));
+            _unitOfWork.Save();
         }
 
         public IEnumerable<DepartmentViewModel> GetAll()

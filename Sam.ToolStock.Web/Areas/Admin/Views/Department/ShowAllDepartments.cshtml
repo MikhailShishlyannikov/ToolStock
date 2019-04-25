@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Sam.ToolStock.Model.ViewModels.DepartmentViewModel>
+
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <strong class="card-title">Department Table</strong>
+        </div>
+        <div class="table-stats order-table ov-h">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>User amount</th>
+                        <th>Stock amount</th>
+                        <th>Deleted</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @{
+                    foreach (var departmentViewModel in Model)
+                    {
+                        <tr>
+                            <td>@departmentViewModel.Id</td>
+                            <td>
+                                <span class="name">@departmentViewModel.Name</span>
+                            </td>
+                            <td>
+                                <span class="count">@departmentViewModel.Users.Count()</span>
+                            </td>
+                            <td>
+                                <span class="count">@departmentViewModel.Stocks.Count()</span>
+                            </td>
+                            <td>
+                                <span class="name">@departmentViewModel.IsDeleted</span>
+                            </td>
+                            <td>
+                                <span class="badge badge-complete">Complete</span>
+                            </td>
+                        </tr>
+                    }
+                }
+                </tbody>
+            </table>
+        </div> <!-- /.table-stats -->
+    </div>
+</div>

@@ -1,4 +1,4 @@
-﻿@model Sam.ToolStock.Model.ViewModels.SuccessfulMessageViewModel
+﻿@model Sam.ToolStock.Model.ViewModels.ModalMessageViewModel
 
 <div class="alert alert-@Model.MessageType col-12" role="alert">
     @Model.Message. @Html.ActionLink($"Return to {Model.PageName}", Model.Action, Model.Controller)

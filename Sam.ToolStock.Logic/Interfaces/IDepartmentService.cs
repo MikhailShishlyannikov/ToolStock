@@ -10,8 +10,16 @@ namespace Sam.ToolStock.Logic.Interfaces
 
         IEnumerable<DepartmentViewModel> GetAll();
 
+        IEnumerable<DepartmentViewModel> GetAll(bool ShowDeleted);
+
         DepartmentViewModel Get(string id);
 
         void Update(DepartmentViewModel departmentViewModel);
+
+        void Delete(DepartmentViewModel departmentViewModel);
+
+        void ReassignUsers(string deletingDepartmentId, string departmentIdForUsers);
+
+        void ReassignStocks(string deletingDepartmentId, string departmentIdForStocks);
     }
 }

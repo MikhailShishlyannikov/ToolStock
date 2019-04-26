@@ -12,9 +12,15 @@ namespace Sam.ToolStock.Logic.Mappings
                 .ForMember(d => d.Id, opt => opt.MapFrom(dvm => dvm.Id))
                 .ForMember(d => d.Name, opt => opt.MapFrom(dvm => dvm.Name))
                 .ForMember(d => d.IsDeleted, opt => opt.MapFrom(dvm => dvm.IsDeleted))
-                .ForMember(d => d.Users, opt => opt.MapFrom(dvm => dvm.Users))
-                .ForMember(d => d.Stocks, opt => opt.MapFrom(dvm => dvm.Stocks))
-                .ReverseMap();
+                .ForMember(d => d.Users, opt => opt.Ignore())
+                .ForMember(d => d.Stocks, opt => opt.Ignore());
+
+            CreateMap<DepartmentModel, DepartmentViewModel>()
+                .ForMember(dvm => dvm.Id, opt => opt.MapFrom(d => d.Id))
+                .ForMember(dvm => dvm.Name, opt => opt.MapFrom(d => d.Name))
+                .ForMember(dvm => dvm.IsDeleted, opt => opt.MapFrom(d => d.IsDeleted))
+                .ForMember(dvm => dvm.Users, opt => opt.MapFrom(d => d.Users))
+                .ForMember(dvm => dvm.Stocks, opt => opt.MapFrom(d => d.Stocks));
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using Sam.ToolStock.Logic.Interfaces;
 using Sam.ToolStock.Model.ViewModels;
 
@@ -91,6 +92,67 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
                 Action = "ShowAll",
                 Controller = "Department"
             };
+            return View("ModalMessage", message);
+        }
+
+        public ActionResult Delete(string departmentId)
+        {
+            var department = _departmentService.Get(departmentId);
+            if (department.Users.Any() || department.Stocks.Any())
+                return RedirectToAction("Reassign", new {departmentId = department.Id});
+
+            _departmentService.Delete(department);
+
+            var message = new ModalMessageViewModel
+            {
+                Message = $"The department \"{department.Name}\" was deleted successfully!",
+                MessageType = "success",
+                PageName = "all departments page",
+                Action = "ShowAll",
+                Controller = "Department"
+            };
+
+            return View("ModalMessage", message);
+        }
+
+        public ActionResult Reassign(string departmentId)
+        {
+            var departments = _departmentService.GetAll(false);
+
+            var reassignViewModel = new ReassignViewModel
+            {
+                DeletingDepartmentId = departmentId,
+                TargetDepartments = departments
+            };
+            return View(reassignViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Reassign(ReassignViewModel reassignViewModel)
+        {
+            _departmentService.ReassignUsers(reassignViewModel.DeletingDepartmentId,
+                reassignViewModel.DepartmentIdForUsers);
+            _departmentService.ReassignStocks(reassignViewModel.DeletingDepartmentId,
+                reassignViewModel.DepartmentIdForStocks);
+
+            return RedirectToAction("Delete", new { departmentId = reassignViewModel.DeletingDepartmentId });
+        }
+
+        public ActionResult Restore(string departmentId)
+        {
+            var dvm = _departmentService.Get(departmentId);
+            dvm.IsDeleted = false;
+            _departmentService.Update(dvm);
+
+            var message = new ModalMessageViewModel
+            {
+                Message = $"The department \"{dvm.Name}\" was restored successfully!",
+                MessageType = "success",
+                PageName = "all departments page",
+                Action = "ShowAll",
+                Controller = "Department"
+            };
+
             return View("ModalMessage", message);
         }
     }

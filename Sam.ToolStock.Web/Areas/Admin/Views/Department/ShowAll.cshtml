@@ -36,8 +36,17 @@
                                 <span class="name">@departmentViewModel.IsDeleted</span>
                             </td>
                             <td>
-                                @Html.ActionLink("Update", "Update", new { departmentId = departmentViewModel.Id}, new { @class = "btn btn-success ml-auto" })
-                                @Html.ActionLink("Delete", "Create", new { departmentId = departmentViewModel.Id }, new { @class = "btn btn-danger ml-auto" })
+                                @{
+                                    if (departmentViewModel.IsDeleted)
+                                    {
+                                        @Html.ActionLink("Restore", "Restore", new { departmentId = departmentViewModel.Id }, new { @class = "btn btn btn-secondary ml-auto" })
+                                    }
+                                    else
+                                    {
+                                        @Html.ActionLink("Update", "Update", new { departmentId = departmentViewModel.Id }, new { @class = "btn btn-success ml-auto" })
+                                        @Html.ActionLink("Delete", "Delete", new { departmentId = departmentViewModel.Id }, new { @class = "btn btn-danger ml-auto ", @data_target = "#smallmodal" })
+                                    }
+                                }
                             </td>
                         </tr>
                     }

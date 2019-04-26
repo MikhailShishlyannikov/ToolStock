@@ -36,8 +36,8 @@
                                 <span class="name">@departmentViewModel.IsDeleted</span>
                             </td>
                             <td>
-                                @Html.ActionLink("Update", "Create", null, new { @class = "btn btn-success ml-auto" })
-                                @Html.ActionLink("Delete", "Create", null, new { @class = "btn btn-danger ml-auto" })
+                                @Html.ActionLink("Update", "Update", new { departmentId = departmentViewModel.Id}, new { @class = "btn btn-success ml-auto" })
+                                @Html.ActionLink("Delete", "Create", new { departmentId = departmentViewModel.Id }, new { @class = "btn btn-danger ml-auto" })
                             </td>
                         </tr>
                     }

@@ -1,6 +1,6 @@
 ﻿namespace Sam.ToolStock.Model.ViewModels
 {
-    public class SuccessfulMessageViewModel
+    public class ModalMessageViewModel
     {
         public string Message { get; set; }
         public string MessageType { get; set; }

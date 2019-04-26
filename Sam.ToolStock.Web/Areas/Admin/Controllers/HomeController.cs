@@ -59,7 +59,7 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
 
             if (!result) return RedirectToAction("ShowUser", new {id = user.Id});
 
-            var message = new SuccessfulMessageViewModel
+            var message = new ModalMessageViewModel
             {
                 Message = $"User {user.Id} was updated successfully!",
                 MessageType = "success",

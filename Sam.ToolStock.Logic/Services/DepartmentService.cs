@@ -31,6 +31,16 @@ namespace Sam.ToolStock.Logic.Services
             return _mapper.Map<IEnumerable<DepartmentViewModel>>(_unitOfWork.DepartmentRepository.GetAll());
         }
 
+        public DepartmentViewModel Get(string id)
+        {
+            return _mapper.Map<DepartmentViewModel>(_unitOfWork.DepartmentRepository.GetById(id));
+        }
+
+        public void Update(DepartmentViewModel departmentViewModel)
+        {
+            _unitOfWork.DepartmentRepository.Update(_mapper.Map<DepartmentModel>(departmentViewModel));
+        }
+
         public void Dispose()
         {
             throw new NotImplementedException();

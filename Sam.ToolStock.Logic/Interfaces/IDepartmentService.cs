@@ -9,5 +9,9 @@ namespace Sam.ToolStock.Logic.Interfaces
         void Create(DepartmentViewModel departmentViewModel);
 
         IEnumerable<DepartmentViewModel> GetAll();
+
+        DepartmentViewModel Get(string id);
+
+        void Update(DepartmentViewModel departmentViewModel);
     }
 }

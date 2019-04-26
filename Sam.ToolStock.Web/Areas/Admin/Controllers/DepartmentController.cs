@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Sam.ToolStock.Logic.Interfaces;
 using Sam.ToolStock.Model.ViewModels;
 
@@ -16,11 +12,6 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
         {
             _departmentService = departmentService;
         }
-        //// GET: Admin/Department
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
 
         public ActionResult Create()
         {
@@ -30,13 +21,13 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(DepartmentViewModel departmentViewModel)
         {
-            SuccessfulMessageViewModel message;
+            ModalMessageViewModel message;
 
             if (ModelState.IsValid)
             {
                 _departmentService.Create(departmentViewModel);
 
-                message = new SuccessfulMessageViewModel
+                message = new ModalMessageViewModel
                 {
                     Message = $"The department \"{departmentViewModel.Name}\" was created successfully!",
                     MessageType = "success",
@@ -48,9 +39,9 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
                 return View("ModalMessage", message);
             }
 
-            message = new SuccessfulMessageViewModel
+            message = new ModalMessageViewModel
             {
-                Message = $"The department \"{departmentViewModel.Name}\" was created successfully!",
+                Message = $"The department \"{departmentViewModel.Name}\" wasn't created!",
                 MessageType = "danger",
                 PageName = "the create department page",
                 Action = "Create",
@@ -59,10 +50,48 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
             return View("ModalMessage", message);
         }
 
-        public ActionResult ShowAllDepartments()
+        public ActionResult ShowAll()
         {
-            var dvm = _departmentService.GetAll();
+            var dvms = _departmentService.GetAll();
+            return View(dvms);
+        }
+
+        public ActionResult Update(string departmentId)
+        {
+            var dvm = _departmentService.Get(departmentId);
             return View(dvm);
+        }
+
+        [HttpPost]
+        public ActionResult Update(DepartmentViewModel departmentViewModel)
+        {
+            ModalMessageViewModel message;
+
+            if (ModelState.IsValid)
+            {
+                _departmentService.Update(departmentViewModel);
+
+                message = new ModalMessageViewModel
+                {
+                    Message = $"The department \"{departmentViewModel.Name}\" was updated successfully!",
+                    MessageType = "success",
+                    PageName = "all departments page",
+                    Action = "ShowAll",
+                    Controller = "Department"
+                };
+
+                return View("ModalMessage", message);
+            }
+
+            message = new ModalMessageViewModel
+            {
+                Message = $"The department \"{departmentViewModel.Name}\" wasn't updated!",
+                MessageType = "danger",
+                PageName = "all departments page",
+                Action = "ShowAll",
+                Controller = "Department"
+            };
+            return View("ModalMessage", message);
         }
     }
 }

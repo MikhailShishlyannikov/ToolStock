@@ -67,7 +67,7 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
                 Action = "Index",
                 Controller = "Home"
             };
-            return PartialView("ModalMessage", message);
+            return RedirectToAction("Index");
         }
 
         public ActionResult Reset(string userId)

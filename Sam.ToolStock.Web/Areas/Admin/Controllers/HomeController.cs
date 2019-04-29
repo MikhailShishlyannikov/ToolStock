@@ -22,7 +22,6 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
             _stockService = stockService;
         }
 
-        // GET: Admin/Home
         public ActionResult Index()
         {
             var vms = _userService.GetAllTableUser().ToList();
@@ -53,7 +52,7 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
 
         [HttpPost]
         //[MultipleButton(Name = "action", Argument = "Update")]
-        public ActionResult Update(User user)
+        public ActionResult Update(UserViewModel user)
         {
             var result = _userService.Update(user);
 

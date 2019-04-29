@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Sam.ToolStock.Model.ViewModels;
+using Sam.ToolStock.Model.Models;
 
-namespace Sam.ToolStock.Model.Models
+namespace Sam.ToolStock.Model.ViewModels
 {
-    public class User
+    public class UserViewModel
     {
         public string Id { get; set; }
 

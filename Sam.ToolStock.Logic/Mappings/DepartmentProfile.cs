@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using Sam.ToolStock.DataProvider.Models;
 using Sam.ToolStock.Model.ViewModels;
 
@@ -19,8 +20,8 @@ namespace Sam.ToolStock.Logic.Mappings
                 .ForMember(dvm => dvm.Id, opt => opt.MapFrom(d => d.Id))
                 .ForMember(dvm => dvm.Name, opt => opt.MapFrom(d => d.Name))
                 .ForMember(dvm => dvm.IsDeleted, opt => opt.MapFrom(d => d.IsDeleted))
-                .ForMember(dvm => dvm.Users, opt => opt.MapFrom(d => d.Users))
-                .ForMember(dvm => dvm.Stocks, opt => opt.MapFrom(d => d.Stocks));
+                .ForMember(dvm => dvm.Users, opt => opt.MapFrom(d => d.Users.Where(u => u.IsDeleted != true)))
+                .ForMember(dvm => dvm.Stocks, opt => opt.MapFrom(d => d.Stocks.Where((s => s.IsDeleted != true))));
         }
     }
 }

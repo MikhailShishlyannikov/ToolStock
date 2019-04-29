@@ -10,7 +10,7 @@ namespace Sam.ToolStock.Logic.Interfaces
 
         IEnumerable<DepartmentViewModel> GetAll();
 
-        IEnumerable<DepartmentViewModel> GetAll(bool ShowDeleted);
+        IEnumerable<DepartmentViewModel> GetAll(bool showDeleted);
 
         DepartmentViewModel Get(string id);
 

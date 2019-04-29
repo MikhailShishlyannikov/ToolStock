@@ -209,6 +209,7 @@
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\DepartmentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StockController.cs" />
     <Compile Include="Areas\Keepers\KeepersAreaRegistration.cs" />
     <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
     <Compile Include="Attributes\MultipleButtonAttribute.cs" />
@@ -420,15 +421,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Account\" />
+    <Folder Include="Areas\Admin\Views\Stock\" />
     <Folder Include="Areas\Keepers\Controllers\" />
     <Folder Include="Areas\Keepers\Models\" />
     <Folder Include="Areas\Keepers\Views\Shared\" />
     <Folder Include="Areas\Users\Controllers\" />
     <Folder Include="Areas\Users\Models\" />
     <Folder Include="Areas\Users\Views\Shared\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

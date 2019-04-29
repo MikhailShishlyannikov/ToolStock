@@ -6,7 +6,6 @@ using Microsoft.AspNet.Identity;
 using Sam.ToolStock.DataProvider.Interfaces;
 using Sam.ToolStock.DataProvider.Models;
 using Sam.ToolStock.Logic.Interfaces;
-using Sam.ToolStock.Model.Models;
 using Sam.ToolStock.Model.ViewModels;
 
 namespace Sam.ToolStock.Logic.Services
@@ -52,16 +51,16 @@ namespace Sam.ToolStock.Logic.Services
             return _userManager.AddToRole(userId, roleName);
         }
 
-        public User GetUser(LoginViewModel loginViewModel)
+        public UserViewModel GetUser(LoginViewModel loginViewModel)
         {
-            return _mapper.Map<User>(_userManager.Find(loginViewModel.Email, loginViewModel.Password));
+            return _mapper.Map<UserViewModel>(_userManager.Find(loginViewModel.Email, loginViewModel.Password));
         }
 
-        public User GetUser(string userId)
+        public UserViewModel GetUser(string userId)
         {
             var userModel = _unitOfWork.UserInfoRepository.GetById(userId);
 
-            var user = _mapper.Map<User>(userModel);
+            var user = _mapper.Map<UserViewModel>(userModel);
             user.Role = _userManager.GetRoles(userId).First();
 
             if (user.DepartmentId == null)
@@ -98,7 +97,7 @@ namespace Sam.ToolStock.Logic.Services
             return _userManager.GetRoles(userId);
         }
 
-        public bool Update(User user)
+        public bool Update(UserViewModel user)
         {
             if (user.DepartmentId == new Guid().ToString()) user.DepartmentId = null;
             if (user.StockId == new Guid().ToString()) user.StockId = null;
@@ -116,7 +115,7 @@ namespace Sam.ToolStock.Logic.Services
             return true;
         }
 
-        public void Delete(User user)
+        public void Delete(UserViewModel user)
         {
             user.IsDeleted = true;
             Update(user);
@@ -124,7 +123,7 @@ namespace Sam.ToolStock.Logic.Services
 
         public void Dispose()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private IEnumerable<UserInfoModel> GetUserInfoAll()

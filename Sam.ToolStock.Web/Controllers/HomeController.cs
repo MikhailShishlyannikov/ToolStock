@@ -4,11 +4,6 @@ namespace Sam.ToolStock.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController()
-        {
-            
-        }
-
         public ActionResult Index()
         {
             if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))

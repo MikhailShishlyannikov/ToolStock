@@ -1,7 +1,5 @@
-﻿using System.Linq;
-using AutoMapper;
+﻿using AutoMapper;
 using Sam.ToolStock.DataProvider.Models;
-using Sam.ToolStock.Model.Models;
 using Sam.ToolStock.Model.ViewModels;
 
 namespace Sam.ToolStock.Logic.Mappings
@@ -25,7 +23,7 @@ namespace Sam.ToolStock.Logic.Mappings
                 .ForMember(ui => ui.Phone, opt => opt.MapFrom(r => r.Phone));
 
 
-            CreateMap<UserModel, User>()
+            CreateMap<UserModel, UserViewModel>()
                 .ForMember(u => u.Id, opt => opt.MapFrom(um => um.Id));
 
 
@@ -47,7 +45,7 @@ namespace Sam.ToolStock.Logic.Mappings
                 .ForMember(tu => tu.Stock, opt => opt.MapFrom(ui => ui.User.Stock == null ? "" : ui.User.Stock.Name));
 
 
-            CreateMap<UserInfoModel, User>()
+            CreateMap<UserInfoModel, UserViewModel>()
                 .ForMember(u => u.Id, opt => opt.MapFrom(ui => ui.User.Id))
                 .ForMember(u => u.Name, opt => opt.MapFrom(ui => ui.Name))
                 .ForMember(u => u.Patronymic, opt => opt.MapFrom(ui => ui.Patronymic))
@@ -57,14 +55,14 @@ namespace Sam.ToolStock.Logic.Mappings
                 .ForMember(u => u.DepartmentId, opt => opt.MapFrom(ui => ui.User.DepartmentId))
                 .ForMember(u => u.StockId, opt => opt.MapFrom(ui => ui.User.StockId));
 
-            CreateMap<User, UserInfoModel>()
+            CreateMap<UserViewModel, UserInfoModel>()
                 .ForMember(ui => ui.Name, opt => opt.MapFrom(u => u.Name))
                 .ForMember(ui => ui.Patronymic, opt => opt.MapFrom(u => u.Patronymic))
                 .ForMember(ui => ui.Surname, opt => opt.MapFrom(u => u.Surname))
                 .ForMember(ui => ui.Phone, opt => opt.MapFrom(u => u.Phone))
                 .ForMember(ui => ui.IsDeleted, opt => opt.MapFrom(u => u.IsDeleted));
 
-            CreateMap<User, UserModel>()
+            CreateMap<UserViewModel, UserModel>()
                 .ForMember(um => um.UserName, opt => opt.MapFrom(u => u.Email))
                 .ForMember(um => um.Email, opt => opt.MapFrom(u => u.Email))
                 .ForMember(um => um.DepartmentId, opt => opt.MapFrom(u => u.DepartmentId))

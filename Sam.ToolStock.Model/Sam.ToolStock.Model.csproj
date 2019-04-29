@@ -68,7 +68,7 @@
   <ItemGroup>
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Stock.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="ViewModels\DepartmentViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />

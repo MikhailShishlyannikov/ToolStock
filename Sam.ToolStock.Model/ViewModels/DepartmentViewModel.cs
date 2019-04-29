@@ -12,7 +12,7 @@ namespace Sam.ToolStock.Model.ViewModels
         public string Name { get; set; }
         public bool IsDeleted { get; set; }
 
-        public IEnumerable<User> Users { get; set; }
+        public IEnumerable<UserViewModel> Users { get; set; }
         public IEnumerable<Stock> Stocks { get; set; }
     }
 }

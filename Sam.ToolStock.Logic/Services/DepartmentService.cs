@@ -31,9 +31,9 @@ namespace Sam.ToolStock.Logic.Services
             return _mapper.Map<IEnumerable<DepartmentViewModel>>(_unitOfWork.DepartmentRepository.GetAll());
         }
 
-        public IEnumerable<DepartmentViewModel> GetAll(bool ShowDeleted)
+        public IEnumerable<DepartmentViewModel> GetAll(bool showDeleted)
         {
-            return ShowDeleted
+            return showDeleted
                 ? GetAll()
                 : _mapper.Map<IEnumerable<DepartmentViewModel>>(
                     _unitOfWork.DepartmentRepository.GetWhere(d => d.IsDeleted != true));

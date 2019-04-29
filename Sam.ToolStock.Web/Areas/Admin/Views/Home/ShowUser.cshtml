@@ -1,5 +1,5 @@
 ﻿@using System.Web.Mvc.Html
-@model Sam.ToolStock.Model.Models.User
+@model Sam.ToolStock.Model.ViewModels.UserViewModel
 
 <div class="col-md-12">
     <aside class="profile-nav alt">
@@ -43,7 +43,7 @@
                             @Html.HiddenFor(m => m.Id)
                             <div class="row form-group">
                                 <div class="col col-md-3">
-                                    @Html.LabelFor(m => m.Name, new { @class = "form-control-lable" })
+                                    @Html.LabelFor(m => m.Name, new { @class = "form-control-label" })
                                 </div>
                                 <div class="col-12 col-md-9">
 
@@ -52,7 +52,7 @@
                             </div>
                             <div class="row form-group">
                                 <div class="col col-md-3">
-                                    @Html.LabelFor(m => m.Patronymic, new { @class = "form-control-lable" })
+                                    @Html.LabelFor(m => m.Patronymic, new { @class = "form-control-label" })
                                 </div>
                                 <div class="col-12 col-md-9">
 
@@ -61,7 +61,7 @@
                             </div>
                             <div class="row form-group">
                                 <div class="col col-md-3">
-                                    @Html.LabelFor(m => m.Surname, new { @class = "form-control-lable" })
+                                    @Html.LabelFor(m => m.Surname, new { @class = "form-control-label" })
                                 </div>
                                 <div class="col-12 col-md-9">
 
@@ -70,7 +70,7 @@
                             </div>
                             <div class="row form-group">
                                 <div class="col col-md-3">
-                                    @Html.LabelFor(m => m.Email, new { @class = "form-control-lable" })
+                                    @Html.LabelFor(m => m.Email, new { @class = "form-control-label" })
                                 </div>
                                 <div class="col-12 col-md-9">
 
@@ -79,7 +79,7 @@
                             </div>
                             <div class="row form-group">
                                 <div class="col col-md-3">
-                                    @Html.LabelFor(m => m.Phone, new { @class = "form-control-lable" })
+                                    @Html.LabelFor(m => m.Phone, new { @class = "form-control-label" })
                                 </div>
                                 <div class="col-12 col-md-9">
 

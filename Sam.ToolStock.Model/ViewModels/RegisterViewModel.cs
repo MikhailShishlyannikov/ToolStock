@@ -1,5 +1,4 @@
-﻿using System;
-using Sam.ToolStock.Common.Constants;
+﻿using Sam.ToolStock.Common.Constants;
 using System.ComponentModel.DataAnnotations;
 
 namespace Sam.ToolStock.Model.ViewModels

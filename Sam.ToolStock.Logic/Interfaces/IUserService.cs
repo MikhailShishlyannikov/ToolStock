@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Microsoft.AspNet.Identity;
 using Sam.ToolStock.DataProvider.Models;
-using Sam.ToolStock.Model.Models;
 using Sam.ToolStock.Model.ViewModels;
 
 namespace Sam.ToolStock.Logic.Interfaces
@@ -15,9 +14,9 @@ namespace Sam.ToolStock.Logic.Interfaces
 
         IdentityResult AddToUserRole(RegisterViewModel registerViewModel);
 
-        User GetUser(LoginViewModel loginViewModel);
+        UserViewModel GetUser(LoginViewModel loginViewModel);
 
-        User GetUser(string userId);
+        UserViewModel GetUser(string userId);
 
         ProfileViewModel GetProfile(string userId);
 
@@ -25,8 +24,8 @@ namespace Sam.ToolStock.Logic.Interfaces
 
         IEnumerable<string> GetRoles(string userId);
 
-        bool Update(User user);
+        bool Update(UserViewModel user);
 
-        void Delete(User user);
+        void Delete(UserViewModel user);
     }
 }

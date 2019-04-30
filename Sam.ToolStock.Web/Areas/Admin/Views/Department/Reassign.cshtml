@@ -1,4 +1,4 @@
-﻿@model Sam.ToolStock.Model.ViewModels.ReassignViewModel
+﻿@model Sam.ToolStock.Model.ViewModels.DepartmentReassigningViewModel
 
 @{
     ViewBag.Title = "Department reassigning";
@@ -13,24 +13,34 @@
             @using (Html.BeginForm("Reassign", "Department", FormMethod.Post, new { @class = "form-horizontal" }))
             {
                 @Html.HiddenFor(rvm => rvm.DeletingDepartmentId)
-                <div class="row form-group">
-                    <div class="col col-md-3">
-                        @Html.LabelFor(rvm => rvm.DepartmentIdForUsers, "New department for users", new{@class= "form-control-label" })
+                if (Model.HasUsers)
+                {
+                    @Html.HiddenFor(m => m.HasUsers)
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            @Html.LabelFor(rvm => rvm.DepartmentIdForUsers, "New department for users", new { @class = "form-control-label" })
+                        </div>
+                        <div class="col-12 col-md-9">
+                            @Html.ValidationMessageFor(m => m.DepartmentIdForUsers)
+                            @Html.DropDownListFor(
+                                rvm => rvm.DepartmentIdForUsers, new SelectList(Model.TargetDepartments, "Id", "Name"), new {@class = "form-control"})
+                        </div>
                     </div>
-                    <div class="col-12 col-md-9">
-                        @Html.DropDownListFor(
-                            rvm => rvm.DepartmentIdForUsers, new SelectList(Model.TargetDepartments, "Id", "Name"), new{@class = "form-control"})
+                }
+                if (Model.HasStocks)
+                {
+                    @Html.HiddenFor(m => m.HasStocks)
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            @Html.LabelFor(rvm => rvm.DepartmentIdForStocks, "New department for stocks", new { @class = "form-control-label" })
+                        </div>
+                        <div class="col-12 col-md-9">
+                            @Html.ValidationMessageFor(m => m.DepartmentIdForStocks)
+                            @Html.DropDownListFor(
+                                rvm => rvm.DepartmentIdForStocks, new SelectList(Model.TargetDepartments, "Id", "Name"), new{@class = "form-control"})
+                        </div>
                     </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col col-md-3">
-                        @Html.LabelFor(rvm => rvm.DepartmentIdForStocks, "New department for stocks", new { @class = "form-control-label" })
-                    </div>
-                    <div class="col-12 col-md-9">
-                        @Html.DropDownListFor(
-                            rvm => rvm.DepartmentIdForStocks, new SelectList(Model.TargetDepartments, "Id", "Name"), new{@class = "form-control"})
-                    </div>
-                </div>
+                }
                 <input type="submit" value="Delete" class="btn btn-danger float-right">
             }
         </div>

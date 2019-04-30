@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Web.Mvc;
 using Sam.ToolStock.Logic.Interfaces;
-using Sam.ToolStock.Model.Models;
 using Sam.ToolStock.Model.ViewModels;
 
 namespace Sam.ToolStock.Web.Areas.Admin.Controllers
@@ -43,7 +42,7 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
             var stocks = _stockService.GetAll().ToList();
             if (user.StockId == new Guid().ToString())
             {
-                stocks.Add(new Stock { Id = user.StockId, Name = "Choose a stock" });
+                stocks.Add(new StockViewModel { Id = user.StockId, Name = "Choose a stock" });
             }
             user.Stocks = stocks;
 

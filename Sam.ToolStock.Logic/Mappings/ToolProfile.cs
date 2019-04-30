@@ -4,12 +4,11 @@ using Sam.ToolStock.Model.ViewModels;
 
 namespace Sam.ToolStock.Logic.Mappings
 {
-    public class StockProfile : Profile
+    public class ToolProfile : Profile
     {
-        public StockProfile()
+        public ToolProfile()
         {
-            CreateMap<StockModel, StockViewModel>()
-                .ForMember(s => s.Departments, opt => opt.Ignore())
+            CreateMap<ToolModel, ToolViewModel>()
                 .ReverseMap();
         }
     }

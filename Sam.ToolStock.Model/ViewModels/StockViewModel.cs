@@ -3,15 +3,21 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Sam.ToolStock.Model.ViewModels
 {
-    public class DepartmentViewModel
+    public class StockViewModel
     {
         public string Id { get; set; }
         [Required]
-        [StringLength(350)]
+        [StringLength(70)]
         public string Name { get; set; }
+
         public bool IsDeleted { get; set; }
 
+        public string DepartmentId { get; set; }
+        public DepartmentViewModel Department { get; set; }
+
+        public IEnumerable<DepartmentViewModel> Departments { get; set; }
+
         public IEnumerable<UserViewModel> Users { get; set; }
-        public IEnumerable<StockViewModel> Stocks { get; set; }
+        public IEnumerable<ToolViewModel> Tools { get; set; }
     }
 }

@@ -1,0 +1,48 @@
+﻿@model Sam.ToolStock.Model.ViewModels.StockReassigningViewModel
+
+@{
+    ViewBag.Title = "Stock reassigning";
+}
+
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            Reassigning Users and Tools from <strong>the deleting stock</strong>
+        </div>
+        <div class="card-body card-block">
+            @using (Html.BeginForm("Reassign", "Stock", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @Html.HiddenFor(m => m.DeletingStockId)
+                if (Model.HasUsers)
+                {
+                    @Html.HiddenFor(m => m.HasUsers)
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            @Html.LabelFor(m => m.StockIdForUsers, "New stock for users", new { @class = "form-control-label" })
+                        </div>
+                        <div class="col-12 col-md-9">
+                            @Html.ValidationMessageFor(m => m.StockIdForUsers)
+                            @Html.DropDownListFor(
+                                m => m.StockIdForUsers, new SelectList(Model.TargetStocks, "Id", "Name"), new{@class = "form-control"})
+                        </div>
+                    </div>
+                }
+                if (Model.HasTools)
+                {
+                    @Html.HiddenFor(m => m.HasTools)
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            @Html.LabelFor(m => m.StockIdForTools, "New stock for tools", new { @class = "form-control-label" })
+                        </div>
+                        <div class="col-12 col-md-9">
+                            @Html.ValidationMessageFor(m => m.StockIdForTools)
+                            @Html.DropDownListFor(
+                                m => m.StockIdForTools, new SelectList(Model.TargetStocks, "Id", "Name"), new{@class = "form-control"})
+                        </div>
+                    </div>
+                }
+                <input type="submit" value="Delete" class="btn btn-danger float-right">
+            }
+        </div>
+    </div>
+</div>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using Sam.ToolStock.Logic.Interfaces;
-using Sam.ToolStock.Model.Models;
+using Sam.ToolStock.Model.ViewModels;
 
 namespace Sam.ToolStock.Logic.Services
 {
@@ -18,9 +18,9 @@ namespace Sam.ToolStock.Logic.Services
             _mapper = mapper;
         }
 
-        public IEnumerable<Role> GetAll()
+        public IEnumerable<RoleViewModel> GetAll()
         {
-            return _mapper.Map<IEnumerable<Role>>(_roleManager.Roles.ToList());
+            return _mapper.Map<IEnumerable<RoleViewModel>>(_roleManager.Roles.ToList());
         }
 
         public void Dispose()

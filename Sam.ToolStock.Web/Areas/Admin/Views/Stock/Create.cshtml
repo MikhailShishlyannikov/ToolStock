@@ -1,0 +1,38 @@
+﻿@model Sam.ToolStock.Model.ViewModels.StockViewModel
+
+@{
+    ViewBag.Title = "Stock creating";
+}
+
+<div class="card col-12">
+    <div class="card-header">
+        Create <strong>Stock</strong>
+    </div>
+    <div class="card-body card-block">
+        @using (Html.BeginForm("Create", "Stock", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <div class="row form-group">
+                <div class="col col-sm-3">
+                    @Html.LabelFor(m => m.Name, new { @class = "form-control-label" })
+                </div>
+                <div class="col col-sm-9">
+                    @Html.ValidationMessageFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Name" })
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-sm-3">
+                    @Html.LabelFor(m => m.DepartmentId, "A department for new stock", new { @class = "form-control-label" })
+                </div>
+                <div class="col col-sm-9">
+                    @Html.ValidationMessageFor(m => m.DepartmentId)
+                    @Html.DropDownListFor(
+                        m => m.DepartmentId, new SelectList(Model.Departments, "Id", "Name", Model.DepartmentId), new {@class = "form-control"})
+                </div>
+            </div>
+            <div class="form-actions form-group">
+                <input type="submit" value="Create" name="Create" class="btn btn-primary">
+            </div>
+        }
+    </div>
+</div>

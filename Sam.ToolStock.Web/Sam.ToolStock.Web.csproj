@@ -315,6 +315,10 @@
     <Content Include="Areas\Admin\Views\Department\ShowAll.cshtml" />
     <Content Include="Areas\Admin\Views\Department\Update.cshtml" />
     <Content Include="Areas\Admin\Views\Department\Reassign.cshtml" />
+    <Content Include="Areas\Admin\Views\Stock\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Stock\ShowAll.cshtml" />
+    <Content Include="Areas\Admin\Views\Stock\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\Stock\Reassign.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\fullcalendar-init.js" />
     <Content Include="Scripts\fullcalendar.js" />
@@ -422,7 +426,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Account\" />
-    <Folder Include="Areas\Admin\Views\Stock\" />
     <Folder Include="Areas\Keepers\Controllers\" />
     <Folder Include="Areas\Keepers\Models\" />
     <Folder Include="Areas\Keepers\Views\Shared\" />

@@ -117,23 +117,47 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
 
         public ActionResult Reassign(string departmentId)
         {
-            var departments = _departmentService.GetAll(false);
+            var departments = _departmentService.GetAll(false).ToList();
+            var department = departments.First(d => d.Id == departmentId);
 
-            var reassignViewModel = new ReassignViewModel
+            var reassignViewModel = new DepartmentReassigningViewModel
             {
                 DeletingDepartmentId = departmentId,
+                HasUsers = department.Users.Any(),
+                HasStocks = department.Stocks.Any(),
                 TargetDepartments = departments
             };
             return View(reassignViewModel);
         }
 
         [HttpPost]
-        public ActionResult Reassign(ReassignViewModel reassignViewModel)
+        public ActionResult Reassign(DepartmentReassigningViewModel reassignViewModel)
         {
-            _departmentService.ReassignUsers(reassignViewModel.DeletingDepartmentId,
-                reassignViewModel.DepartmentIdForUsers);
-            _departmentService.ReassignStocks(reassignViewModel.DeletingDepartmentId,
-                reassignViewModel.DepartmentIdForStocks);
+            if (reassignViewModel.DepartmentIdForUsers == reassignViewModel.DeletingDepartmentId)
+            {
+                ModelState.AddModelError("DepartmentIdForUsers", "You didn't reassign users");
+            }
+            if (reassignViewModel.DepartmentIdForStocks == reassignViewModel.DeletingDepartmentId)
+            {
+                ModelState.AddModelError("DepartmentIdForStocks", "You didn't reassign stocks");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                reassignViewModel.TargetDepartments = _departmentService.GetAll(false).ToList();
+                return View(reassignViewModel);
+            }
+
+            if (reassignViewModel.HasUsers)
+            {
+                _departmentService.ReassignUsers(reassignViewModel.DeletingDepartmentId,
+                    reassignViewModel.DepartmentIdForUsers);
+            }
+            if (reassignViewModel.HasStocks)
+            {
+                _departmentService.ReassignStocks(reassignViewModel.DeletingDepartmentId,
+                    reassignViewModel.DepartmentIdForStocks);
+            }
 
             return RedirectToAction("Delete", new { departmentId = reassignViewModel.DeletingDepartmentId });
         }

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Sam.ToolStock.Model.ViewModels.StockViewModel>
+
+@{
+    ViewBag.Title = "All stocks";
+}
+
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header d-flex align-items-center">
+            <strong class="card-title">Stock Table</strong> @Html.ActionLink("Create new stock", "Create", null, new { @class = "btn btn-primary ml-auto" })
+        </div>
+        <div class="table-stats order-table ov-h">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>User amount</th>
+                        <th>Tool amount</th>
+                        <th>Deleted</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var stockViewModel in Model)
+                        {
+                            <tr>
+                                <td>@stockViewModel.Id</td>
+                                <td>
+                                    <span class="name">@stockViewModel.Name</span>
+                                </td>
+                                <td>
+                                    <span class="count">@stockViewModel.Users.Count()</span>
+                                </td>
+                                <td>
+                                    <span class="count">@stockViewModel.Tools.Count()</span>
+                                </td>
+                                <td>
+                                    <span class="name">@stockViewModel.IsDeleted</span>
+                                </td>
+                                <td>
+                                    @{
+                                        if (stockViewModel.IsDeleted)
+                                        {
+                                            @Html.ActionLink("Restore", "Restore", new { stockId = stockViewModel.Id }, new { @class = "btn btn btn-secondary ml-auto" })
+                                        }
+                                        else
+                                        {
+                                            @Html.ActionLink("Update", "Update", new { stockId = stockViewModel.Id }, new { @class = "btn btn-success ml-auto" })
+                                            @Html.ActionLink("Delete", "Delete", new { stockId = stockViewModel.Id }, new { @class = "btn btn-danger ml-auto ", @data_target = "#smallmodal" })
+                                        }
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div> <!-- /.table-stats -->
+    </div>
+</div>

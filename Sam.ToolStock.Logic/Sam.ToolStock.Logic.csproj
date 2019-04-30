@@ -100,6 +100,7 @@
     <Compile Include="Mappings\DepartmentProfile.cs" />
     <Compile Include="Mappings\RoleProfile.cs" />
     <Compile Include="Mappings\StockProfile.cs" />
+    <Compile Include="Mappings\ToolProfile.cs" />
     <Compile Include="Mappings\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ApplicationRoleManager.cs" />

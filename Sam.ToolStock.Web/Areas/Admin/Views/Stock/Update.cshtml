@@ -1,0 +1,52 @@
+﻿@model Sam.ToolStock.Model.ViewModels.StockViewModel
+
+@{
+    ViewBag.Title = "Update stock";
+}
+
+<div class="card col-12">
+    <div class="card-header">
+        Update <strong>Stock</strong>
+    </div>
+    <div class="card-body card-block">
+        @using (Html.BeginForm("Update", "Stock", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <div class="row form-group">
+                <div class="col col-sm-3">
+                    @Html.LabelFor(m => m.Id, new { @class = "form-control-lable" })
+                </div>
+                <div class="col col-sm-9">
+                    @Html.TextBoxFor(m => m.Id, new
+                    {
+                        @class = "form-control",
+                        placeholder = "Disabled",
+                        disabled = true
+                    })
+                </div>
+            </div>
+            @Html.HiddenFor(m => m.Id)
+            <div class="row form-group">
+                <div class="col col-sm-3">
+                    @Html.LabelFor(m => m.Name, new { @class = "form-control-label" })
+                </div>
+                <div class="col col-sm-9">
+                    @Html.ValidationMessageFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Name" })
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-sm-3">
+                    @Html.LabelFor(m => m.DepartmentId, "Change department", new { @class = "form-control-label" })
+                </div>
+                <div class="col col-sm-9">
+                    @Html.ValidationMessageFor(m => m.DepartmentId)
+                    @Html.DropDownListFor(
+                        m => m.DepartmentId, new SelectList(Model.Departments, "Id", "Name", Model.DepartmentId), new {@class = "form-control"})
+                </div>
+            </div>
+            <div class="form-actions form-group">
+                <input type="submit" value="Update" name="Update" class="btn btn-success">
+            </div>
+        }
+    </div>
+</div>

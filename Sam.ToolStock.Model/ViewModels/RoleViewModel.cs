@@ -1,6 +1,6 @@
-﻿namespace Sam.ToolStock.Model.Models
+﻿namespace Sam.ToolStock.Model.ViewModels
 {
-    public class Role
+    public class RoleViewModel
     {
         public string Id { get; set; }
         public string Name { get; set; }

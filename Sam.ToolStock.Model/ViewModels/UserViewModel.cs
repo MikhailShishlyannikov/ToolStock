@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Sam.ToolStock.Model.Models;
 
 namespace Sam.ToolStock.Model.ViewModels
 {
@@ -16,12 +15,12 @@ namespace Sam.ToolStock.Model.ViewModels
         public bool IsDeleted { get; set; }
 
         public string Role { get; set; }
-        public IEnumerable<Role> Roles { get; set; }
+        public IEnumerable<RoleViewModel> Roles { get; set; }
 
         public string DepartmentId { get; set; }
         public IEnumerable<DepartmentViewModel> Departments { get; set; }
 
         public string StockId { get; set; }
-        public IEnumerable<Stock> Stocks { get; set; }
+        public IEnumerable<StockViewModel> Stocks { get; set; }
     }
 }

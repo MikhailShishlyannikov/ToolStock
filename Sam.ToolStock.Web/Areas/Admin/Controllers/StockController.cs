@@ -43,13 +43,11 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
                 ModelState.AddModelError("DepartmentId", "You didn't choose any department");
             }
 
-            ModalMessageViewModel message;
-
             if (ModelState.IsValid)
             {
                 _stockService.Create(stockViewModel);
 
-                message = new ModalMessageViewModel
+                var message = new ModalMessageViewModel
                 {
                     Message = $"The Stock \"{stockViewModel.Name}\" was created successfully!",
                     MessageType = "success",

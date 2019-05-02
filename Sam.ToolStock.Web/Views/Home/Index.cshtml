@@ -4,7 +4,7 @@
 
 @if (!Request.IsAuthenticated)
 {
-    <h1>Entry</h1>
+    <h1 class="text-center">Entry</h1>
     <p class="lead text-center">Please log in or register</p>
     <p class="lead text-center">
         @Html.ActionLink("Log In", "Login", "Account", null, new { @class = "btn btn-primary btn-lg" })

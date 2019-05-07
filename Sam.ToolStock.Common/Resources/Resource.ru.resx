@@ -117,11 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BackToMainPage" xml:space="preserve">
+    <value>Назад на главную страницу</value>
+  </data>
   <data name="ChooseLang" xml:space="preserve">
     <value>Выберите язык</value>
   </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
   <data name="Entry" xml:space="preserve">
     <value>Вход</value>
+  </data>
+  <data name="ErrorOfLogin" xml:space="preserve">
+    <value>Ошибка входа</value>
   </data>
   <data name="HomePage" xml:space="preserve">
     <value>Домашняя страница</value>
@@ -129,8 +138,23 @@
   <data name="LogIn" xml:space="preserve">
     <value>Войти</value>
   </data>
+  <data name="LoginEmailIsNotValid" xml:space="preserve">
+    <value>Поле E-mail не является действительным адресом электронной почты.</value>
+  </data>
+  <data name="LoginEmailRequered" xml:space="preserve">
+    <value>Поле Email обязательно для заполнения.</value>
+  </data>
+  <data name="LoginInvalidEmailOrPassword" xml:space="preserve">
+    <value>Неверный Email или пароль.</value>
+  </data>
   <data name="LogInOrRegisterRequest" xml:space="preserve">
     <value>Пожалуйста, войдите или зарегистируйтесь</value>
+  </data>
+  <data name="LoginPasswordRequered" xml:space="preserve">
+    <value>Поле Пароль обязательно для заполнения.</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Зарегистрироваться</value>

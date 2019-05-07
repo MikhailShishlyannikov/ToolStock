@@ -117,11 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BackToMainPage" xml:space="preserve">
+    <value>Back to main page</value>
+  </data>
   <data name="ChooseLang" xml:space="preserve">
     <value>Choose lang</value>
   </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
   <data name="Entry" xml:space="preserve">
     <value>Entry</value>
+  </data>
+  <data name="ErrorOfLogin" xml:space="preserve">
+    <value>Error of login</value>
   </data>
   <data name="HomePage" xml:space="preserve">
     <value>Home Page</value>
@@ -129,8 +138,23 @@
   <data name="LogIn" xml:space="preserve">
     <value>Log In</value>
   </data>
+  <data name="LoginEmailIsNotValid" xml:space="preserve">
+    <value>The E-mail field is not a valid e-mail address.</value>
+  </data>
+  <data name="LoginEmailRequered" xml:space="preserve">
+    <value>The Email field is required.</value>
+  </data>
+  <data name="LoginInvalidEmailOrPassword" xml:space="preserve">
+    <value>Invalid email or password.</value>
+  </data>
   <data name="LogInOrRegisterRequest" xml:space="preserve">
     <value>Please log in or register</value>
+  </data>
+  <data name="LoginPasswordRequered" xml:space="preserve">
+    <value>The Password field is required.</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>

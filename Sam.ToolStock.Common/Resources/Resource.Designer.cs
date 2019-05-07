@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back to main page.
+        /// </summary>
+        public static string BackToMainPage {
+            get {
+                return ResourceManager.GetString("BackToMainPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose lang.
         /// </summary>
         public static string ChooseLang {
@@ -70,11 +79,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to E-mail.
+        /// </summary>
+        public static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Entry.
         /// </summary>
         public static string Entry {
             get {
                 return ResourceManager.GetString("Entry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error of login.
+        /// </summary>
+        public static string ErrorOfLogin {
+            get {
+                return ResourceManager.GetString("ErrorOfLogin", resourceCulture);
             }
         }
         
@@ -97,11 +124,56 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The E-mail field is not a valid e-mail address..
+        /// </summary>
+        public static string LoginEmailIsNotValid {
+            get {
+                return ResourceManager.GetString("LoginEmailIsNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Email field is required..
+        /// </summary>
+        public static string LoginEmailRequered {
+            get {
+                return ResourceManager.GetString("LoginEmailRequered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid email or password..
+        /// </summary>
+        public static string LoginInvalidEmailOrPassword {
+            get {
+                return ResourceManager.GetString("LoginInvalidEmailOrPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please log in or register.
         /// </summary>
         public static string LogInOrRegisterRequest {
             get {
                 return ResourceManager.GetString("LogInOrRegisterRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Password field is required..
+        /// </summary>
+        public static string LoginPasswordRequered {
+            get {
+                return ResourceManager.GetString("LoginPasswordRequered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
             }
         }
         

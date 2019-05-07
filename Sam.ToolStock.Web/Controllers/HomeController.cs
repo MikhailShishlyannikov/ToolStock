@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Web;
+using System.Web.Mvc;
 
 namespace Sam.ToolStock.Web.Controllers
 {
@@ -14,6 +15,13 @@ namespace Sam.ToolStock.Web.Controllers
                 return RedirectToAction("Index", new {area = "User", controller = "Home"});
 
             return View();
+        }
+
+        public ActionResult ChangeLang(string lang, string returnUrl)
+        {
+            var langCookie = new HttpCookie("locale", lang) { HttpOnly = true };
+            Response.AppendCookie(langCookie);
+            return Redirect(HttpUtility.UrlDecode(returnUrl));
         }
     }
 }

@@ -1,14 +1,14 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = @Resources.Resource.HomePage;
 }
 
 @if (!Request.IsAuthenticated)
 {
-    <h1 class="text-center">Entry</h1>
-    <p class="lead text-center">Please log in or register</p>
+    <h1 class="text-center">@Resources.Resource.Entry</h1>
+    <p class="lead text-center">@Resources.Resource.LogInOrRegisterRequest</p>
     <p class="lead text-center">
-        @Html.ActionLink("Log In", "Login", "Account", null, new { @class = "btn btn-primary btn-lg" })
-        @Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-primary btn-lg" })
+        @Html.ActionLink(@Resources.Resource.LogIn, "Login", "Account", null, new { @class = "btn btn-primary btn-lg" })
+        @Html.ActionLink(@Resources.Resource.Register, "Register", "Account", null, new { @class = "btn btn-primary btn-lg" })
     </p>
 }
 

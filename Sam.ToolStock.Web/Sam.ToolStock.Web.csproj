@@ -215,9 +215,13 @@
     <Compile Include="Attributes\MultipleButtonAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Extensions\RouteCollectionExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\LocalizationRedirectRouteHandler.cs" />
+    <Compile Include="Handlers\LocalizedRouteHandler.cs" />
+    <Compile Include="Handlers\RedirectHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

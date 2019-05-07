@@ -13,6 +13,16 @@
         <div class="row align-items-center h-100">
             <div class="col-5 mx-auto">
                 <div class="jumbotron">
+                    <div class="row justify-content-end">
+                        <div class="col-4"></div>
+                        <div class="dropdown col-4">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">@Resources.Resource.ChooseLang</a>
+                            <div class="dropdown-menu">
+                                @Html.ActionLink("English", "ChangeLang", "Home", new {Lang = "en-US", ReturnUrl = Url.Encode(Request.RawUrl)}, new {@class = "dropdown-item"})
+                                @Html.ActionLink("Русский", "ChangeLang", "Home", new {Lang = "ru-RU", ReturnUrl = Url.Encode(Request.RawUrl)}, new {@class = "dropdown-item"})
+                            </div>
+                        </div>
+                    </div>
                     @RenderBody()
                 </div>
             </div>

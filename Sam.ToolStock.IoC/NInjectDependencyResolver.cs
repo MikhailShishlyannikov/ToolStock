@@ -28,7 +28,7 @@ namespace Sam.ToolStock.IoC
         private void AddBindings()
         {
 
-            _kernel.Load(new DataProvider.InjectorModule(), new Logic.InjectorModule());
+            _kernel.Load(new DataProvider.InjectorModule(), new Logic.InjectorModule(), new Model.FluentValidatorModule());
         }
     }
 }

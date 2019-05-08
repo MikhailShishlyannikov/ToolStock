@@ -60,6 +60,10 @@
       <Project>{c9bc22dd-872c-4c4e-b616-71e9344b2693}</Project>
       <Name>Sam.ToolStock.Logic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Sam.ToolStock.Model\Sam.ToolStock.Model.csproj">
+      <Project>{c7c7b00d-85e6-4281-8461-54d2690fb83d}</Project>
+      <Name>Sam.ToolStock.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

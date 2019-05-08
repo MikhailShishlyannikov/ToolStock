@@ -79,6 +79,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirm Password.
+        /// </summary>
+        public static string ConfirmPassword {
+            get {
+                return ResourceManager.GetString("ConfirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to E-mail.
         /// </summary>
         public static string Email {
@@ -135,9 +144,9 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to The Email field is required..
         /// </summary>
-        public static string LoginEmailRequered {
+        public static string LoginEmailRequired {
             get {
-                return ResourceManager.GetString("LoginEmailRequered", resourceCulture);
+                return ResourceManager.GetString("LoginEmailRequired", resourceCulture);
             }
         }
         
@@ -162,9 +171,18 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to The Password field is required..
         /// </summary>
-        public static string LoginPasswordRequered {
+        public static string LoginPasswordRequired {
             get {
-                return ResourceManager.GetString("LoginPasswordRequered", resourceCulture);
+                return ResourceManager.GetString("LoginPasswordRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
             }
         }
         
@@ -178,11 +196,65 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Patronymic.
+        /// </summary>
+        public static string Patronymic {
+            get {
+                return ResourceManager.GetString("Patronymic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone.
+        /// </summary>
+        public static string Phone {
+            get {
+                return ResourceManager.GetString("Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         public static string Register {
             get {
                 return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The field Name must be a string with a maximum length of &apos;{0}&apos;..
+        /// </summary>
+        public static string RegisterNameMaxLength {
+            get {
+                return ResourceManager.GetString("RegisterNameMaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Name field is required..
+        /// </summary>
+        public static string RegisterNameRequired {
+            get {
+                return ResourceManager.GetString("RegisterNameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Surname.
+        /// </summary>
+        public static string Surname {
+            get {
+                return ResourceManager.GetString("Surname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your department.
+        /// </summary>
+        public static string YourDepartment {
+            get {
+                return ResourceManager.GetString("YourDepartment", resourceCulture);
             }
         }
     }

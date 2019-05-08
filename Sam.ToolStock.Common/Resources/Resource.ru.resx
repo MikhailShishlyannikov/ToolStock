@@ -141,7 +141,7 @@
   <data name="LoginEmailIsNotValid" xml:space="preserve">
     <value>Поле E-mail не является действительным адресом электронной почты.</value>
   </data>
-  <data name="LoginEmailRequered" xml:space="preserve">
+  <data name="LoginEmailRequired" xml:space="preserve">
     <value>Поле Email обязательно для заполнения.</value>
   </data>
   <data name="LoginInvalidEmailOrPassword" xml:space="preserve">
@@ -150,7 +150,7 @@
   <data name="LogInOrRegisterRequest" xml:space="preserve">
     <value>Пожалуйста, войдите или зарегистируйтесь</value>
   </data>
-  <data name="LoginPasswordRequered" xml:space="preserve">
+  <data name="LoginPasswordRequired" xml:space="preserve">
     <value>Поле Пароль обязательно для заполнения.</value>
   </data>
   <data name="Password" xml:space="preserve">
@@ -158,5 +158,29 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>Зарегистрироваться</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Подтвердите пароль</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="Patronymic" xml:space="preserve">
+    <value>Отчество</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="RegisterNameMaxLength" xml:space="preserve">
+    <value>Имя поля должно быть строкой с максимальной длиной '{0}'.</value>
+  </data>
+  <data name="RegisterNameRequired" xml:space="preserve">
+    <value>Поле Имя обязательно для заполнения.</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="YourDepartment" xml:space="preserve">
+    <value>Ваш отдел</value>
   </data>
 </root>

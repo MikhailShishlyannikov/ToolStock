@@ -5,14 +5,14 @@ namespace Sam.ToolStock.Model.ViewModels
     public class LoginViewModel
     {
         [Required(ErrorMessageResourceType = typeof(Resources.Resource), 
-            ErrorMessageResourceName = "LoginEmailRequered")]
+            ErrorMessageResourceName = "LoginEmailRequired")]
         [Display(Name = "Email", ResourceType = typeof(Resources.Resource))]
         [EmailAddress(ErrorMessageResourceType = typeof(Resources.Resource),
             ErrorMessageResourceName = "LoginEmailIsNotValid")]
         public string Email { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Resources.Resource),
-            ErrorMessageResourceName = "LoginPasswordRequered")]
+            ErrorMessageResourceName = "LoginPasswordRequired")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 

@@ -5,7 +5,8 @@ namespace Sam.ToolStock.Model.ViewModels
 {
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
+            ErrorMessageResourceName = "RegisterNameRequired")]
         [MaxLength(ConfigEntityFramework.MaxLengthOfUserInfoName)]
         public string Name { get; set; }
 

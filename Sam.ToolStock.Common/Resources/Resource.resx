@@ -141,7 +141,7 @@
   <data name="LoginEmailIsNotValid" xml:space="preserve">
     <value>The E-mail field is not a valid e-mail address.</value>
   </data>
-  <data name="LoginEmailRequered" xml:space="preserve">
+  <data name="LoginEmailRequired" xml:space="preserve">
     <value>The Email field is required.</value>
   </data>
   <data name="LoginInvalidEmailOrPassword" xml:space="preserve">
@@ -150,7 +150,7 @@
   <data name="LogInOrRegisterRequest" xml:space="preserve">
     <value>Please log in or register</value>
   </data>
-  <data name="LoginPasswordRequered" xml:space="preserve">
+  <data name="LoginPasswordRequired" xml:space="preserve">
     <value>The Password field is required.</value>
   </data>
   <data name="Password" xml:space="preserve">
@@ -158,5 +158,29 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Patronymic" xml:space="preserve">
+    <value>Patronymic</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="RegisterNameMaxLength" xml:space="preserve">
+    <value>The field Name must be a string with a maximum length of '{0}'.</value>
+  </data>
+  <data name="RegisterNameRequired" xml:space="preserve">
+    <value>The Name field is required.</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="YourDepartment" xml:space="preserve">
+    <value>Your department</value>
   </data>
 </root>

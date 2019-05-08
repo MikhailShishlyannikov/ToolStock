@@ -168,7 +168,7 @@
   <data name="Phone" xml:space="preserve">
     <value>Телефон</value>
   </data>
-  <data name="RegisterNameRequired" xml:space="preserve">
+  <data name="RegisterNameIsRequired" xml:space="preserve">
     <value>Поле Имя обязательно для заполнения.</value>
   </data>
   <data name="Surname" xml:space="preserve">
@@ -182,5 +182,23 @@
   </data>
   <data name="LoginMinLengthPassword" xml:space="preserve">
     <value>Длина пароля должна быть не менее 6 символов.</value>
+  </data>
+  <data name="RegisterConfirmPasswordEqualPassword" xml:space="preserve">
+    <value>'Подтвердите пароль' должно быть равно «Пароль».</value>
+  </data>
+  <data name="RegisterMaxLengthName" xml:space="preserve">
+    <value>Длина имени должна быть не более 60 символов.</value>
+  </data>
+  <data name="RegisterMaxLengthPatronymic" xml:space="preserve">
+    <value>Длина отчества должна быть не более 70 символов.</value>
+  </data>
+  <data name="RegisterMaxLengthPhone" xml:space="preserve">
+    <value>Длина телефона должна быть не более 20 символов.</value>
+  </data>
+  <data name="RegisterMaxLengthSurname" xml:space="preserve">
+    <value>Длина фамилии должна быть не более 80 символов.</value>
+  </data>
+  <data name="RegisterSurnameIsRequired" xml:space="preserve">
+    <value>Поле Фамилия обязательно для заполнения.</value>
   </data>
 </root>

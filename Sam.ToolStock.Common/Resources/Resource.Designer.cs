@@ -232,11 +232,65 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &apos;Confirm Password&apos; must be equal to &apos;Password&apos;..
+        /// </summary>
+        public static string RegisterConfirmPasswordEqualPassword {
+            get {
+                return ResourceManager.GetString("RegisterConfirmPasswordEqualPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The length of &apos;Name&apos; must be 60 characters or fewer..
+        /// </summary>
+        public static string RegisterMaxLengthName {
+            get {
+                return ResourceManager.GetString("RegisterMaxLengthName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The length of &apos;Patronymic&apos; must be 70 characters or fewer..
+        /// </summary>
+        public static string RegisterMaxLengthPatronymic {
+            get {
+                return ResourceManager.GetString("RegisterMaxLengthPatronymic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The length of &apos;Phone&apos; must be 20 characters or fewer..
+        /// </summary>
+        public static string RegisterMaxLengthPhone {
+            get {
+                return ResourceManager.GetString("RegisterMaxLengthPhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The length of &apos;Surname&apos; must be 80 characters or fewer..
+        /// </summary>
+        public static string RegisterMaxLengthSurname {
+            get {
+                return ResourceManager.GetString("RegisterMaxLengthSurname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Name field is required..
         /// </summary>
-        public static string RegisterNameRequired {
+        public static string RegisterNameIsRequired {
             get {
-                return ResourceManager.GetString("RegisterNameRequired", resourceCulture);
+                return ResourceManager.GetString("RegisterNameIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Surname field is required..
+        /// </summary>
+        public static string RegisterSurnameIsRequired {
+            get {
+                return ResourceManager.GetString("RegisterSurnameIsRequired", resourceCulture);
             }
         }
         

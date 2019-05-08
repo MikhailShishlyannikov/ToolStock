@@ -168,7 +168,7 @@
   <data name="Phone" xml:space="preserve">
     <value>Phone</value>
   </data>
-  <data name="RegisterNameRequired" xml:space="preserve">
+  <data name="RegisterNameIsRequired" xml:space="preserve">
     <value>The Name field is required.</value>
   </data>
   <data name="Surname" xml:space="preserve">
@@ -182,5 +182,23 @@
   </data>
   <data name="LoginMinLengthPassword" xml:space="preserve">
     <value>The length of 'Password' must be at least 6 characters.</value>
+  </data>
+  <data name="RegisterConfirmPasswordEqualPassword" xml:space="preserve">
+    <value>'Confirm Password' must be equal to 'Password'.</value>
+  </data>
+  <data name="RegisterMaxLengthName" xml:space="preserve">
+    <value>The length of 'Name' must be 60 characters or fewer.</value>
+  </data>
+  <data name="RegisterMaxLengthPatronymic" xml:space="preserve">
+    <value>The length of 'Patronymic' must be 70 characters or fewer.</value>
+  </data>
+  <data name="RegisterMaxLengthPhone" xml:space="preserve">
+    <value>The length of 'Phone' must be 20 characters or fewer.</value>
+  </data>
+  <data name="RegisterMaxLengthSurname" xml:space="preserve">
+    <value>The length of 'Surname' must be 80 characters or fewer.</value>
+  </data>
+  <data name="RegisterSurnameIsRequired" xml:space="preserve">
+    <value>The Surname field is required.</value>
   </data>
 </root>

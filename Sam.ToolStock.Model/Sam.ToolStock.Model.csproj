@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="FluentValidatorModule.cs" />
     <Compile Include="Validation\LoginViewModelValidator.cs" />
+    <Compile Include="Validation\RegisterViewModelValidator.cs" />
     <Compile Include="ViewModels\RoleViewModel.cs" />
     <Compile Include="ViewModels\StockReassigningViewModel.cs" />
     <Compile Include="ViewModels\StockViewModel.cs" />

@@ -142,11 +142,11 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Email field is required..
+        ///   Looks up a localized string similar to The E-mail field is required..
         /// </summary>
-        public static string LoginEmailRequired {
+        public static string LoginEmailIsRequired {
             get {
-                return ResourceManager.GetString("LoginEmailRequired", resourceCulture);
+                return ResourceManager.GetString("LoginEmailIsRequired", resourceCulture);
             }
         }
         
@@ -156,6 +156,15 @@ namespace Resources {
         public static string LoginInvalidEmailOrPassword {
             get {
                 return ResourceManager.GetString("LoginInvalidEmailOrPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The length of &apos;Password&apos; must be at least 6 characters..
+        /// </summary>
+        public static string LoginMinLengthPassword {
+            get {
+                return ResourceManager.GetString("LoginMinLengthPassword", resourceCulture);
             }
         }
         
@@ -171,9 +180,9 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to The Password field is required..
         /// </summary>
-        public static string LoginPasswordRequired {
+        public static string LoginPasswordIsRequired {
             get {
-                return ResourceManager.GetString("LoginPasswordRequired", resourceCulture);
+                return ResourceManager.GetString("LoginPasswordIsRequired", resourceCulture);
             }
         }
         
@@ -219,15 +228,6 @@ namespace Resources {
         public static string Register {
             get {
                 return ResourceManager.GetString("Register", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The field Name must be a string with a maximum length of &apos;{0}&apos;..
-        /// </summary>
-        public static string RegisterNameMaxLength {
-            get {
-                return ResourceManager.GetString("RegisterNameMaxLength", resourceCulture);
             }
         }
         

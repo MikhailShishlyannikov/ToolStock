@@ -141,16 +141,13 @@
   <data name="LoginEmailIsNotValid" xml:space="preserve">
     <value>Поле E-mail не является действительным адресом электронной почты.</value>
   </data>
-  <data name="LoginEmailRequired" xml:space="preserve">
-    <value>Поле Email обязательно для заполнения.</value>
-  </data>
   <data name="LoginInvalidEmailOrPassword" xml:space="preserve">
     <value>Неверный Email или пароль.</value>
   </data>
   <data name="LogInOrRegisterRequest" xml:space="preserve">
     <value>Пожалуйста, войдите или зарегистируйтесь</value>
   </data>
-  <data name="LoginPasswordRequired" xml:space="preserve">
+  <data name="LoginPasswordIsRequired" xml:space="preserve">
     <value>Поле Пароль обязательно для заполнения.</value>
   </data>
   <data name="Password" xml:space="preserve">
@@ -171,9 +168,6 @@
   <data name="Phone" xml:space="preserve">
     <value>Телефон</value>
   </data>
-  <data name="RegisterNameMaxLength" xml:space="preserve">
-    <value>Имя поля должно быть строкой с максимальной длиной '{0}'.</value>
-  </data>
   <data name="RegisterNameRequired" xml:space="preserve">
     <value>Поле Имя обязательно для заполнения.</value>
   </data>
@@ -182,5 +176,11 @@
   </data>
   <data name="YourDepartment" xml:space="preserve">
     <value>Ваш отдел</value>
+  </data>
+  <data name="LoginEmailIsRequired" xml:space="preserve">
+    <value>Поле E-mail обязательно для заполнения.</value>
+  </data>
+  <data name="LoginMinLengthPassword" xml:space="preserve">
+    <value>Длина пароля должна быть не менее 6 символов.</value>
   </data>
 </root>

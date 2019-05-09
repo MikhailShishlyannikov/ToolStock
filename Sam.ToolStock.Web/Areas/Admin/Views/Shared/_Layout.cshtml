@@ -74,21 +74,21 @@
                 <ul class="nav navbar-nav">
                     <li class="menu-title">@Resources.Resource.Menu</li><!-- /.menu-title -->
                     <li>
-                        <a href=@Url.Action("Index", "Home")><i class="menu-icon ti-user"></i>Users </a>
+                        <a href=@Url.Action("Index", "Home")><i class="menu-icon ti-user"></i>@Resources.Resource.Users </a>
                     </li>
-                    <li class="menu-title">Departments</li><!-- /.menu-title -->
+                    <li class="menu-title">@Resources.Resource.Departments</li><!-- /.menu-title -->
                     <li>
-                        <a href=@Url.Action("Create", "Department")><i class="menu-icon fa fa-users"></i><i class="menu-icon fa fa-plus-square"></i>Create a department</a>
-                    </li>
-                    <li>
-                        <a href=@Url.Action("ShowAll", "Department")><i class="menu-icon fa fa-users"></i>All departments</a>
-                    </li>
-                    <li class="menu-title">Stocks</li><!-- /.menu-title -->
-                    <li>
-                        <a href=@Url.Action("Create", "Stock")><i class="menu-icon fa fa-th"></i><i class="menu-icon fa fa-plus-square"></i>Create a stock</a>
+                        <a href=@Url.Action("Create", "Department")><i class="menu-icon fa fa-users"></i><i class="menu-icon fa fa-plus-square"></i>@Resources.Resource.CreateDepartment</a>
                     </li>
                     <li>
-                        <a href=@Url.Action("ShowAll", "Stock")><i class="menu-icon fa fa-th"></i>All Stocks</a>
+                        <a href=@Url.Action("ShowAll", "Department")><i class="menu-icon fa fa-users"></i>@Resources.Resource.AllDepartments</a>
+                    </li>
+                    <li class="menu-title">@Resources.Resource.Stocks</li><!-- /.menu-title -->
+                    <li>
+                        <a href=@Url.Action("Create", "Stock")><i class="menu-icon fa fa-th"></i><i class="menu-icon fa fa-plus-square"></i>@Resources.Resource.CreateStock</a>
+                    </li>
+                    <li>
+                        <a href=@Url.Action("ShowAll", "Stock")><i class="menu-icon fa fa-th"></i>@Resources.Resource.AllStocks</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -115,7 +115,7 @@
                         <button class="search-trigger"><i class="fa fa-search"></i></button>
                         <div class="form-inline">
                             <form class="search-form">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
+                                <input class="form-control mr-sm-2" type="text" placeholder="@Resources.Resource.Search ..." aria-label="Search">
                                 <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
                             </form>
                         </div>
@@ -157,7 +157,5 @@
     <!-- /#right-panel -->
     <!-- Scripts -->
     @Scripts.Render("~/Content/Template/js")
-
-    
 </body>
 </html>

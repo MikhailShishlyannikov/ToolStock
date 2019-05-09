@@ -204,4 +204,28 @@
   <data name="Menu" xml:space="preserve">
     <value>Menu</value>
   </data>
+  <data name="AllDepartments" xml:space="preserve">
+    <value>All departments</value>
+  </data>
+  <data name="AllStocks" xml:space="preserve">
+    <value>All stocks</value>
+  </data>
+  <data name="CreateDepartment" xml:space="preserve">
+    <value>Create a department</value>
+  </data>
+  <data name="CreateStock" xml:space="preserve">
+    <value>Create a stock</value>
+  </data>
+  <data name="Departments" xml:space="preserve">
+    <value>Departments</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Stocks" xml:space="preserve">
+    <value>Stocks</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
 </root>

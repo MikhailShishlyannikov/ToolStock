@@ -204,4 +204,28 @@
   <data name="Menu" xml:space="preserve">
     <value>Меню</value>
   </data>
+  <data name="AllDepartments" xml:space="preserve">
+    <value>Все отделы</value>
+  </data>
+  <data name="AllStocks" xml:space="preserve">
+    <value>Все склады</value>
+  </data>
+  <data name="CreateDepartment" xml:space="preserve">
+    <value>Создать отдел</value>
+  </data>
+  <data name="CreateStock" xml:space="preserve">
+    <value>Создать склад</value>
+  </data>
+  <data name="Departments" xml:space="preserve">
+    <value>Отделы</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Искать</value>
+  </data>
+  <data name="Stocks" xml:space="preserve">
+    <value>Склады</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Пользователи</value>
+  </data>
 </root>

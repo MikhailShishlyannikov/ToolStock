@@ -201,4 +201,7 @@
   <data name="RegisterSurnameIsRequired" xml:space="preserve">
     <value>Поле Фамилия обязательно для заполнения.</value>
   </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Меню</value>
+  </data>
 </root>

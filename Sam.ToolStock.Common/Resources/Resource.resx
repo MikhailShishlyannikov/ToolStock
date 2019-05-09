@@ -201,4 +201,7 @@
   <data name="RegisterSurnameIsRequired" xml:space="preserve">
     <value>The Surname field is required.</value>
   </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
 </root>

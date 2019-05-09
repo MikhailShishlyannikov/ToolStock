@@ -98,6 +98,6 @@ jQuery(document).ready(function($) {
 });
 
 jQuery(document).on('click', '.table-row', function () {
-    var id = $(this).attr("id");
-    $("#results").load("/Admin/Home/ShowUser/" + id);
+    var route = $(this).attr("id");
+    $("#results").load(route);
 })

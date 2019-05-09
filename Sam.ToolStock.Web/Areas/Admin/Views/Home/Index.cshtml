@@ -22,7 +22,7 @@
                 <tbody>
                 @foreach (var user in Model)
                 {
-                    <tr class="table-row" id=@user.Id data-toggle="modal" data-target="#scrollModal">
+                    <tr class="table-row" id=@Url.Action("ShowUser", "Home", new{id = user.Id}) data-toggle="modal" data-target="#scrollModal">
                         <td>@user.FullName</td>
                         <td>@user.Department</td>
                         <td>@user.Role</td>

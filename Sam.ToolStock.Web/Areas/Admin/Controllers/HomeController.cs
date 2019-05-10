@@ -30,21 +30,9 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
         public ActionResult ShowUser(string id)
         {
             var user = _userService.GetUser(id);
-            user.Roles = _roleService.GetAll();
-
-            var departments = _departmentService.GetAll().ToList();
-            if (user.DepartmentId == new Guid().ToString())
-            {
-                departments.Add(new DepartmentViewModel{Id = user.DepartmentId, Name = "Choose a department"});
-            }
-            user.Departments = departments;
-
-            var stocks = _stockService.GetAll().ToList();
-            if (user.StockId == new Guid().ToString())
-            {
-                stocks.Add(new StockViewModel { Id = user.StockId, Name = "Choose a stock" });
-            }
-            user.Stocks = stocks;
+            user = GetRoles(user);
+            user = GetDepartments(user);
+            user = GetStocks(user);
 
             return PartialView(user);
         }
@@ -53,15 +41,25 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
         //[MultipleButton(Name = "action", Argument = "Update")]
         public ActionResult Update(UserViewModel user)
         {
+            if (!ModelState.IsValid)
+            {
+                user = GetRoles(user);
+                user = GetDepartments(user);
+                user = GetStocks(user);
+
+                return PartialView("ShowUser", user);
+            }
+
             var result = _userService.Update(user);
 
             if (!result) return RedirectToAction("ShowUser", new {id = user.Id});
 
             var message = new ModalMessageViewModel
             {
-                Message = $"User {user.Id} was updated successfully!",
+                //Message = $"User {user.Id} was updated successfully!",
+                Message = string.Format(Resources.Resource.ModalPageMessageUpdate, Resources.Resource.User, user.Id),
                 MessageType = "success",
-                PageName = "the users page",
+                PageName = Resources.Resource.UsersPage,
                 Action = "Index",
                 Controller = "Home"
             };
@@ -78,6 +76,36 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
             var user = _userService.GetUser(userId);
             _userService.Delete(user);
             return RedirectToAction("Index");
+        }
+
+        private UserViewModel GetRoles(UserViewModel user)
+        {
+            user.Roles = _roleService.GetAll();
+            return user;
+        }
+
+        private UserViewModel GetDepartments(UserViewModel user)
+        {
+            var departments = _departmentService.GetAll().ToList();
+            if (user.DepartmentId == new Guid().ToString())
+            {
+                departments.Add(new DepartmentViewModel { Id = user.DepartmentId, Name = Resources.Resource.ChooseDepartment });
+            }
+            user.Departments = departments;
+
+            return user;
+        }
+
+        private UserViewModel GetStocks(UserViewModel user)
+        {
+            var stocks = _stockService.GetAll().ToList();
+            if (user.StockId == new Guid().ToString())
+            {
+                stocks.Add(new StockViewModel { Id = user.StockId, Name = Resources.Resource.ChooseStock });
+            }
+            user.Stocks = stocks;
+
+            return user;
         }
     }
 }

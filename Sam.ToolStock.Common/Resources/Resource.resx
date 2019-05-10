@@ -228,17 +228,53 @@
   <data name="Users" xml:space="preserve">
     <value>Users</value>
   </data>
+  <data name="ChooseDepartment" xml:space="preserve">
+    <value>Choose a department</value>
+  </data>
+  <data name="ChooseStock" xml:space="preserve">
+    <value>Choose a stock</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
   <data name="Department" xml:space="preserve">
     <value>Department</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
   </data>
   <data name="FullName" xml:space="preserve">
     <value>Full Name</value>
   </data>
+  <data name="ModalPageMessageUpdate" xml:space="preserve">
+    <value>{0} {1} was updated successfully!</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="ReturnTo" xml:space="preserve">
+    <value>Return to</value>
+  </data>
   <data name="Role" xml:space="preserve">
     <value>Role</value>
   </data>
+  <data name="ShowUserMenuTitle" xml:space="preserve">
+    <value>&lt;strong&gt;Editing&lt;/strong&gt; User</value>
+  </data>
   <data name="Stock" xml:space="preserve">
     <value>Stock</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="UsersPage" xml:space="preserve">
+    <value>the users page</value>
   </data>
   <data name="UserTable" xml:space="preserve">
     <value>User Table</value>

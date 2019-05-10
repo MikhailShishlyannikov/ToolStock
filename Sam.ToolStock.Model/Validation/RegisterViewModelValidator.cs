@@ -29,7 +29,8 @@ namespace Sam.ToolStock.Model.Validation
             RuleFor(rvm => rvm.Email)
                 .NotEmpty()
                 .EmailAddress()
-                .MaximumLength(ConfigEntityFramework.MaxLengthOfUserInfoEmail).WithName(Resources.Resource.Email);
+                .MaximumLength(ConfigEntityFramework.MaxLengthOfUserInfoEmail)
+                .WithName(Resources.Resource.Email);
 
             RuleFor(rvm => rvm.Password)
                 .NotEmpty()

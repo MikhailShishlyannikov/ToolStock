@@ -228,17 +228,53 @@
   <data name="Users" xml:space="preserve">
     <value>Пользователи</value>
   </data>
+  <data name="ChooseDepartment" xml:space="preserve">
+    <value>Выберите отдел</value>
+  </data>
+  <data name="ChooseStock" xml:space="preserve">
+    <value>Выберите склад</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
   <data name="Department" xml:space="preserve">
     <value>Отдел</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Отключен</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
   </data>
   <data name="FullName" xml:space="preserve">
     <value>Ф.И.О.</value>
   </data>
+  <data name="ModalPageMessageUpdate" xml:space="preserve">
+    <value>{0} {1} успешно обновлен!</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Сброс</value>
+  </data>
+  <data name="ReturnTo" xml:space="preserve">
+    <value>Вернуться на</value>
+  </data>
   <data name="Role" xml:space="preserve">
     <value>Роль</value>
   </data>
+  <data name="ShowUserMenuTitle" xml:space="preserve">
+    <value>&lt;strong&gt;Редактирование&lt;/strong&gt; пользователя</value>
+  </data>
   <data name="Stock" xml:space="preserve">
     <value>Склад</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Обновить</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="UsersPage" xml:space="preserve">
+    <value>страницу пользователей</value>
   </data>
   <data name="UserTable" xml:space="preserve">
     <value>Таблица пользователей</value>

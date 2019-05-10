@@ -1,7 +1,7 @@
 ﻿@model Sam.ToolStock.Model.ViewModels.DepartmentViewModel
 
 @{
-    ViewBag.Title = "Department creating";
+    ViewBag.Title = @Resources.Resource.DepartmentCreating;
 }
 
 <div class="card col-12">
@@ -17,11 +17,11 @@
                 </div>
                 <div class="col col-sm-11">
                     @Html.ValidationMessageFor(m => m.Name)
-                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Name" })
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = @Resources.Resource.Name })
                 </div>
             </div>
             <div class="form-actions form-group">
-                <input type="submit" value="Create" name="Create" class="btn btn-primary">
+                <input type="submit" value=@Resources.Resource.Create name="Create" class="btn btn-primary">
             </div>
         }
     </div>

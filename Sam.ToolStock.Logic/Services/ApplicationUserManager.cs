@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
+using Sam.ToolStock.Common.Constants;
 using Sam.ToolStock.DataProvider.Contexts;
 using Sam.ToolStock.DataProvider.Models;
 
@@ -27,7 +28,7 @@ namespace Sam.ToolStock.Logic.Services
             // Configure validation logic for passwords
             service.PasswordValidator = new PasswordValidator
             {
-                RequiredLength = 6,
+                RequiredLength = ConfigEntityFramework.MinLengthOfUserPassword,
                 RequireNonLetterOrDigit = true,
                 RequireDigit = true,
                 RequireLowercase = true,

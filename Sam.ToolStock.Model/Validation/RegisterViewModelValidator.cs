@@ -34,7 +34,7 @@ namespace Sam.ToolStock.Model.Validation
 
             RuleFor(rvm => rvm.Password)
                 .NotEmpty()
-                .MinimumLength(6)
+                .MinimumLength(ConfigEntityFramework.MinLengthOfUserPassword)
                 .WithName(Resources.Resource.Password);
 
             RuleFor(rvm => rvm.ConfirmPassword)

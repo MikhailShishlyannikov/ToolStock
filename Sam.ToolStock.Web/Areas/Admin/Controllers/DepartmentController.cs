@@ -24,30 +24,24 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
         {
             ModalMessageViewModel message;
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _departmentService.Create(departmentViewModel);
-
-                message = new ModalMessageViewModel
-                {
-                    Message = $"The department \"{departmentViewModel.Name}\" was created successfully!",
-                    MessageType = "success",
-                    PageName = "the create department page",
-                    Action = "Create",
-                    Controller = "Department"
-                };
-
-                return View("ModalMessage", message);
+                return View(departmentViewModel);
             }
+            _departmentService.Create(departmentViewModel);
 
             message = new ModalMessageViewModel
             {
-                Message = $"The department \"{departmentViewModel.Name}\" wasn't created!",
-                MessageType = "danger",
-                PageName = "the create department page",
+                Message = string.Format(
+                    Resources.Resource.ModalPageMessageCreate,
+                    Resources.Resource.Department,
+                    departmentViewModel.Name),
+                MessageType = "success",
+                PageName = Resources.Resource.CreateDepartmentPage,
                 Action = "Create",
                 Controller = "Department"
             };
+
             return View("ModalMessage", message);
         }
 

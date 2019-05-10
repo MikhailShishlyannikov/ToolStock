@@ -85,5 +85,9 @@
         /// Max length of the Phone property of the UserInfoModel.
         /// </summary>
         public const int MaxLengthOfUserInfoPhone = 20;
+        /// <summary>
+        /// Min length of the Password property of the UserModel.
+        /// </summary>
+        public const int MinLengthOfUserPassword = 6;
     }
 }

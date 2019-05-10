@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FluentValidatorModule.cs" />
+    <Compile Include="Validation\DepartmentViewModelValidator.cs" />
     <Compile Include="Validation\LoginViewModelValidator.cs" />
     <Compile Include="Validation\RegisterViewModelValidator.cs" />
     <Compile Include="Validation\UserViewModelValidator.cs" />

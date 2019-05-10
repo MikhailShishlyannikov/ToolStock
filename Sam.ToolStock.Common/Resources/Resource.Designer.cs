@@ -124,11 +124,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create a department.
         /// </summary>
         public static string CreateDepartment {
             get {
                 return ResourceManager.GetString("CreateDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to the create department page.
+        /// </summary>
+        public static string CreateDepartmentPage {
+            get {
+                return ResourceManager.GetString("CreateDepartmentPage", resourceCulture);
             }
         }
         
@@ -156,6 +174,15 @@ namespace Resources {
         public static string Department {
             get {
                 return ResourceManager.GetString("Department", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Department creating.
+        /// </summary>
+        public static string DepartmentCreating {
+            get {
+                return ResourceManager.GetString("DepartmentCreating", resourceCulture);
             }
         }
         
@@ -313,7 +340,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} {1} was updated successfully!.
+        ///   Looks up a localized string similar to The {0} &quot;{1}&quot; was created successfully!.
+        /// </summary>
+        public static string ModalPageMessageCreate {
+            get {
+                return ResourceManager.GetString("ModalPageMessageCreate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} {1} was updated successfully!.
         /// </summary>
         public static string ModalPageMessageUpdate {
             get {

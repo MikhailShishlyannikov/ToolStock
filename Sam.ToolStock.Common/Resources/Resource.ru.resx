@@ -279,4 +279,13 @@
   <data name="UserTable" xml:space="preserve">
     <value>Таблица пользователей</value>
   </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Выйти</value>
+  </data>
+  <data name="MyProfile" xml:space="preserve">
+    <value>Мой профиль</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Найстройки</value>
+  </data>
 </root>

@@ -228,4 +228,19 @@
   <data name="Users" xml:space="preserve">
     <value>Пользователи</value>
   </data>
+  <data name="Department" xml:space="preserve">
+    <value>Отдел</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Ф.И.О.</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Роль</value>
+  </data>
+  <data name="Stock" xml:space="preserve">
+    <value>Склад</value>
+  </data>
+  <data name="UserTable" xml:space="preserve">
+    <value>Таблица пользователей</value>
+  </data>
 </root>

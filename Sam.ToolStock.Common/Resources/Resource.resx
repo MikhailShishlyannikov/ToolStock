@@ -228,4 +228,19 @@
   <data name="Users" xml:space="preserve">
     <value>Users</value>
   </data>
+  <data name="Department" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="Stock" xml:space="preserve">
+    <value>Stock</value>
+  </data>
+  <data name="UserTable" xml:space="preserve">
+    <value>User Table</value>
+  </data>
 </root>

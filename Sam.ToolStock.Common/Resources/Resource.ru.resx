@@ -279,14 +279,26 @@
   <data name="UserTable" xml:space="preserve">
     <value>Таблица пользователей</value>
   </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Действия</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Создать</value>
   </data>
   <data name="CreateDepartmentPage" xml:space="preserve">
     <value>страницу создания отдела</value>
   </data>
+  <data name="CreateNewDepartment" xml:space="preserve">
+    <value>Создать новый отдел</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Удален</value>
+  </data>
   <data name="DepartmentCreating" xml:space="preserve">
     <value>Создание отдела</value>
+  </data>
+  <data name="DepartmentTable" xml:space="preserve">
+    <value>Таблица отделов</value>
   </data>
   <data name="Logout" xml:space="preserve">
     <value>Выйти</value>
@@ -297,7 +309,19 @@
   <data name="MyProfile" xml:space="preserve">
     <value>Мой профиль</value>
   </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Восстановить</value>
+  </data>
   <data name="Settings" xml:space="preserve">
     <value>Найстройки</value>
+  </data>
+  <data name="StockAmount" xml:space="preserve">
+    <value>Количество отделов</value>
+  </data>
+  <data name="UpdateDepartment" xml:space="preserve">
+    <value>Обновление отдела</value>
+  </data>
+  <data name="UserAmount" xml:space="preserve">
+    <value>Количество пользователей</value>
   </data>
 </root>

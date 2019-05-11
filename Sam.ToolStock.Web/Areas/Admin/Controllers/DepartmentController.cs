@@ -62,30 +62,25 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
         {
             ModalMessageViewModel message;
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _departmentService.Update(departmentViewModel);
-
-                message = new ModalMessageViewModel
-                {
-                    Message = $"The department \"{departmentViewModel.Name}\" was updated successfully!",
-                    MessageType = "success",
-                    PageName = "all departments page",
-                    Action = "ShowAll",
-                    Controller = "Department"
-                };
-
-                return View("ModalMessage", message);
+                return View(departmentViewModel);
             }
+
+            _departmentService.Update(departmentViewModel);
 
             message = new ModalMessageViewModel
             {
-                Message = $"The department \"{departmentViewModel.Name}\" wasn't updated!",
-                MessageType = "danger",
-                PageName = "all departments page",
+                Message = string.Format(
+                    Resources.Resource.ModalPageMessageUpdate,
+                    Resources.Resource.Department,
+                    departmentViewModel.Name),
+                MessageType = "success",
+                PageName = Resources.Resource.CreateDepartmentPage,
                 Action = "ShowAll",
                 Controller = "Department"
             };
+
             return View("ModalMessage", message);
         }
 

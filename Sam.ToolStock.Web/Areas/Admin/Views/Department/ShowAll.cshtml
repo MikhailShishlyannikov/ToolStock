@@ -1,24 +1,25 @@
 ﻿@model IEnumerable<Sam.ToolStock.Model.ViewModels.DepartmentViewModel>
 
 @{
-    ViewBag.Title = "All departments";
+    ViewBag.Title = @Resources.Resource.AllDepartments;
 }
 
 <div class="col-sm-12">
     <div class="card">
         <div class="card-header d-flex align-items-center">
-            <strong class="card-title">Department Table</strong> @Html.ActionLink("Create new department", "Create", null, new { @class = "btn btn-primary ml-auto" })
+            <strong class="card-title">@Resources.Resource.DepartmentTable</strong> 
+            @Html.ActionLink(@Resources.Resource.CreateNewDepartment, "Create", null, new { @class = "btn btn-primary ml-auto" })
         </div>
         <div class="table-stats order-table ov-h">
             <table class="table ">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>User amount</th>
-                        <th>Stock amount</th>
-                        <th>Deleted</th>
-                        <th>Actions</th>
+                        <th>@Resources.Resource.Name</th>
+                        <th>@Resources.Resource.UserAmount</th>
+                        <th>@Resources.Resource.StockAmount</th>
+                        <th>@Resources.Resource.Deleted</th>
+                        <th>@Resources.Resource.Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,12 +44,12 @@
                                 @{
                                     if (departmentViewModel.IsDeleted)
                                     {
-                                        @Html.ActionLink("Restore", "Restore", new { departmentId = departmentViewModel.Id }, new { @class = "btn btn btn-secondary ml-auto" })
+                                        @Html.ActionLink(@Resources.Resource.Restore, "Restore", new { departmentId = departmentViewModel.Id }, new { @class = "btn btn btn-secondary ml-auto" })
                                     }
                                     else
                                     {
-                                        @Html.ActionLink("Update", "Update", new { departmentId = departmentViewModel.Id }, new { @class = "btn btn-success ml-auto" })
-                                        @Html.ActionLink("Delete", "Delete", new { departmentId = departmentViewModel.Id }, new { @class = "btn btn-danger ml-auto ", @data_target = "#smallmodal" })
+                                        @Html.ActionLink(@Resources.Resource.Update, "Update", new { departmentId = departmentViewModel.Id }, new { @class = "btn btn-success ml-auto" })
+                                        @Html.ActionLink(@Resources.Resource.Delete, "Delete", new { departmentId = departmentViewModel.Id }, new { @class = "btn btn-danger ml-auto " })
                                     }
                                 }
                             </td>

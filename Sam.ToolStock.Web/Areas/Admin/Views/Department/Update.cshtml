@@ -1,12 +1,12 @@
 ﻿@model Sam.ToolStock.Model.ViewModels.DepartmentViewModel
 
 @{
-    ViewBag.Title = "Update department";
+    ViewBag.Title = @Resources.Resource.UpdateDepartment;
 }
 
 <div class="card col-12">
     <div class="card-header">
-        Update <strong>Department</strong>
+        @Resources.Resource.Update <strong>@Resources.Resource.Department</strong>
     </div>
     <div class="card-body card-block">
         @using (Html.BeginForm("Update", "Department", FormMethod.Post, new { @class = "form-horizontal" }))
@@ -19,7 +19,7 @@
                     @Html.TextBoxFor(m => m.Id, new
                     {
                         @class = "form-control",
-                        placeholder = "Disabled",
+                        placeholder = @Resources.Resource.Disabled,
                         disabled = true
                     })
                 </div>
@@ -31,13 +31,12 @@
                 </div>
                 <div class="col col-sm-11">
                     @Html.ValidationMessageFor(m => m.Name)
-                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Name" })
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = @Resources.Resource.Name })
                 </div>
             </div>
             <div class="form-actions form-group">
-                <input type="submit" value="Update" name="Update" class="btn btn-success">
+                <input type="submit" value=@Resources.Resource.Update name="Update" class="btn btn-success">
             </div>
         }
-        <form action="#" method="post" class="form-horizontal"></form>
     </div>
 </div>

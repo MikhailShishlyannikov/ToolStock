@@ -279,14 +279,26 @@
   <data name="UserTable" xml:space="preserve">
     <value>User Table</value>
   </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Create</value>
   </data>
   <data name="CreateDepartmentPage" xml:space="preserve">
     <value>the create department page</value>
   </data>
+  <data name="CreateNewDepartment" xml:space="preserve">
+    <value>Create a new department</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
   <data name="DepartmentCreating" xml:space="preserve">
     <value>Department creating</value>
+  </data>
+  <data name="DepartmentTable" xml:space="preserve">
+    <value>Department Table</value>
   </data>
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
@@ -297,7 +309,19 @@
   <data name="MyProfile" xml:space="preserve">
     <value>My Profile</value>
   </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+  </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="StockAmount" xml:space="preserve">
+    <value>Stock amount</value>
+  </data>
+  <data name="UpdateDepartment" xml:space="preserve">
+    <value>Update department</value>
+  </data>
+  <data name="UserAmount" xml:space="preserve">
+    <value>User amount</value>
   </data>
 </root>

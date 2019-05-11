@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Actions.
+        /// </summary>
+        public static string Actions {
+            get {
+                return ResourceManager.GetString("Actions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All departments.
         /// </summary>
         public static string AllDepartments {
@@ -151,6 +160,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create a new department.
+        /// </summary>
+        public static string CreateNewDepartment {
+            get {
+                return ResourceManager.GetString("CreateNewDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create a stock.
         /// </summary>
         public static string CreateStock {
@@ -165,6 +183,15 @@ namespace Resources {
         public static string Delete {
             get {
                 return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deleted.
+        /// </summary>
+        public static string Deleted {
+            get {
+                return ResourceManager.GetString("Deleted", resourceCulture);
             }
         }
         
@@ -192,6 +219,15 @@ namespace Resources {
         public static string Departments {
             get {
                 return ResourceManager.GetString("Departments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Department Table.
+        /// </summary>
+        public static string DepartmentTable {
+            get {
+                return ResourceManager.GetString("DepartmentTable", resourceCulture);
             }
         }
         
@@ -484,6 +520,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Restore.
+        /// </summary>
+        public static string Restore {
+            get {
+                return ResourceManager.GetString("Restore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Return to.
         /// </summary>
         public static string ReturnTo {
@@ -538,6 +583,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Stock amount.
+        /// </summary>
+        public static string StockAmount {
+            get {
+                return ResourceManager.GetString("StockAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stocks.
         /// </summary>
         public static string Stocks {
@@ -565,11 +619,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update department.
+        /// </summary>
+        public static string UpdateDepartment {
+            get {
+                return ResourceManager.GetString("UpdateDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User.
         /// </summary>
         public static string User {
             get {
                 return ResourceManager.GetString("User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User amount.
+        /// </summary>
+        public static string UserAmount {
+            get {
+                return ResourceManager.GetString("UserAmount", resourceCulture);
             }
         }
         

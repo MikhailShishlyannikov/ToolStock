@@ -79,6 +79,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to all departments page.
+        /// </summary>
+        public static string AllDepartmentsPage {
+            get {
+                return ResourceManager.GetString("AllDepartmentsPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All stocks.
         /// </summary>
         public static string AllStocks {
@@ -210,6 +219,15 @@ namespace Resources {
         public static string DepartmentCreating {
             get {
                 return ResourceManager.GetString("DepartmentCreating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Department reassigning.
+        /// </summary>
+        public static string DepartmentReassigning {
+            get {
+                return ResourceManager.GetString("DepartmentReassigning", resourceCulture);
             }
         }
         
@@ -385,6 +403,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The {0}&quot;{1}&quot; was deleted successfully!.
+        /// </summary>
+        public static string ModalPageMessageDelete {
+            get {
+                return ResourceManager.GetString("ModalPageMessageDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} &quot;{1}&quot; was restored successfully!.
+        /// </summary>
+        public static string ModalPageMessageRestore {
+            get {
+                return ResourceManager.GetString("ModalPageMessageRestore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The {0} {1} was updated successfully!.
         /// </summary>
         public static string ModalPageMessageUpdate {
@@ -412,6 +448,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New department for stocks.
+        /// </summary>
+        public static string NewDepartmentForStocks {
+            get {
+                return ResourceManager.GetString("NewDepartmentForStocks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New department for users.
+        /// </summary>
+        public static string NewDepartmentForUsers {
+            get {
+                return ResourceManager.GetString("NewDepartmentForUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
@@ -435,6 +489,15 @@ namespace Resources {
         public static string Phone {
             get {
                 return ResourceManager.GetString("Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reassigning Users and Stocks from &lt;strong&gt;the deleting department&lt;/strong&gt;.
+        /// </summary>
+        public static string ReassigningUsersAndStocksMessage {
+            get {
+                return ResourceManager.GetString("ReassigningUsersAndStocksMessage", resourceCulture);
             }
         }
         
@@ -669,6 +732,24 @@ namespace Resources {
         public static string UserTable {
             get {
                 return ResourceManager.GetString("UserTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You didn&apos;t reassign stocks.
+        /// </summary>
+        public static string YouDidNotReassignStocks {
+            get {
+                return ResourceManager.GetString("YouDidNotReassignStocks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You didn&apos;t reassign users.
+        /// </summary>
+        public static string YouDidNotReassignUsers {
+            get {
+                return ResourceManager.GetString("YouDidNotReassignUsers", resourceCulture);
             }
         }
         

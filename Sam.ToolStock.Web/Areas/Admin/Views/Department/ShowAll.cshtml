@@ -44,12 +44,12 @@
                                 @{
                                     if (departmentViewModel.IsDeleted)
                                     {
-                                        @Html.ActionLink(@Resources.Resource.Restore, "Restore", new { departmentId = departmentViewModel.Id }, new { @class = "btn btn btn-secondary ml-auto" })
+                                        @Html.ActionLink(@Resources.Resource.Restore, "Restore", new { departmentId = departmentViewModel.Id }, new { @class = "btn btn btn-secondary col-10 ml-auto" })
                                     }
                                     else
                                     {
-                                        @Html.ActionLink(@Resources.Resource.Update, "Update", new { departmentId = departmentViewModel.Id }, new { @class = "btn btn-success ml-auto" })
-                                        @Html.ActionLink(@Resources.Resource.Delete, "Delete", new { departmentId = departmentViewModel.Id }, new { @class = "btn btn-danger ml-auto " })
+                                        @Html.ActionLink(@Resources.Resource.Update, "Update", new { departmentId = departmentViewModel.Id }, new { @class = "btn btn-success col-10 ml-auto" })
+                                        @Html.ActionLink(@Resources.Resource.Delete, "Delete", new { departmentId = departmentViewModel.Id }, new { @class = "btn btn-danger col-10 ml-auto " })
                                     }
                                 }
                             </td>

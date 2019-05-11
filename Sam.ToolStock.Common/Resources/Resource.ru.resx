@@ -282,6 +282,9 @@
   <data name="Actions" xml:space="preserve">
     <value>Действия</value>
   </data>
+  <data name="AllDepartmentsPage" xml:space="preserve">
+    <value>страницу всех отделов</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Создать</value>
   </data>
@@ -297,6 +300,9 @@
   <data name="DepartmentCreating" xml:space="preserve">
     <value>Создание отдела</value>
   </data>
+  <data name="DepartmentReassigning" xml:space="preserve">
+    <value>Переназначение отдела</value>
+  </data>
   <data name="DepartmentTable" xml:space="preserve">
     <value>Таблица отделов</value>
   </data>
@@ -306,8 +312,23 @@
   <data name="ModalPageMessageCreate" xml:space="preserve">
     <value>{0} "{1}" успешно создан!</value>
   </data>
+  <data name="ModalPageMessageDelete" xml:space="preserve">
+    <value>{0} "{1}" успешно удален!</value>
+  </data>
+  <data name="ModalPageMessageRestore" xml:space="preserve">
+    <value>{0} "{1}" успешно восстановлен!</value>
+  </data>
   <data name="MyProfile" xml:space="preserve">
     <value>Мой профиль</value>
+  </data>
+  <data name="NewDepartmentForStocks" xml:space="preserve">
+    <value>Новый отдел для складов</value>
+  </data>
+  <data name="NewDepartmentForUsers" xml:space="preserve">
+    <value>Новый отдел для пользователей</value>
+  </data>
+  <data name="ReassigningUsersAndStocksMessage" xml:space="preserve">
+    <value>Переназначение пользователей и складов в &lt;strong&gt;в удаляемом отделе&lt;/strong&gt;</value>
   </data>
   <data name="Restore" xml:space="preserve">
     <value>Восстановить</value>
@@ -323,5 +344,11 @@
   </data>
   <data name="UserAmount" xml:space="preserve">
     <value>Количество пользователей</value>
+  </data>
+  <data name="YouDidNotReassignStocks" xml:space="preserve">
+    <value>Вы не переназначили склады</value>
+  </data>
+  <data name="YouDidNotReassignUsers" xml:space="preserve">
+    <value>Вы не переназначили пользователей</value>
   </data>
 </root>

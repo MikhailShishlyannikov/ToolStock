@@ -282,6 +282,9 @@
   <data name="Actions" xml:space="preserve">
     <value>Actions</value>
   </data>
+  <data name="AllDepartmentsPage" xml:space="preserve">
+    <value>all departments page</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Create</value>
   </data>
@@ -297,6 +300,9 @@
   <data name="DepartmentCreating" xml:space="preserve">
     <value>Department creating</value>
   </data>
+  <data name="DepartmentReassigning" xml:space="preserve">
+    <value>Department reassigning</value>
+  </data>
   <data name="DepartmentTable" xml:space="preserve">
     <value>Department Table</value>
   </data>
@@ -306,8 +312,23 @@
   <data name="ModalPageMessageCreate" xml:space="preserve">
     <value>The {0} "{1}" was created successfully!</value>
   </data>
+  <data name="ModalPageMessageDelete" xml:space="preserve">
+    <value>The {0}"{1}" was deleted successfully!</value>
+  </data>
+  <data name="ModalPageMessageRestore" xml:space="preserve">
+    <value>The {0} "{1}" was restored successfully!</value>
+  </data>
   <data name="MyProfile" xml:space="preserve">
     <value>My Profile</value>
+  </data>
+  <data name="NewDepartmentForStocks" xml:space="preserve">
+    <value>New department for stocks</value>
+  </data>
+  <data name="NewDepartmentForUsers" xml:space="preserve">
+    <value>New department for users</value>
+  </data>
+  <data name="ReassigningUsersAndStocksMessage" xml:space="preserve">
+    <value>Reassigning Users and Stocks from &lt;strong&gt;the deleting department&lt;/strong&gt;</value>
   </data>
   <data name="Restore" xml:space="preserve">
     <value>Restore</value>
@@ -323,5 +344,11 @@
   </data>
   <data name="UserAmount" xml:space="preserve">
     <value>User amount</value>
+  </data>
+  <data name="YouDidNotReassignStocks" xml:space="preserve">
+    <value>You didn't reassign stocks</value>
+  </data>
+  <data name="YouDidNotReassignUsers" xml:space="preserve">
+    <value>You didn't reassign users</value>
   </data>
 </root>

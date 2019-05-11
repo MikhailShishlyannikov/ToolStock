@@ -94,9 +94,12 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
 
             var message = new ModalMessageViewModel
             {
-                Message = $"The department \"{department.Name}\" was deleted successfully!",
+                Message = string.Format(
+                    Resources.Resource.ModalPageMessageDelete,
+                    Resources.Resource.Department,
+                    department.Name),
                 MessageType = "success",
-                PageName = "all departments page",
+                PageName = @Resources.Resource.AllDepartmentsPage,
                 Action = "ShowAll",
                 Controller = "Department"
             };
@@ -108,6 +111,7 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
         {
             var departments = _departmentService.GetAll(false).ToList();
             var department = departments.First(d => d.Id == departmentId);
+            departments = departments.Where(d => d.Id != departmentId).ToList();
 
             var reassignViewModel = new DepartmentReassigningViewModel
             {
@@ -124,11 +128,11 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
         {
             if (reassignViewModel.DepartmentIdForUsers == reassignViewModel.DeletingDepartmentId)
             {
-                ModelState.AddModelError("DepartmentIdForUsers", "You didn't reassign users");
+                ModelState.AddModelError("DepartmentIdForUsers", Resources.Resource.YouDidNotReassignUsers);
             }
             if (reassignViewModel.DepartmentIdForStocks == reassignViewModel.DeletingDepartmentId)
             {
-                ModelState.AddModelError("DepartmentIdForStocks", "You didn't reassign stocks");
+                ModelState.AddModelError("DepartmentIdForStocks", Resources.Resource.YouDidNotReassignStocks);
             }
 
             if (!ModelState.IsValid)
@@ -159,9 +163,12 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
 
             var message = new ModalMessageViewModel
             {
-                Message = $"The department \"{dvm.Name}\" was restored successfully!",
+                Message = string.Format(
+                    Resources.Resource.ModalPageMessageRestore,
+                    Resources.Resource.Department,
+                    dvm.Name),
                 MessageType = "success",
-                PageName = "all departments page",
+                PageName = Resources.Resource.AllDepartmentsPage,
                 Action = "ShowAll",
                 Controller = "Department"
             };

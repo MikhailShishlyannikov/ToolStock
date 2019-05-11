@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using FluentValidation.Attributes;
 
 namespace Sam.ToolStock.Model.ViewModels
 {
+    [Validator(typeof(StockViewModel))]
     public class StockViewModel
     {
         public string Id { get; set; }
-        [Required]
-        [StringLength(70)]
+        
+        [Display(Name = "Name", ResourceType = typeof(Resources.Resource))]
         public string Name { get; set; }
 
         public bool IsDeleted { get; set; }

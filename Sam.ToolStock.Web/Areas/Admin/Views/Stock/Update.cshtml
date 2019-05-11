@@ -1,12 +1,12 @@
 ﻿@model Sam.ToolStock.Model.ViewModels.StockViewModel
 
 @{
-    ViewBag.Title = "Update stock";
+    ViewBag.Title = Resources.Resource.UpdateStock;
 }
 
 <div class="card col-12">
     <div class="card-header">
-        Update <strong>Stock</strong>
+        @Resources.Resource.Update <strong>@Resources.Resource.Stock</strong>
     </div>
     <div class="card-body card-block">
         @using (Html.BeginForm("Update", "Stock", FormMethod.Post, new { @class = "form-horizontal" }))
@@ -19,7 +19,7 @@
                     @Html.TextBoxFor(m => m.Id, new
                     {
                         @class = "form-control",
-                        placeholder = "Disabled",
+                        placeholder = Resources.Resource.Disabled,
                         disabled = true
                     })
                 </div>
@@ -31,12 +31,12 @@
                 </div>
                 <div class="col col-sm-9">
                     @Html.ValidationMessageFor(m => m.Name)
-                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Name" })
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = Resources.Resource.Name })
                 </div>
             </div>
             <div class="row form-group">
                 <div class="col col-sm-3">
-                    @Html.LabelFor(m => m.DepartmentId, "Change department", new { @class = "form-control-label" })
+                    @Html.LabelFor(m => m.DepartmentId, Resources.Resource.ChangingDepartment, new { @class = "form-control-label" })
                 </div>
                 <div class="col col-sm-9">
                     @Html.ValidationMessageFor(m => m.DepartmentId)
@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="form-actions form-group">
-                <input type="submit" value="Update" name="Update" class="btn btn-success">
+                <input type="submit" value=@Resources.Resource.Update name="Update" class="btn btn-success">
             </div>
         }
     </div>

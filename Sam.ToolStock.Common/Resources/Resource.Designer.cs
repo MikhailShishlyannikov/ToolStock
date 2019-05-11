@@ -97,11 +97,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to all stocks page.
+        /// </summary>
+        public static string AllStocksPage {
+            get {
+                return ResourceManager.GetString("AllStocksPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back to main page.
         /// </summary>
         public static string BackToMainPage {
             get {
                 return ResourceManager.GetString("BackToMainPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Changing department.
+        /// </summary>
+        public static string ChangingDepartment {
+            get {
+                return ResourceManager.GetString("ChangingDepartment", resourceCulture);
             }
         }
         
@@ -178,11 +196,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create new stock.
+        /// </summary>
+        public static string CreateNewStock {
+            get {
+                return ResourceManager.GetString("CreateNewStock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create a stock.
         /// </summary>
         public static string CreateStock {
             get {
                 return ResourceManager.GetString("CreateStock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to the create stock page.
+        /// </summary>
+        public static string CreateStockPage {
+            get {
+                return ResourceManager.GetString("CreateStockPage", resourceCulture);
             }
         }
         
@@ -219,6 +255,15 @@ namespace Resources {
         public static string DepartmentCreating {
             get {
                 return ResourceManager.GetString("DepartmentCreating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A department for new stock.
+        /// </summary>
+        public static string DepartmentForNewStock {
+            get {
+                return ResourceManager.GetString("DepartmentForNewStock", resourceCulture);
             }
         }
         
@@ -466,6 +511,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New stock for tools.
+        /// </summary>
+        public static string NewStockForTools {
+            get {
+                return ResourceManager.GetString("NewStockForTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New stock for users.
+        /// </summary>
+        public static string NewStockForUsers {
+            get {
+                return ResourceManager.GetString("NewStockForUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
@@ -498,6 +561,15 @@ namespace Resources {
         public static string ReassigningUsersAndStocksMessage {
             get {
                 return ResourceManager.GetString("ReassigningUsersAndStocksMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reassigning Users and Tools from &lt;strong&gt;the deleting stock&lt;/strong&gt;.
+        /// </summary>
+        public static string ReassigningUsersAndToolssMessage {
+            get {
+                return ResourceManager.GetString("ReassigningUsersAndToolssMessage", resourceCulture);
             }
         }
         
@@ -655,6 +727,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Stock creating.
+        /// </summary>
+        public static string StockCreating {
+            get {
+                return ResourceManager.GetString("StockCreating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stock reassigning.
+        /// </summary>
+        public static string StockReassigning {
+            get {
+                return ResourceManager.GetString("StockReassigning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stocks.
         /// </summary>
         public static string Stocks {
@@ -673,6 +763,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tool amount.
+        /// </summary>
+        public static string ToolAmount {
+            get {
+                return ResourceManager.GetString("ToolAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update.
         /// </summary>
         public static string Update {
@@ -687,6 +786,15 @@ namespace Resources {
         public static string UpdateDepartment {
             get {
                 return ResourceManager.GetString("UpdateDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update stock.
+        /// </summary>
+        public static string UpdateStock {
+            get {
+                return ResourceManager.GetString("UpdateStock", resourceCulture);
             }
         }
         
@@ -736,11 +844,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You didn&apos;t choose any department.
+        /// </summary>
+        public static string YouDidNotChooseDepartment {
+            get {
+                return ResourceManager.GetString("YouDidNotChooseDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You didn&apos;t reassign stocks.
         /// </summary>
         public static string YouDidNotReassignStocks {
             get {
                 return ResourceManager.GetString("YouDidNotReassignStocks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You didn&apos;t reassign tools.
+        /// </summary>
+        public static string YouDidNotReassignTools {
+            get {
+                return ResourceManager.GetString("YouDidNotReassignTools", resourceCulture);
             }
         }
         

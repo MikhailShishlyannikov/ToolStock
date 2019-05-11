@@ -285,6 +285,12 @@
   <data name="AllDepartmentsPage" xml:space="preserve">
     <value>all departments page</value>
   </data>
+  <data name="AllStocksPage" xml:space="preserve">
+    <value>all stocks page</value>
+  </data>
+  <data name="ChangingDepartment" xml:space="preserve">
+    <value>Changing department</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Create</value>
   </data>
@@ -294,11 +300,20 @@
   <data name="CreateNewDepartment" xml:space="preserve">
     <value>Create a new department</value>
   </data>
+  <data name="CreateNewStock" xml:space="preserve">
+    <value>Create new stock</value>
+  </data>
+  <data name="CreateStockPage" xml:space="preserve">
+    <value>the create stock page</value>
+  </data>
   <data name="Deleted" xml:space="preserve">
     <value>Deleted</value>
   </data>
   <data name="DepartmentCreating" xml:space="preserve">
     <value>Department creating</value>
+  </data>
+  <data name="DepartmentForNewStock" xml:space="preserve">
+    <value>A department for new stock</value>
   </data>
   <data name="DepartmentReassigning" xml:space="preserve">
     <value>Department reassigning</value>
@@ -327,8 +342,17 @@
   <data name="NewDepartmentForUsers" xml:space="preserve">
     <value>New department for users</value>
   </data>
+  <data name="NewStockForTools" xml:space="preserve">
+    <value>New stock for tools</value>
+  </data>
+  <data name="NewStockForUsers" xml:space="preserve">
+    <value>New stock for users</value>
+  </data>
   <data name="ReassigningUsersAndStocksMessage" xml:space="preserve">
     <value>Reassigning Users and Stocks from &lt;strong&gt;the deleting department&lt;/strong&gt;</value>
+  </data>
+  <data name="ReassigningUsersAndToolssMessage" xml:space="preserve">
+    <value>Reassigning Users and Tools from &lt;strong&gt;the deleting stock&lt;/strong&gt;</value>
   </data>
   <data name="Restore" xml:space="preserve">
     <value>Restore</value>
@@ -339,14 +363,32 @@
   <data name="StockAmount" xml:space="preserve">
     <value>Stock amount</value>
   </data>
+  <data name="StockCreating" xml:space="preserve">
+    <value>Stock creating</value>
+  </data>
+  <data name="StockReassigning" xml:space="preserve">
+    <value>Stock reassigning</value>
+  </data>
+  <data name="ToolAmount" xml:space="preserve">
+    <value>Tool amount</value>
+  </data>
   <data name="UpdateDepartment" xml:space="preserve">
     <value>Update department</value>
+  </data>
+  <data name="UpdateStock" xml:space="preserve">
+    <value>Update stock</value>
   </data>
   <data name="UserAmount" xml:space="preserve">
     <value>User amount</value>
   </data>
+  <data name="YouDidNotChooseDepartment" xml:space="preserve">
+    <value>You didn't choose any department</value>
+  </data>
   <data name="YouDidNotReassignStocks" xml:space="preserve">
     <value>You didn't reassign stocks</value>
+  </data>
+  <data name="YouDidNotReassignTools" xml:space="preserve">
+    <value>You didn't reassign tools</value>
   </data>
   <data name="YouDidNotReassignUsers" xml:space="preserve">
     <value>You didn't reassign users</value>

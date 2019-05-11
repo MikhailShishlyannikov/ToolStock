@@ -285,6 +285,12 @@
   <data name="AllDepartmentsPage" xml:space="preserve">
     <value>страницу всех отделов</value>
   </data>
+  <data name="AllStocksPage" xml:space="preserve">
+    <value>страницу всех складов</value>
+  </data>
+  <data name="ChangingDepartment" xml:space="preserve">
+    <value>Изменяемый отдел</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Создать</value>
   </data>
@@ -294,11 +300,20 @@
   <data name="CreateNewDepartment" xml:space="preserve">
     <value>Создать новый отдел</value>
   </data>
+  <data name="CreateNewStock" xml:space="preserve">
+    <value>Создать новый склад</value>
+  </data>
+  <data name="CreateStockPage" xml:space="preserve">
+    <value>страницу создания отдела</value>
+  </data>
   <data name="Deleted" xml:space="preserve">
     <value>Удален</value>
   </data>
   <data name="DepartmentCreating" xml:space="preserve">
     <value>Создание отдела</value>
+  </data>
+  <data name="DepartmentForNewStock" xml:space="preserve">
+    <value>Отдел для нового склада</value>
   </data>
   <data name="DepartmentReassigning" xml:space="preserve">
     <value>Переназначение отдела</value>
@@ -327,8 +342,17 @@
   <data name="NewDepartmentForUsers" xml:space="preserve">
     <value>Новый отдел для пользователей</value>
   </data>
+  <data name="NewStockForTools" xml:space="preserve">
+    <value>Новый склад для инструментов</value>
+  </data>
+  <data name="NewStockForUsers" xml:space="preserve">
+    <value>Новый склад для пользователей</value>
+  </data>
   <data name="ReassigningUsersAndStocksMessage" xml:space="preserve">
     <value>Переназначение пользователей и складов в &lt;strong&gt;в удаляемом отделе&lt;/strong&gt;</value>
+  </data>
+  <data name="ReassigningUsersAndToolssMessage" xml:space="preserve">
+    <value>Переназначение пользователей и интсрументов в &lt;strong&gt;удаляемом складе&lt;/strong&gt;</value>
   </data>
   <data name="Restore" xml:space="preserve">
     <value>Восстановить</value>
@@ -339,14 +363,32 @@
   <data name="StockAmount" xml:space="preserve">
     <value>Количество отделов</value>
   </data>
+  <data name="StockCreating" xml:space="preserve">
+    <value>Создание склада</value>
+  </data>
+  <data name="StockReassigning" xml:space="preserve">
+    <value>Переназначение склада</value>
+  </data>
+  <data name="ToolAmount" xml:space="preserve">
+    <value>Количество инструмента</value>
+  </data>
   <data name="UpdateDepartment" xml:space="preserve">
     <value>Обновление отдела</value>
+  </data>
+  <data name="UpdateStock" xml:space="preserve">
+    <value>Обновить склад</value>
   </data>
   <data name="UserAmount" xml:space="preserve">
     <value>Количество пользователей</value>
   </data>
+  <data name="YouDidNotChooseDepartment" xml:space="preserve">
+    <value>Вы не выбали отдел</value>
+  </data>
   <data name="YouDidNotReassignStocks" xml:space="preserve">
     <value>Вы не переназначили склады</value>
+  </data>
+  <data name="YouDidNotReassignTools" xml:space="preserve">
+    <value>Вы не переназначили инструмент</value>
   </data>
   <data name="YouDidNotReassignUsers" xml:space="preserve">
     <value>Вы не переназначили пользователей</value>

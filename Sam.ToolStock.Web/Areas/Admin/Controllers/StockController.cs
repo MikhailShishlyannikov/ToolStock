@@ -23,7 +23,7 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
             departments.Add(new DepartmentViewModel
             {
                 Id = new Guid().ToString(),
-                Name = "Choose a department"
+                Name = Resources.Resource.ChooseDepartment
             });
 
             var stock = new StockViewModel
@@ -40,36 +40,40 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
         {
             if (stockViewModel.DepartmentId == new Guid().ToString())
             {
-                ModelState.AddModelError("DepartmentId", "You didn't choose any department");
+                ModelState.AddModelError("DepartmentId", Resources.Resource.YouDidNotChooseDepartment);
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _stockService.Create(stockViewModel);
-
-                var message = new ModalMessageViewModel
+                var departments = _departmentService.GetAll(false).ToList();
+                departments.Add(new DepartmentViewModel
                 {
-                    Message = $"The Stock \"{stockViewModel.Name}\" was created successfully!",
-                    MessageType = "success",
-                    PageName = "the create Stock page",
-                    Action = "Create",
-                    Controller = "Stock"
-                };
+                    Id = new Guid().ToString(),
+                    Name = Resources.Resource.ChooseDepartment
+                });
 
-                return View("ModalMessage", message);
+                stockViewModel.DepartmentId = new Guid().ToString();
+                stockViewModel.Departments = departments;
+
+                return View(stockViewModel);
             }
 
-            var departments = _departmentService.GetAll(false).ToList();
-            departments.Add(new DepartmentViewModel
+            _stockService.Create(stockViewModel);
+
+            var message = new ModalMessageViewModel
             {
-                Id = new Guid().ToString(),
-                Name = "Choose a department"
-            });
+                Message = string.Format(
+                    Resources.Resource.ModalPageMessageCreate,
+                    Resources.Resource.Stock,
+                    stockViewModel.Name
+                ),
+                MessageType = "success",
+                PageName = @Resources.Resource.CreateStockPage,
+                Action = "Create",
+                Controller = "Stock"
+            };
 
-            stockViewModel.DepartmentId = new Guid().ToString();
-            stockViewModel.Departments = departments;
-
-            return View(stockViewModel);
+            return View("ModalMessage", message);
         }
 
         public ActionResult ShowAll()
@@ -92,30 +96,29 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
         {
             ModalMessageViewModel message;
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _stockService.Update(stockViewModel);
+                var departments = _departmentService.GetAll();
+                stockViewModel.Departments = departments;
 
-                message = new ModalMessageViewModel
-                {
-                    Message = $"The stock \"{stockViewModel.Name}\" was updated successfully!",
-                    MessageType = "success",
-                    PageName = "all stocks page",
-                    Action = "ShowAll",
-                    Controller = "Stock"
-                };
-
-                return View("ModalMessage", message);
+                return View(stockViewModel);
             }
+
+            _stockService.Update(stockViewModel);
 
             message = new ModalMessageViewModel
             {
-                Message = $"The stock \"{stockViewModel.Name}\" wasn't updated!",
-                MessageType = "danger",
-                PageName = "all stocks page",
+                Message = string.Format(
+                    Resources.Resource.ModalPageMessageUpdate,
+                    Resources.Resource.Stock,
+                    stockViewModel.Name
+                ),
+                MessageType = "success",
+                PageName = Resources.Resource.AllStocksPage,
                 Action = "ShowAll",
                 Controller = "Stock"
             };
+
             return View("ModalMessage", message);
         }
 
@@ -130,9 +133,13 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
 
             var message = new ModalMessageViewModel
             {
-                Message = $"The stock \"{stock.Name}\" was deleted successfully!",
+                Message = string.Format(
+                    Resources.Resource.ModalPageMessageDelete,
+                    Resources.Resource.Stock,
+                    stock.Name
+                ),
                 MessageType = "success",
-                PageName = "all stocks page",
+                PageName = Resources.Resource.AllStocksPage,
                 Action = "ShowAll",
                 Controller = "Stock"
             };
@@ -160,11 +167,11 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
         {
             if (reassignViewModel.StockIdForUsers == reassignViewModel.DeletingStockId)
             {
-                ModelState.AddModelError("StockIdForUsers", "You didn't reassign users");
+                ModelState.AddModelError("StockIdForUsers", Resources.Resource.YouDidNotReassignUsers);
             }
             if (reassignViewModel.StockIdForTools == reassignViewModel.DeletingStockId)
             {
-                ModelState.AddModelError("StockIdForTools", "You didn't reassign tools");
+                ModelState.AddModelError("StockIdForTools", Resources.Resource.YouDidNotReassignTools);
             }
 
             if (!ModelState.IsValid)
@@ -196,9 +203,13 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
 
             var message = new ModalMessageViewModel
             {
-                Message = $"The stock \"{stockViewModel.Name}\" was restored successfully!",
+                Message = string.Format(
+                    Resources.Resource.ModalPageMessageRestore,
+                    Resources.Resource.Stock,
+                    stockViewModel.Name
+                ),
                 MessageType = "success",
-                PageName = "all stocks page",
+                PageName = Resources.Resource.AllStocksPage,
                 Action = "ShowAll",
                 Controller = "Stock"
             };

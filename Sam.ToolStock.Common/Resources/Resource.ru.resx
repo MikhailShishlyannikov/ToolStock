@@ -361,7 +361,7 @@
     <value>Найстройки</value>
   </data>
   <data name="StockAmount" xml:space="preserve">
-    <value>Количество отделов</value>
+    <value>Количество складов</value>
   </data>
   <data name="StockCreating" xml:space="preserve">
     <value>Создание склада</value>

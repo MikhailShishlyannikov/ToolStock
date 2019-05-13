@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using FluentValidation.Attributes;
 
 namespace Sam.ToolStock.Model.ViewModels
 {
+    [Validator(typeof(StockReassigningViewModel))]
     public class StockReassigningViewModel
     {
         public string DeletingStockId { get; set; }

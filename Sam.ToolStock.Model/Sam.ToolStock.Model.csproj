@@ -82,6 +82,7 @@
     <Compile Include="Validation\DepartmentViewModelValidator.cs" />
     <Compile Include="Validation\LoginViewModelValidator.cs" />
     <Compile Include="Validation\RegisterViewModelValidator.cs" />
+    <Compile Include="Validation\StockReassigningViewModelValidator.cs" />
     <Compile Include="Validation\StockViewModelValidator.cs" />
     <Compile Include="Validation\UserViewModelValidator.cs" />
     <Compile Include="ViewModels\RoleViewModel.cs" />

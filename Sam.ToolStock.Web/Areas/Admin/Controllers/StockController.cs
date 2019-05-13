@@ -151,6 +151,7 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
         {
             var stocks = _stockService.GetAll(false).ToList();
             var stock = stocks.First(d => d.Id == stockId);
+            stocks = stocks.Where(s => s.Id != stockId).ToList();
 
             var reassignViewModel = new StockReassigningViewModel
             {

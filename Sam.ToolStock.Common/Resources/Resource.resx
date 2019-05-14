@@ -411,4 +411,13 @@
   <data name="ToolTypes" xml:space="preserve">
     <value>Tool types</value>
   </data>
+  <data name="CreateNewToolType" xml:space="preserve">
+    <value>Create a new tool type</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="ToolTypeTable" xml:space="preserve">
+    <value>Tool type table</value>
+  </data>
 </root>

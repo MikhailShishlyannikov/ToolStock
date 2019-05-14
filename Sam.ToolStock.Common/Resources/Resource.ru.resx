@@ -411,4 +411,13 @@
   <data name="ToolTypes" xml:space="preserve">
     <value>Типы инструмента</value>
   </data>
+  <data name="CreateNewToolType" xml:space="preserve">
+    <value>Создать новый тип инструмента</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Переименовать</value>
+  </data>
+  <data name="ToolTypeTable" xml:space="preserve">
+    <value>Таблица типов инструмента</value>
+  </data>
 </root>

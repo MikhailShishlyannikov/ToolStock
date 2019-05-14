@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 using Sam.ToolStock.DataProvider.Interfaces;
 using Sam.ToolStock.DataProvider.Models;
@@ -23,6 +24,11 @@ namespace Sam.ToolStock.Logic.Services
             toolTypeViewModel.Id = Guid.NewGuid().ToString();
             _unitOfWork.ToolTypeRepository.Create(_mapper.Map<ToolTypeModel>(toolTypeViewModel));
             _unitOfWork.Save();
+        }
+
+        public IEnumerable<ToolTypeViewModel> GetAll()
+        {
+            return _mapper.Map<IEnumerable<ToolTypeViewModel>>(_unitOfWork.ToolTypeRepository.GetAll());
         }
 
         public void Dispose()

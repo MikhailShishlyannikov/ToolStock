@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Sam.ToolStock.Model.ViewModels.ToolTypeViewModel>
+
+@{
+    ViewBag.Title = Resources.Resource.AllToolTypes;
+}
+
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header d-flex align-items-center">
+            <strong class="card-title">@Resources.Resource.ToolTypeTable</strong>
+            @Html.ActionLink(@Resources.Resource.CreateNewToolType, "Create", null, new { @class = "btn btn-primary ml-auto" })
+        </div>
+        <div class="table-stats order-table ov-h">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>@Resources.Resource.Name</th>
+                        <th>@Resources.Resource.ToolAmount</th>
+                        <th>@Resources.Resource.Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var toolTypeViewModel in Model)
+                        {
+                            <tr>
+                                <td>@toolTypeViewModel.Id</td>
+                                <td>
+                                    <span class="name">@toolTypeViewModel.Name</span>
+                                </td>
+                                <td>
+                                    <span class="count">@toolTypeViewModel.Tools.Count()</span>
+                                </td>
+                                <td>
+                                    @Html.ActionLink(@Resources.Resource.Rename, "Rename", new { departmentId = toolTypeViewModel.Id }, new { @class = "btn btn-success col-10 ml-auto" })
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div> <!-- /.table-stats -->
+    </div>
+</div>

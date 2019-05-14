@@ -214,6 +214,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create a new tool type.
+        /// </summary>
+        public static string CreateNewToolType {
+            get {
+                return ResourceManager.GetString("CreateNewToolType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create a stock.
         /// </summary>
         public static string CreateStock {
@@ -673,6 +682,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rename.
+        /// </summary>
+        public static string Rename {
+            get {
+                return ResourceManager.GetString("Rename", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reset.
         /// </summary>
         public static string Reset {
@@ -822,6 +840,15 @@ namespace Resources {
         public static string ToolTypes {
             get {
                 return ResourceManager.GetString("ToolTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool type table.
+        /// </summary>
+        public static string ToolTypeTable {
+            get {
+                return ResourceManager.GetString("ToolTypeTable", resourceCulture);
             }
         }
         

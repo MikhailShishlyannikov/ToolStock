@@ -41,5 +41,11 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
 
             return View("ModalMessage", message);
         }
+
+        public ActionResult ShowAll()
+        {
+            var ttvms = _toolTypeService.GetAll();
+            return View(ttvms);
+        }
     }
 }

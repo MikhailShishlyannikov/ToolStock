@@ -1,4 +1,3 @@
-using Sam.ToolStock.DataProvider.Contexts;
 using Sam.ToolStock.DataProvider.Initializers;
 
 namespace Sam.ToolStock.DataProvider.Migrations

@@ -13,7 +13,7 @@ namespace Sam.ToolStock.DataProvider.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201904231730084_Seeding"; }
+            get { return "201905140026257_Seeding"; }
         }
         
         string IMigrationMetadata.Source

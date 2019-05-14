@@ -23,7 +23,7 @@ namespace Sam.ToolStock.DataProvider.Initializers
                 new ToolTypeModel {Id = Guid.NewGuid().ToString(), Name = "T-shape solid end mills"},
                 new ToolTypeModel {Id = Guid.NewGuid().ToString(), Name = "High precision collet chucks"},
                 new ToolTypeModel {Id = Guid.NewGuid().ToString(), Name = "Hydraulic chucks"},
-                new ToolTypeModel {Id = Guid.NewGuid().ToString(), Name = "Universal drill chucks "},
+                new ToolTypeModel {Id = Guid.NewGuid().ToString(), Name = "Universal drill chucks"},
                 new ToolTypeModel {Id = Guid.NewGuid().ToString(), Name = "Drills"}
             };
 

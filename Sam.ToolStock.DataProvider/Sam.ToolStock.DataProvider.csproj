@@ -82,14 +82,15 @@
     <Compile Include="Initializers\StockInitializer.cs" />
     <Compile Include="Initializers\AdminInitializer.cs" />
     <Compile Include="Initializers\StockKeeperInitializer.cs" />
+    <Compile Include="Initializers\ToolInitializer.cs" />
     <Compile Include="Initializers\ToolTypeInitializer.cs" />
     <Compile Include="Initializers\UserInitializer.cs" />
     <Compile Include="InjectorModule.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
-    <Compile Include="Migrations\201905140026257_Seeding.cs" />
-    <Compile Include="Migrations\201905140026257_Seeding.Designer.cs">
-      <DependentUpon>201905140026257_Seeding.cs</DependentUpon>
+    <Compile Include="Migrations\201905141434589_Seeding.cs" />
+    <Compile Include="Migrations\201905141434589_Seeding.Designer.cs">
+      <DependentUpon>201905141434589_Seeding.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelConfigurations\DepartmentConfiguration.cs" />
@@ -123,8 +124,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905140026257_Seeding.resx">
-      <DependentUpon>201905140026257_Seeding.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905141434589_Seeding.resx">
+      <DependentUpon>201905141434589_Seeding.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

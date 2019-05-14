@@ -17,7 +17,6 @@ namespace Sam.ToolStock.DataProvider.Initializers
             Randomizer.Seed = new Random(836662135);
 
             var departments = toolContext.Departments.ToList();
-            var strocks = toolContext.Stocks.ToList();
 
             var testUser = new Faker<UserModel>("en")
                 .StrictMode(false)

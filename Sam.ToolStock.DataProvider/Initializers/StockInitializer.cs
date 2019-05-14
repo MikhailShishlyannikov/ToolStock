@@ -31,6 +31,12 @@ namespace Sam.ToolStock.DataProvider.Initializers
                     Id = Guid.NewGuid().ToString(),
                     Name = "Tool Stock N4",
                     Department = toolContext.Departments.First(t=>t.Name == "The workshop N4")
+                },
+                new StockModel()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = "Central tool stock",
+                    Department = toolContext.Departments.First(t=>t.Name == "The tool-die management")
                 }
             };
 

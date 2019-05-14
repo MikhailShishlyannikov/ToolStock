@@ -241,6 +241,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to the create tool type page.
+        /// </summary>
+        public static string CreateToolTypePage {
+            get {
+                return ResourceManager.GetString("CreateToolTypePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete {
@@ -786,6 +795,33 @@ namespace Resources {
         public static string ToolAmount {
             get {
                 return ResourceManager.GetString("ToolAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool type.
+        /// </summary>
+        public static string ToolType {
+            get {
+                return ResourceManager.GetString("ToolType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool type creating.
+        /// </summary>
+        public static string ToolTypeCreating {
+            get {
+                return ResourceManager.GetString("ToolTypeCreating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool types.
+        /// </summary>
+        public static string ToolTypes {
+            get {
+                return ResourceManager.GetString("ToolTypes", resourceCulture);
             }
         }
         

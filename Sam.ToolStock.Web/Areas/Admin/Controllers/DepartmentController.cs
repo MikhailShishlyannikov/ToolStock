@@ -22,15 +22,13 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(DepartmentViewModel departmentViewModel)
         {
-            ModalMessageViewModel message;
-
             if (!ModelState.IsValid)
             {
                 return View(departmentViewModel);
             }
             _departmentService.Create(departmentViewModel);
 
-            message = new ModalMessageViewModel
+            var message = new ModalMessageViewModel
             {
                 Message = string.Format(
                     Resources.Resource.ModalPageMessageCreate,

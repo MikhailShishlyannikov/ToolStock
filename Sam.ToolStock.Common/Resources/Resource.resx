@@ -399,4 +399,16 @@
   <data name="CreateToolType" xml:space="preserve">
     <value>Create a tool type</value>
   </data>
+  <data name="CreateToolTypePage" xml:space="preserve">
+    <value>the create tool type page</value>
+  </data>
+  <data name="ToolType" xml:space="preserve">
+    <value>Tool type</value>
+  </data>
+  <data name="ToolTypeCreating" xml:space="preserve">
+    <value>Tool type creating</value>
+  </data>
+  <data name="ToolTypes" xml:space="preserve">
+    <value>Tool types</value>
+  </data>
 </root>

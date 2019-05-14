@@ -399,4 +399,16 @@
   <data name="CreateToolType" xml:space="preserve">
     <value>Создать тип инструмента</value>
   </data>
+  <data name="CreateToolTypePage" xml:space="preserve">
+    <value>страницу создания типа инструмента</value>
+  </data>
+  <data name="ToolType" xml:space="preserve">
+    <value>Тип инструмента</value>
+  </data>
+  <data name="ToolTypeCreating" xml:space="preserve">
+    <value>Создание типа инструмента</value>
+  </data>
+  <data name="ToolTypes" xml:space="preserve">
+    <value>Типы инструмента</value>
+  </data>
 </root>

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Sam.ToolStock.Common;
 
 namespace Sam.ToolStock.DataProvider.Models

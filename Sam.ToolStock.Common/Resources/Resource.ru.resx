@@ -393,4 +393,10 @@
   <data name="YouDidNotReassignUsers" xml:space="preserve">
     <value>Вы не переназначили пользователей</value>
   </data>
+  <data name="AllToolTypes" xml:space="preserve">
+    <value>Все типы инструментов</value>
+  </data>
+  <data name="CreateToolType" xml:space="preserve">
+    <value>Создать тип инструмента</value>
+  </data>
 </root>

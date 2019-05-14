@@ -393,4 +393,10 @@
   <data name="YouDidNotReassignUsers" xml:space="preserve">
     <value>You didn't reassign users</value>
   </data>
+  <data name="AllToolTypes" xml:space="preserve">
+    <value>All tool types</value>
+  </data>
+  <data name="CreateToolType" xml:space="preserve">
+    <value>Create a tool type</value>
+  </data>
 </root>

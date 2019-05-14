@@ -106,6 +106,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All tool types.
+        /// </summary>
+        public static string AllToolTypes {
+            get {
+                return ResourceManager.GetString("AllToolTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back to main page.
         /// </summary>
         public static string BackToMainPage {
@@ -219,6 +228,15 @@ namespace Resources {
         public static string CreateStockPage {
             get {
                 return ResourceManager.GetString("CreateStockPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a tool type.
+        /// </summary>
+        public static string CreateToolType {
+            get {
+                return ResourceManager.GetString("CreateToolType", resourceCulture);
             }
         }
         

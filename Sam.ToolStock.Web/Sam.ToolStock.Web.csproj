@@ -222,6 +222,7 @@
     <Compile Include="Areas\Admin\Controllers\DepartmentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\StockController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ToolTypeController.cs" />
     <Compile Include="Areas\Keepers\KeepersAreaRegistration.cs" />
     <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
     <Compile Include="Attributes\MultipleButtonAttribute.cs" />
@@ -444,6 +445,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Account\" />
+    <Folder Include="Areas\Admin\Views\ToolType\" />
     <Folder Include="Areas\Keepers\Controllers\" />
     <Folder Include="Areas\Keepers\Models\" />
     <Folder Include="Areas\Keepers\Views\Shared\" />

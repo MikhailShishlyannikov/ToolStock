@@ -24,6 +24,7 @@ namespace Sam.ToolStock.DataProvider.Migrations
             AdminInitializer.Initialize(context);
             StockKeeperInitializer.Initialize(context);
             UserInitializer.Initialize(context);
+            ToolTypeInitializer.Initialize(context);
             context.SaveChanges();
         }
     }

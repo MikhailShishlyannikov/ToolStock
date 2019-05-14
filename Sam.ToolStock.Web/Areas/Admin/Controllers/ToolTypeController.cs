@@ -47,5 +47,37 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
             var ttvms = _toolTypeService.GetAll();
             return View(ttvms);
         }
+
+        public ActionResult Rename(string toolTypeId)
+        {
+            var toolTypeViewModel = _toolTypeService.Get(toolTypeId);
+
+            return View(toolTypeViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Rename(ToolTypeViewModel toolTypeViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(toolTypeViewModel);
+            }
+
+            _toolTypeService.Update(toolTypeViewModel);
+
+            var message = new ModalMessageViewModel
+            {
+                Message = string.Format(
+                    Resources.Resource.ModalPageMessageUpdate,
+                    Resources.Resource.ToolType,
+                    toolTypeViewModel.Name),
+                MessageType = "success",
+                PageName = Resources.Resource.AllToolTypePage,
+                Action = "ShowAll",
+                Controller = "ToolType"
+            };
+
+            return View("ModalMessage", message);
+        }
     }
 }

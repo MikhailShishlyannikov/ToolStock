@@ -9,5 +9,9 @@ namespace Sam.ToolStock.Logic.Interfaces
         void Create(ToolTypeViewModel toolTypeViewModel);
 
         IEnumerable<ToolTypeViewModel> GetAll();
+
+        ToolTypeViewModel Get(string id);
+
+        void Update(ToolTypeViewModel toolTypeViewModel);
     }
 }

@@ -94,8 +94,6 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Update(StockViewModel stockViewModel)
         {
-            ModalMessageViewModel message;
-
             if (!ModelState.IsValid)
             {
                 var departments = _departmentService.GetAll();
@@ -106,7 +104,7 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
 
             _stockService.Update(stockViewModel);
 
-            message = new ModalMessageViewModel
+            var message = new ModalMessageViewModel
             {
                 Message = string.Format(
                     Resources.Resource.ModalPageMessageUpdate,

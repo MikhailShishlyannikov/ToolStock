@@ -58,8 +58,6 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Update(DepartmentViewModel departmentViewModel)
         {
-            ModalMessageViewModel message;
-
             if (!ModelState.IsValid)
             {
                 return View(departmentViewModel);
@@ -67,14 +65,14 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
 
             _departmentService.Update(departmentViewModel);
 
-            message = new ModalMessageViewModel
+            var message = new ModalMessageViewModel
             {
                 Message = string.Format(
                     Resources.Resource.ModalPageMessageUpdate,
                     Resources.Resource.Department,
                     departmentViewModel.Name),
                 MessageType = "success",
-                PageName = Resources.Resource.CreateDepartmentPage,
+                PageName = Resources.Resource.AllDepartmentsPage,
                 Action = "ShowAll",
                 Controller = "Department"
             };
@@ -97,7 +95,7 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
                     Resources.Resource.Department,
                     department.Name),
                 MessageType = "success",
-                PageName = @Resources.Resource.AllDepartmentsPage,
+                PageName = Resources.Resource.AllDepartmentsPage,
                 Action = "ShowAll",
                 Controller = "Department"
             };

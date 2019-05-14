@@ -420,4 +420,10 @@
   <data name="ToolTypeTable" xml:space="preserve">
     <value>Tool type table</value>
   </data>
+  <data name="AllToolTypePage" xml:space="preserve">
+    <value>the all tool types page</value>
+  </data>
+  <data name="RenameToolType" xml:space="preserve">
+    <value>Rename tool type</value>
+  </data>
 </root>

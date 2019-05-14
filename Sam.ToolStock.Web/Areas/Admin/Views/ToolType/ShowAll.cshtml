@@ -33,7 +33,7 @@
                                     <span class="count">@toolTypeViewModel.Tools.Count()</span>
                                 </td>
                                 <td>
-                                    @Html.ActionLink(@Resources.Resource.Rename, "Rename", new { departmentId = toolTypeViewModel.Id }, new { @class = "btn btn-success col-10 ml-auto" })
+                                    @Html.ActionLink(@Resources.Resource.Rename, "Rename", new { toolTypeId = toolTypeViewModel.Id }, new { @class = "btn btn-success col-10 ml-auto" })
                                 </td>
                             </tr>
                         }

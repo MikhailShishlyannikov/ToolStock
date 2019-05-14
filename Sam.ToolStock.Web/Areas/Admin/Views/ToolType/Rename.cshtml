@@ -1,0 +1,42 @@
+﻿@model Sam.ToolStock.Model.ViewModels.ToolTypeViewModel
+
+@{
+    ViewBag.Title = @Resources.Resource.RenameToolType;
+}
+
+<div class="card col-12">
+    <div class="card-header">
+        @Resources.Resource.Rename <strong>@Resources.Resource.ToolType</strong>
+    </div>
+    <div class="card-body card-block">
+        @using (Html.BeginForm("Rename", "ToolType", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <div class="row form-group">
+                <div class="col col-sm-1">
+                    @Html.LabelFor(m => m.Id, new { @class = "form-control-lable" })
+                </div>
+                <div class="col col-sm-11">
+                    @Html.TextBoxFor(m => m.Id, new
+                    {
+                        @class = "form-control",
+                        placeholder = @Resources.Resource.Disabled,
+                        disabled = true
+                    })
+                </div>
+            </div>
+            @Html.HiddenFor(m => m.Id)
+            <div class="row form-group">
+                <div class="col col-sm-1">
+                    @Html.LabelFor(m => m.Name, new { @class = "form-control-label" })
+                </div>
+                <div class="col col-sm-11">
+                    @Html.ValidationMessageFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = @Resources.Resource.Name })
+                </div>
+            </div>
+            <div class="form-actions form-group">
+                <input type="submit" value=@Resources.Resource.Rename name="Rename" class="btn btn-success">
+            </div>
+        }
+    </div>
+</div>

@@ -420,4 +420,10 @@
   <data name="ToolTypeTable" xml:space="preserve">
     <value>Таблица типов инструмента</value>
   </data>
+  <data name="AllToolTypePage" xml:space="preserve">
+    <value>страницу всех типов инструмента</value>
+  </data>
+  <data name="RenameToolType" xml:space="preserve">
+    <value>Переименовать тип инструмента</value>
+  </data>
 </root>

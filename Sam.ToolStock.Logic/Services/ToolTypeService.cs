@@ -31,6 +31,20 @@ namespace Sam.ToolStock.Logic.Services
             return _mapper.Map<IEnumerable<ToolTypeViewModel>>(_unitOfWork.ToolTypeRepository.GetAll());
         }
 
+        public ToolTypeViewModel Get(string id)
+        {
+            return _mapper.Map<ToolTypeViewModel>(_unitOfWork.ToolTypeRepository.GetById(id));
+        }
+
+        public void Update(ToolTypeViewModel toolTypeViewModel)
+        {
+            var toolTypeModel = _unitOfWork.ToolTypeRepository.GetById(toolTypeViewModel.Id);
+            _mapper.Map(toolTypeViewModel, toolTypeModel);
+
+            _unitOfWork.ToolTypeRepository.Update(toolTypeModel);
+            _unitOfWork.Save();
+        }
+
         public void Dispose()
         {
             throw new System.NotImplementedException();

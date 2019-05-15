@@ -426,4 +426,46 @@
   <data name="RenameToolType" xml:space="preserve">
     <value>Rename tool type</value>
   </data>
+  <data name="AllTools" xml:space="preserve">
+    <value>All tools</value>
+  </data>
+  <data name="CreateTools" xml:space="preserve">
+    <value>Create tools</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Manufacturer" xml:space="preserve">
+    <value>Manufacturer</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="CreateTool" xml:space="preserve">
+    <value>Create a tool</value>
+  </data>
+  <data name="Tool" xml:space="preserve">
+    <value>Tool</value>
+  </data>
+  <data name="ChooseToolType" xml:space="preserve">
+    <value>Choose a tool type</value>
+  </data>
+  <data name="ChooseUser" xml:space="preserve">
+    <value>Choose user</value>
+  </data>
+  <data name="CreateToolPage" xml:space="preserve">
+    <value>the create tool page</value>
+  </data>
+  <data name="YouDidNotChooseStock" xml:space="preserve">
+    <value>You didn't choose any stock</value>
+  </data>
+  <data name="YouDidNotChooseToolType" xml:space="preserve">
+    <value>You didn't choose any tool type</value>
+  </data>
 </root>

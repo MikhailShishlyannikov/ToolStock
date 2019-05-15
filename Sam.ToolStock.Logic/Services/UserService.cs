@@ -51,6 +51,19 @@ namespace Sam.ToolStock.Logic.Services
             return _userManager.AddToRole(userId, roleName);
         }
 
+        public IEnumerable<UserViewModel> GetAll()
+        {
+            return _mapper.Map<IEnumerable<UserViewModel>>(_unitOfWork.UserInfoRepository.GetAll());
+        }
+
+        public IEnumerable<UserViewModel> GetAll(bool showDeleted)
+        {
+            if (showDeleted) return GetAll();
+
+            return _mapper.Map<IEnumerable<UserViewModel>>(_unitOfWork.UserInfoRepository.GetAll()
+                .Where(ui => ui.IsDeleted == false));
+        }
+
         public UserViewModel GetUser(LoginViewModel loginViewModel)
         {
             return _mapper.Map<UserViewModel>(_userManager.Find(loginViewModel.Email, loginViewModel.Password));

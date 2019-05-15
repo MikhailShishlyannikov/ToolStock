@@ -222,6 +222,7 @@
     <Compile Include="Areas\Admin\Controllers\DepartmentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\StockController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ToolController.cs" />
     <Compile Include="Areas\Admin\Controllers\ToolTypeController.cs" />
     <Compile Include="Areas\Keepers\KeepersAreaRegistration.cs" />
     <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
@@ -341,6 +342,7 @@
     <Content Include="Areas\Admin\Views\ToolType\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ToolType\ShowAll.cshtml" />
     <Content Include="Areas\Admin\Views\ToolType\Rename.cshtml" />
+    <Content Include="Areas\Admin\Views\Tool\Create.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\fullcalendar-init.js" />
     <Content Include="Scripts\fullcalendar.js" />

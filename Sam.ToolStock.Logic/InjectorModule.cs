@@ -37,6 +37,7 @@ namespace Sam.ToolStock.Logic
             Bind<IRoleService>().To<RoleService>();
             Bind<IStockService>().To<StockService>();
             Bind<IToolTypeService>().To<ToolTypeService>();
+            Bind<IToolService>().To<ToolService>();
         }
     }
 }

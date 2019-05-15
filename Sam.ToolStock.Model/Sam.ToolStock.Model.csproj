@@ -84,11 +84,14 @@
     <Compile Include="Validation\RegisterViewModelValidator.cs" />
     <Compile Include="Validation\StockReassigningViewModelValidator.cs" />
     <Compile Include="Validation\StockViewModelValidator.cs" />
+    <Compile Include="Validation\ToolLogViewModelValidator.cs" />
     <Compile Include="Validation\ToolTypeViewModelValidator.cs" />
+    <Compile Include="Validation\ToolViewModelValidator.cs" />
     <Compile Include="Validation\UserViewModelValidator.cs" />
     <Compile Include="ViewModels\RoleViewModel.cs" />
     <Compile Include="ViewModels\StockReassigningViewModel.cs" />
     <Compile Include="ViewModels\StockViewModel.cs" />
+    <Compile Include="ViewModels\ToolLogViewModel.cs" />
     <Compile Include="ViewModels\ToolTypeViewModel.cs" />
     <Compile Include="ViewModels\ToolViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />

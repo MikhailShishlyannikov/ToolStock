@@ -14,6 +14,10 @@ namespace Sam.ToolStock.Logic.Interfaces
 
         IdentityResult AddToUserRole(RegisterViewModel registerViewModel);
 
+        IEnumerable<UserViewModel> GetAll();
+
+        IEnumerable<UserViewModel> GetAll(bool showDeleted);
+
         UserViewModel GetUser(LoginViewModel loginViewModel);
 
         UserViewModel GetUser(string userId);

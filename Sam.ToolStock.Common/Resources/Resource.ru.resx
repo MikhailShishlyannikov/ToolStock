@@ -426,4 +426,46 @@
   <data name="RenameToolType" xml:space="preserve">
     <value>Переименовать тип инструмента</value>
   </data>
+  <data name="AllTools" xml:space="preserve">
+    <value>Все инструменты</value>
+  </data>
+  <data name="CreateTools" xml:space="preserve">
+    <value>Создать инструменты</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Интрументы</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="Manufacturer" xml:space="preserve">
+    <value>Производитель</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Количество</value>
+  </data>
+  <data name="CreateTool" xml:space="preserve">
+    <value>Создать инструмент</value>
+  </data>
+  <data name="Tool" xml:space="preserve">
+    <value>Инструмент</value>
+  </data>
+  <data name="ChooseToolType" xml:space="preserve">
+    <value>Выберите тип инструмента</value>
+  </data>
+  <data name="ChooseUser" xml:space="preserve">
+    <value>Выберите пользователя</value>
+  </data>
+  <data name="CreateToolPage" xml:space="preserve">
+    <value>страницу создания инструмента</value>
+  </data>
+  <data name="YouDidNotChooseStock" xml:space="preserve">
+    <value>Вы не выбрали склад</value>
+  </data>
+  <data name="YouDidNotChooseToolType" xml:space="preserve">
+    <value>Вы не выбрали тип инструмента</value>
+  </data>
 </root>

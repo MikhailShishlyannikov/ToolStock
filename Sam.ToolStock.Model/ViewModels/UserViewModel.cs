@@ -18,6 +18,8 @@ namespace Sam.ToolStock.Model.ViewModels
         [Display(Name = "Surname", ResourceType = typeof(Resources.Resource))]
         public string Surname { get; set; }
 
+        public string FullName => Patronymic == null ? $"{Name} {Surname}" : $"{Name} {Patronymic} {Surname}";
+
         [Display(Name = "Phone", ResourceType = typeof(Resources.Resource))]
         public string Phone { get; set; }
 

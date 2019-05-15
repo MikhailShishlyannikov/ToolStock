@@ -106,6 +106,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All tools.
+        /// </summary>
+        public static string AllTools {
+            get {
+                return ResourceManager.GetString("AllTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to the all tool types page.
         /// </summary>
         public static string AllToolTypePage {
@@ -120,6 +129,15 @@ namespace Resources {
         public static string AllToolTypes {
             get {
                 return ResourceManager.GetString("AllToolTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Amount.
+        /// </summary>
+        public static string Amount {
+            get {
+                return ResourceManager.GetString("Amount", resourceCulture);
             }
         }
         
@@ -165,6 +183,24 @@ namespace Resources {
         public static string ChooseStock {
             get {
                 return ResourceManager.GetString("ChooseStock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose a tool type.
+        /// </summary>
+        public static string ChooseToolType {
+            get {
+                return ResourceManager.GetString("ChooseToolType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose user.
+        /// </summary>
+        public static string ChooseUser {
+            get {
+                return ResourceManager.GetString("ChooseUser", resourceCulture);
             }
         }
         
@@ -250,6 +286,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create a tool.
+        /// </summary>
+        public static string CreateTool {
+            get {
+                return ResourceManager.GetString("CreateTool", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to the create tool page.
+        /// </summary>
+        public static string CreateToolPage {
+            get {
+                return ResourceManager.GetString("CreateToolPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create tools.
+        /// </summary>
+        public static string CreateTools {
+            get {
+                return ResourceManager.GetString("CreateTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create a tool type.
         /// </summary>
         public static string CreateToolType {
@@ -264,6 +327,15 @@ namespace Resources {
         public static string CreateToolTypePage {
             get {
                 return ResourceManager.GetString("CreateToolTypePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        public static string Date {
+            get {
+                return ResourceManager.GetString("Date", resourceCulture);
             }
         }
         
@@ -471,6 +543,15 @@ namespace Resources {
         public static string Logout {
             get {
                 return ResourceManager.GetString("Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manufacturer.
+        /// </summary>
+        public static string Manufacturer {
+            get {
+                return ResourceManager.GetString("Manufacturer", resourceCulture);
             }
         }
         
@@ -772,6 +853,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stock.
         /// </summary>
         public static string Stock {
@@ -826,11 +916,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tool.
+        /// </summary>
+        public static string Tool {
+            get {
+                return ResourceManager.GetString("Tool", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tool amount.
         /// </summary>
         public static string ToolAmount {
             get {
                 return ResourceManager.GetString("ToolAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tools.
+        /// </summary>
+        public static string Tools {
+            get {
+                return ResourceManager.GetString("Tools", resourceCulture);
             }
         }
         
@@ -948,6 +1056,24 @@ namespace Resources {
         public static string YouDidNotChooseDepartment {
             get {
                 return ResourceManager.GetString("YouDidNotChooseDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You didn&apos;t choose any stock.
+        /// </summary>
+        public static string YouDidNotChooseStock {
+            get {
+                return ResourceManager.GetString("YouDidNotChooseStock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You didn&apos;t choose any tool type.
+        /// </summary>
+        public static string YouDidNotChooseToolType {
+            get {
+                return ResourceManager.GetString("YouDidNotChooseToolType", resourceCulture);
             }
         }
         

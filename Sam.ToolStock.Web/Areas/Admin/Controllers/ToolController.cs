@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Sam.ToolStock.Logic.Interfaces;
@@ -110,11 +111,20 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
             return View("ModalMessage", message);
         }
 
-        public ActionResult ShowAll()
+        public ActionResult ShowAll(int page = 1, int pageSize = 6)
         {
-            var tools = _toolService.GetAllToolCounts();
 
-            return View(tools);
+            var tools = _toolService.GetAllToolCounts().ToList();
+            var toolsPerPages = tools.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            var paginationViewModel = new PaginationViewModel
+            {
+                PageNumber = page,
+                PageSize = pageSize,
+                TotalItems = tools.Count(),
+                ToolCountViewModels = toolsPerPages
+            };
+
+            return View(paginationViewModel);
         }
     }
 }

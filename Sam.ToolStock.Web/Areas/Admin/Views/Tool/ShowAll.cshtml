@@ -1,6 +1,5 @@
-﻿@using System.Threading
-@using Sam.ToolStock.Common
-@model IEnumerable<Sam.ToolStock.Model.ViewModels.ToolCountViewModel>
+﻿@using Sam.ToolStock.Common
+@model Sam.ToolStock.Model.ViewModels.PaginationViewModel
 
 @{
     ViewBag.Title = Resources.Resource.AllTools;
@@ -15,7 +14,7 @@
             @Html.ActionLink(@Resources.Resource.CreateNewTool, "Create", null, new { @class = "btn btn-primary ml-auto" })
         </div>
         <div class="accordion" id="accordionExample275">
-            @foreach (var tool in Model)
+            @foreach (var tool in Model.ToolCountViewModels)
             {
                 var headingId = "h" + counter;
                 var collapseId = "c" + counter++;
@@ -99,32 +98,32 @@
                                             var id = $"list-stock{counter}{counter2}";
                                             var ariaLabelledby = $"list-stock{counter}{counter2}-list";
 
-                                        <div class="tab-pane fade @show @active" id=@id role="tabpanel" aria-labelledby=@ariaLabelledby>
-                                            <div class="row alert-warning border">
-                                                <div class="col-4">
-                                                    <strong>@Resources.Resource.InTheStock: </strong> <span class="badge badge-warning">@stock.InStock</span>
+                                            <div class="tab-pane fade @show @active" id=@id role="tabpanel" aria-labelledby=@ariaLabelledby>
+                                                <div class="row alert-warning border">
+                                                    <div class="col-4">
+                                                        <strong>@Resources.Resource.InTheStock: </strong> <span class="badge badge-warning">@stock.InStock</span>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <strong>@Resources.Resource.UnderRepair: </strong> <span class="badge badge-warning">@stock.UnderRepair</span>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <strong>@Resources.Resource.WrittenOff: </strong> <span class="badge badge-warning">@stock.WrittenOff</span>
+                                                    </div>
                                                 </div>
-                                                <div class="col-4">
-                                                    <strong>@Resources.Resource.UnderRepair: </strong> <span class="badge badge-warning">@stock.UnderRepair</span>
-                                                </div>
-                                                <div class="col-4">
-                                                    <strong>@Resources.Resource.WrittenOff: </strong> <span class="badge badge-warning">@stock.WrittenOff</span>
+                                                <div class="row alert-success border">
+                                                    <div class="col-4 text-right">
+                                                        <strong>@Resources.Resource.IssuedToUser: </strong> <span class="badge badge-warning">@stock.IssuedToUser</span>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <ul>
+                                                            @foreach (var user in stock.Users)
+                                                            {
+                                                                <li>@user.FullName<span class="badge badge-warning">@user.Count</span></li> 
+                                                            }
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="row alert-success border">
-                                                <div class="col-4 text-right">
-                                                    <strong>@Resources.Resource.IssuedToUser: </strong> <span class="badge badge-warning">@stock.IssuedToUser</span>
-                                                </div>
-                                                <div class="col-4">
-                                                    <ul>
-                                                        @foreach (var user in stock.Users)
-                                                        {
-                                                        <li>@user.FullName<span class="badge badge-warning">@user.Count</span></li> 
-                                                        }
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
                                             counter2++;
                                             active = "";
                                             show = "";
@@ -137,5 +136,71 @@
                 </div>
             }
         </div>
+        <nav aria-label="Page navigation example">
+            <div class="row">
+                <div class="col-9">
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">@Resources.Resource.AmountOfElements:</a>
+                            <span></span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href=@Url.Action("ShowAll", new {page = Model.PageNumber, pageSize = 6})>6</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=@Url.Action("ShowAll", new {page = Model.PageNumber, pageSize = 10})>10</a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href=@Url.Action("ShowAll", new {page = Model.PageNumber, pageSize = 15})>15</a>
+                    </li>
+                    </ul>
+                </div>
+                <div class="col-3">
+                    <ul class="pagination justify-content-end">
+                        @{
+                            if (Model.PageNumber == 1)
+                            {
+                                <li class="page-item disabled">
+                                    <span class="page-link">@Resources.Resource.Previous</span>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="page-item">
+                                    <a class="page-link" href=@Url.Action("ShowAll", new {page = Model.PageNumber - 1})>@Resources.Resource.Previous</a>
+                                </li>
+                            }
+                            for (var i = 1; i <= Model.TotalPages; i++)
+                            {
+                                if (i == Model.PageNumber)
+                                {
+                                    <li class="page-item active" aria-current="page">
+                                        <span class="page-link">
+                                            @i<span class="sr-only">(current)</span>
+                                        </span>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="page-item"><a class="page-link" href=@Url.Action("ShowAll", new {page = i})>@i</a></li>
+                                }
+                            }
+                            if (Model.PageNumber == Model.TotalPages)
+                            {
+                                <li class="page-item disabled">
+                                    <span class="page-link">@Resources.Resource.Next</span>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="page-item">
+                                    <a class="page-link" href=@Url.Action("ShowAll", new {page = Model.PageNumber + 1})>@Resources.Resource.Next</a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
 </div>

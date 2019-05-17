@@ -483,4 +483,13 @@
   <data name="WrittenOff" xml:space="preserve">
     <value>Written Off</value>
   </data>
+  <data name="AmountOfElements" xml:space="preserve">
+    <value>Amount of elements</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Previous</value>
+  </data>
 </root>

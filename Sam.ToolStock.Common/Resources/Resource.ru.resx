@@ -483,4 +483,13 @@
   <data name="WrittenOff" xml:space="preserve">
     <value>Списан</value>
   </data>
+  <data name="AmountOfElements" xml:space="preserve">
+    <value>Количество элементов</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Следующая</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Предыдущая</value>
+  </data>
 </root>

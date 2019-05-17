@@ -110,9 +110,11 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
             return View("ModalMessage", message);
         }
 
-        //public ActionResult ShowAll()
-        //{
+        public ActionResult ShowAll()
+        {
+            var tools = _toolService.GetAllToolCounts();
 
-        //}
+            return View(tools);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 using Sam.ToolStock.DataProvider.Interfaces;
 using Sam.ToolStock.DataProvider.Models;
@@ -24,6 +25,7 @@ namespace Sam.ToolStock.Logic.Services
             for (var i = 0; i < toolViewModel.Amount; i++)
             {
                 toolViewModel.Id = Guid.NewGuid().ToString();
+                if (toolViewModel.UserId == new Guid().ToString()) toolViewModel.UserId = null;
                 toolViewModel.ToolLogs = new List<ToolLogViewModel>();
 
                 var toolLog = new ToolLogViewModel
@@ -33,7 +35,7 @@ namespace Sam.ToolStock.Logic.Services
                     Status = toolViewModel.Status,
                     StockId = toolViewModel.StockId,
                     ToolId = toolViewModel.Id,
-                    UserId = toolViewModel.UserId
+                    UserId = toolViewModel?.UserId
                 };
                 toolViewModel.ToolLogs.Add(toolLog);
 
@@ -41,6 +43,27 @@ namespace Sam.ToolStock.Logic.Services
             }
 
             _unitOfWork.Save();
+        }
+
+        public IEnumerable<ToolViewModel> GetAll(bool showDeleted)
+        {
+            return _mapper.Map<IEnumerable<ToolViewModel>>(_unitOfWork.ToolRepository.GetAll());
+        }
+
+        public IEnumerable<ToolCountViewModel> GetAllToolCounts()
+        {
+            var toolModels = _unitOfWork.ToolRepository.GetAll();
+            var toolCounts = toolModels.GroupBy(t => t.Name)
+                .Select(tc => new ToolCountViewModel
+                {
+                    Count = tc.Count(),
+                    Name = tc.Key,
+                    Manufacturer = tc.First().Manufacturer,
+                    ToolTypeName = tc.FirstOrDefault().ToolType.Name,
+                    Tools = _mapper.Map<IEnumerable<ToolViewModel>>(tc.Where(t => t.Name == tc.Key))
+                }).ToList();
+
+            return toolCounts;
         }
 
         public void Dispose()

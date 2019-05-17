@@ -22,12 +22,15 @@ namespace Sam.ToolStock.Model.ViewModels
         public virtual ICollection<ToolLogViewModel> ToolLogs { get; set; }
 
         public string ToolTypeId { get; set; }
+        public ToolTypeViewModel ToolType { get; set; }
         public ICollection<ToolTypeViewModel> ToolTypes { get; set; }
 
         public string StockId { get; set; }
+        public StockViewModel Stock { get; set; }
         public ICollection<StockViewModel> Stocks { get; set; }
 
         public string UserId { get; set; }
+        public UserViewModel User { get; set; }
         public ICollection<UserViewModel> Users { get; set; }
     }
 }

@@ -21,12 +21,7 @@ namespace Sam.ToolStock.Logic.Mappings
                 .ForMember(ui => ui.Surname, opt => opt.MapFrom(r => r.Surname))
                 .ForMember(ui => ui.Email, opt => opt.MapFrom(r => r.Email))
                 .ForMember(ui => ui.Phone, opt => opt.MapFrom(r => r.Phone));
-
-
-            CreateMap<UserModel, UserViewModel>()
-                .ForMember(u => u.Id, opt => opt.MapFrom(um => um.Id));
-
-
+            
             CreateMap<UserInfoModel, ProfileViewModel>()
                 .ForMember(pvm => pvm.Name, opt => opt.MapFrom(ui => ui.Name))
                 .ForMember(pvm => pvm.Patronymic, opt => opt.MapFrom(ui => ui.Patronymic))
@@ -65,6 +60,12 @@ namespace Sam.ToolStock.Logic.Mappings
                 .ForMember(um => um.DepartmentId, opt => opt.MapFrom(u => u.DepartmentId))
                 .ForMember(um => um.StockId, opt => opt.MapFrom(u => u.StockId))
                 .ForMember(um => um.IsDeleted, opt => opt.MapFrom(u => u.IsDeleted));
+
+            CreateMap<UserModel, UserViewModel>()
+                .ForMember(u => u.Id, opt => opt.MapFrom(um => um.Id))
+                .ForMember(u => u.Name, opt => opt.MapFrom(um => um.UserInfo.Name))
+                .ForMember(u => u.Patronymic, opt => opt.MapFrom(um => um.UserInfo.Patronymic))
+                .ForMember(u => u.Surname, opt => opt.MapFrom(um => um.UserInfo.Surname));
         }
     }
 }

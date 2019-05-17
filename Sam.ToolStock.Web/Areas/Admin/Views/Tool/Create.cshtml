@@ -1,4 +1,5 @@
-﻿@model Sam.ToolStock.Model.ViewModels.ToolViewModel
+﻿@using Sam.ToolStock.Common
+@model Sam.ToolStock.Model.ViewModels.ToolViewModel
 
 @{
     ViewBag.Title = Resources.Resource.CreateTool;
@@ -12,25 +13,25 @@
         @using (Html.BeginForm("Create", "Tool", FormMethod.Post, new { @class = "form-horizontal" }))
         {
             <div class="row form-group">
-                <div class="col col-sm-1">
+                <div class="col col-sm-2">
                     @Html.LabelFor(m => m.Name, new { @class = "form-control-label" })
                 </div>
-                <div class="col col-sm-11">
+                <div class="col col-sm-10">
                     @Html.ValidationMessageFor(m => m.Name)
                     @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = Resources.Resource.Name })
                 </div>
             </div>
             <div class="row form-group">
-                <div class="col col-sm-1">
+                <div class="col col-sm-2">
                     @Html.LabelFor(m => m.Manufacturer, new { @class = "form-control-label" })
                 </div>
-                <div class="col col-sm-11">
+                <div class="col col-sm-10">
                     @Html.ValidationMessageFor(m => m.Manufacturer)
                     @Html.TextBoxFor(m => m.Manufacturer, new { @class = "form-control", placeholder = Resources.Resource.Manufacturer })
                 </div>
             </div>
             <div class="row form-group">
-                <div class="col col-sm-1">
+                <div class="col col-sm-2">
                     @Html.LabelFor(m => m.Amount, new { @class = "form-control-label" })
                 </div>
                 <div class="col col-sm-3">
@@ -39,29 +40,39 @@
                 </div>
             </div>
             <div class="row form-group">
-                <div class="col col-sm-1">
+                <div class="col col-sm-2">
                     @Html.LabelFor(m => m.ToolTypeId, Resources.Resource.ToolType, new { @class = "form-control-label" })
                 </div>
-                <div class="col col-sm-3">
+                <div class="col col-sm-4">
                     @Html.DropDownListFor(
                         m => m.ToolTypeId, new SelectList(Model.ToolTypes, "Id", "Name", Model.ToolTypeId), new {@class = "form-control"})
                     @Html.ValidationMessageFor(m => m.ToolTypeId)
                 </div>
-                <div class="col col-sm-1">
+                <div class="col col-sm-2">
                     @Html.LabelFor(m => m.StockId, Resources.Resource.Stock, new { @class = "form-control-label" })
                 </div>
-                <div class="col col-sm-3">
+                <div class="col col-sm-4">
                     @Html.DropDownListFor(
                         m => m.StockId, new SelectList(Model.Stocks, "Id", "Name", Model.StockId), new {@class = "form-control"})
                     @Html.ValidationMessageFor(m => m.StockId)
                 </div>
-                <div class="col col-sm-1">
+            </div>
+            <div class="row form-group">
+                <div class="col col-sm-2">
                     @Html.LabelFor(m => m.UserId, Resources.Resource.User, new { @class = "form-control-label" })
                 </div>
-                <div class="col col-sm-3">
+                <div class="col col-sm-4">
                     @Html.DropDownListFor(
                         m => m.UserId, new SelectList(Model.Users, "Id", "FullName", Model.UserId), new {@class = "form-control"})
                     @Html.ValidationMessageFor(m => m.UserId)
+                </div>
+                <div class="col col-sm-2">
+                    @Html.LabelFor(m => m.Status, Resources.Resource.Status, new { @class = "form-control-label" })
+                </div>
+                <div class="col col-sm-4">
+                    @Html.DropDownListFor(o => o.Status, Enum.GetValues(typeof(Statuses)).Cast<Statuses>
+                        ().Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() }), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Status)
                 </div>
             </div>
             <div class="form-actions form-group">

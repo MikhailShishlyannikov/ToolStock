@@ -343,6 +343,7 @@
     <Content Include="Areas\Admin\Views\ToolType\ShowAll.cshtml" />
     <Content Include="Areas\Admin\Views\ToolType\Rename.cshtml" />
     <Content Include="Areas\Admin\Views\Tool\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Tool\ShowAll.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\fullcalendar-init.js" />
     <Content Include="Scripts\fullcalendar.js" />

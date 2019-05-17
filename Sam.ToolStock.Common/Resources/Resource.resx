@@ -468,4 +468,19 @@
   <data name="YouDidNotChooseToolType" xml:space="preserve">
     <value>You didn't choose any tool type</value>
   </data>
+  <data name="CreateNewTool" xml:space="preserve">
+    <value>Create a new tool</value>
+  </data>
+  <data name="InTheStock" xml:space="preserve">
+    <value>In The Stock</value>
+  </data>
+  <data name="IssuedToUser" xml:space="preserve">
+    <value>Issued To A User</value>
+  </data>
+  <data name="UnderRepair" xml:space="preserve">
+    <value>Under Repair</value>
+  </data>
+  <data name="WrittenOff" xml:space="preserve">
+    <value>Written Off</value>
+  </data>
 </root>

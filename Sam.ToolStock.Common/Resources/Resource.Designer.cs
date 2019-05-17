@@ -259,6 +259,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create a new tool.
+        /// </summary>
+        public static string CreateNewTool {
+            get {
+                return ResourceManager.GetString("CreateNewTool", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create a new tool type.
         /// </summary>
         public static string CreateNewToolType {
@@ -471,6 +480,24 @@ namespace Resources {
         public static string HomePage {
             get {
                 return ResourceManager.GetString("HomePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In The Stock.
+        /// </summary>
+        public static string InTheStock {
+            get {
+                return ResourceManager.GetString("InTheStock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Issued To A User.
+        /// </summary>
+        public static string IssuedToUser {
+            get {
+                return ResourceManager.GetString("IssuedToUser", resourceCulture);
             }
         }
         
@@ -979,6 +1006,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Under Repair.
+        /// </summary>
+        public static string UnderRepair {
+            get {
+                return ResourceManager.GetString("UnderRepair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update.
         /// </summary>
         public static string Update {
@@ -1047,6 +1083,15 @@ namespace Resources {
         public static string UserTable {
             get {
                 return ResourceManager.GetString("UserTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Written Off.
+        /// </summary>
+        public static string WrittenOff {
+            get {
+                return ResourceManager.GetString("WrittenOff", resourceCulture);
             }
         }
         

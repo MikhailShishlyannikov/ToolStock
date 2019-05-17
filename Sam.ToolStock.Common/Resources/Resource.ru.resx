@@ -468,4 +468,19 @@
   <data name="YouDidNotChooseToolType" xml:space="preserve">
     <value>Вы не выбрали тип инструмента</value>
   </data>
+  <data name="CreateNewTool" xml:space="preserve">
+    <value>Создать новый инструмент</value>
+  </data>
+  <data name="InTheStock" xml:space="preserve">
+    <value>На Складе</value>
+  </data>
+  <data name="IssuedToUser" xml:space="preserve">
+    <value>Выдан пользователю</value>
+  </data>
+  <data name="UnderRepair" xml:space="preserve">
+    <value>В Ремонте</value>
+  </data>
+  <data name="WrittenOff" xml:space="preserve">
+    <value>Списан</value>
+  </data>
 </root>

@@ -49,6 +49,10 @@ namespace Sam.ToolStock.Web.Controllers
 
                     if (roles.Contains("Admin"))
                         return RedirectToAction("Index", new {area = "Admin", controller = "Home"});
+                    if (roles.Contains("Stock keeper"))
+                        return RedirectToAction("Index", new { area = "Keepers", controller = "Home" });
+                    if (roles.Contains("User"))
+                        return RedirectToAction("Index", new { area = "Users", controller = "Home" });
                     return RedirectToAction("Index", "Home");
                 case SignInStatus.LockedOut:
                     return View("_Lockout");

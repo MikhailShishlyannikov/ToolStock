@@ -224,7 +224,11 @@
     <Compile Include="Areas\Admin\Controllers\StockController.cs" />
     <Compile Include="Areas\Admin\Controllers\ToolController.cs" />
     <Compile Include="Areas\Admin\Controllers\ToolTypeController.cs" />
+    <Compile Include="Areas\Keepers\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Keepers\Controllers\HomeController.cs" />
     <Compile Include="Areas\Keepers\KeepersAreaRegistration.cs" />
+    <Compile Include="Areas\Users\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Users\Controllers\HomeController.cs" />
     <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
     <Compile Include="Attributes\MultipleButtonAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -344,6 +348,14 @@
     <Content Include="Areas\Admin\Views\ToolType\Rename.cshtml" />
     <Content Include="Areas\Admin\Views\Tool\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Tool\ShowAll.cshtml" />
+    <Content Include="Areas\Keepers\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Users\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Keepers\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Keepers\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Users\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Users\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Keepers\Views\Shared\_ProfileBar.cshtml" />
+    <Content Include="Areas\Users\Views\Shared\_ProfileBar.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\fullcalendar-init.js" />
     <Content Include="Scripts\fullcalendar.js" />
@@ -451,12 +463,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Account\" />
-    <Folder Include="Areas\Keepers\Controllers\" />
     <Folder Include="Areas\Keepers\Models\" />
-    <Folder Include="Areas\Keepers\Views\Shared\" />
-    <Folder Include="Areas\Users\Controllers\" />
+    <Folder Include="Areas\Keepers\Views\Account\" />
     <Folder Include="Areas\Users\Models\" />
-    <Folder Include="Areas\Users\Views\Shared\" />
+    <Folder Include="Areas\Users\Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -10,9 +10,9 @@ namespace Sam.ToolStock.Web.Controllers
             if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                 return RedirectToAction("Index", new {area = "Admin", controller = "Home"});
             if (User.Identity.IsAuthenticated && User.IsInRole("Stock keeper"))
-                return RedirectToAction("Index", new {area = "Keeper", controller = "Home"});
+                return RedirectToAction("Index", new {area = "Keepers", controller = "Home"});
             if (User.Identity.IsAuthenticated && User.IsInRole("User"))
-                return RedirectToAction("Index", new {area = "User", controller = "Home"});
+                return RedirectToAction("Index", new {area = "Users", controller = "Home"});
 
             return View();
         }

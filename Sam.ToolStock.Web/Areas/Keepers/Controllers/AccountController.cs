@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Sam.ToolStock.Logic.Interfaces;
 
-namespace Sam.ToolStock.Web.Areas.Admin.Controllers
+namespace Sam.ToolStock.Web.Areas.Keepers.Controllers
 {
     public class AccountController : Controller
     {
@@ -27,7 +27,7 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
         public ActionResult LogOff()
         {
             HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", new {area = "", controller = "Home"});
+            return RedirectToAction("Index", new { area = "", controller = "Home" });
         }
     }
 }

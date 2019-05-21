@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Sam.ToolStock.Logic.Interfaces;
@@ -103,7 +102,7 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
                     toolViewModel.Name
                 ),
                 MessageType = "success",
-                PageName = @Resources.Resource.CreateToolPage,
+                PageName = Resources.Resource.CreateToolPage,
                 Action = "Create",
                 Controller = "Tool"
             };

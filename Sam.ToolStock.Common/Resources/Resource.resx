@@ -121,7 +121,7 @@
     <value>Back to main page</value>
   </data>
   <data name="ChooseLang" xml:space="preserve">
-    <value>Choose lang</value>
+    <value>Choose language</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>E-mail</value>
@@ -491,5 +491,38 @@
   </data>
   <data name="Previous" xml:space="preserve">
     <value>Previous</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LanguageSelection" xml:space="preserve">
+    <value>Language selection</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>New Password</value>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>Old Password</value>
+  </data>
+  <data name="PleaseEnterComplexPassword" xml:space="preserve">
+    <value>Please enter a complex password</value>
+  </data>
+  <data name="PleaseEnterPasswordAgain" xml:space="preserve">
+    <value>Please enter the password again</value>
+  </data>
+  <data name="PleaseEnterYourOldPassword" xml:space="preserve">
+    <value>Please enter your old password</value>
+  </data>
+  <data name="ModalPageMessageChange" xml:space="preserve">
+    <value>{0} {1} was changed successfully!</value>
+  </data>
+  <data name="SettingPage" xml:space="preserve">
+    <value>the setting page</value>
+  </data>
+  <data name="Your" xml:space="preserve">
+    <value>Your</value>
   </data>
 </root>

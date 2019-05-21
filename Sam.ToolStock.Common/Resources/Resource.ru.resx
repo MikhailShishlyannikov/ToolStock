@@ -492,4 +492,37 @@
   <data name="Previous" xml:space="preserve">
     <value>Предыдущая</value>
   </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Смена пароля</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="LanguageSelection" xml:space="preserve">
+    <value>Выбор языка</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Новый пароль</value>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>Старый пароль</value>
+  </data>
+  <data name="PleaseEnterComplexPassword" xml:space="preserve">
+    <value>Пожалуйста, введите сложный пароль</value>
+  </data>
+  <data name="PleaseEnterPasswordAgain" xml:space="preserve">
+    <value>Пожалуйста, введите пароль ещё раз</value>
+  </data>
+  <data name="PleaseEnterYourOldPassword" xml:space="preserve">
+    <value>Пожалуйста, введите ваш старый пароль</value>
+  </data>
+  <data name="ModalPageMessageChange" xml:space="preserve">
+    <value>{0} {1} успешно изменен!</value>
+  </data>
+  <data name="SettingPage" xml:space="preserve">
+    <value>страницу настроек</value>
+  </data>
+  <data name="Your" xml:space="preserve">
+    <value>Ваш</value>
+  </data>
 </root>

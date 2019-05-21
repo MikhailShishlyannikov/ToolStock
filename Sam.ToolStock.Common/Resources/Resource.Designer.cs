@@ -160,6 +160,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change Password.
+        /// </summary>
+        public static string ChangePassword {
+            get {
+                return ResourceManager.GetString("ChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Changing department.
         /// </summary>
         public static string ChangingDepartment {
@@ -178,7 +187,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose lang.
+        ///   Looks up a localized string similar to Choose language.
         /// </summary>
         public static string ChooseLang {
             get {
@@ -511,6 +520,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language selection.
+        /// </summary>
+        public static string LanguageSelection {
+            get {
+                return ResourceManager.GetString("LanguageSelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Log In.
         /// </summary>
         public static string LogIn {
@@ -601,6 +628,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} {1} was changed successfully!.
+        /// </summary>
+        public static string ModalPageMessageChange {
+            get {
+                return ResourceManager.GetString("ModalPageMessageChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The {0} &quot;{1}&quot; was created successfully!.
         /// </summary>
         public static string ModalPageMessageCreate {
@@ -673,6 +709,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Password.
+        /// </summary>
+        public static string NewPassword {
+            get {
+                return ResourceManager.GetString("NewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New stock for tools.
         /// </summary>
         public static string NewStockForTools {
@@ -700,6 +745,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Old Password.
+        /// </summary>
+        public static string OldPassword {
+            get {
+                return ResourceManager.GetString("OldPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
@@ -723,6 +777,33 @@ namespace Resources {
         public static string Phone {
             get {
                 return ResourceManager.GetString("Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a complex password.
+        /// </summary>
+        public static string PleaseEnterComplexPassword {
+            get {
+                return ResourceManager.GetString("PleaseEnterComplexPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter the password again.
+        /// </summary>
+        public static string PleaseEnterPasswordAgain {
+            get {
+                return ResourceManager.GetString("PleaseEnterPasswordAgain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter your old password.
+        /// </summary>
+        public static string PleaseEnterYourOldPassword {
+            get {
+                return ResourceManager.GetString("PleaseEnterYourOldPassword", resourceCulture);
             }
         }
         
@@ -885,6 +966,15 @@ namespace Resources {
         public static string Search {
             get {
                 return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to the setting page.
+        /// </summary>
+        public static string SettingPage {
+            get {
+                return ResourceManager.GetString("SettingPage", resourceCulture);
             }
         }
         
@@ -1173,6 +1263,15 @@ namespace Resources {
         public static string YouDidNotReassignUsers {
             get {
                 return ResourceManager.GetString("YouDidNotReassignUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your.
+        /// </summary>
+        public static string Your {
+            get {
+                return ResourceManager.GetString("Your", resourceCulture);
             }
         }
         

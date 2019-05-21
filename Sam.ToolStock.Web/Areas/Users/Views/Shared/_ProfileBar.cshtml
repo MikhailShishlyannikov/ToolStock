@@ -6,16 +6,16 @@
     </a>
 
     <div class="user-menu dropdown-menu">
-        <a class="nav-link" href="#"><i class="fa fa- user"></i>@Resources.Resource.MyProfile</a>
+        <a class="nav-link" href="#"><i class="fa fa-user"></i>@Resources.Resource.MyProfile</a>
 
-        <a class="nav-link" href="#"><i class="fa fa -cog"></i>@Resources.Resource.Settings</a>
+        <a class="nav-link" href="#"><i class="fa fa-cog"></i>@Resources.Resource.Settings</a>
 
         @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
         {
             @Html.AntiForgeryToken()
 
             <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">
-                <i class="fa fa-power -off"></i>@Resources.Resource.Logout
+                <i class="fa fa-power-off"></i>@Resources.Resource.Logout
             </a>
         }
     </div>

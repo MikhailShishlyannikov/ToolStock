@@ -227,6 +227,7 @@
     <Compile Include="Areas\Admin\Controllers\ToolTypeController.cs" />
     <Compile Include="Areas\Keepers\Controllers\AccountController.cs" />
     <Compile Include="Areas\Keepers\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Keepers\Controllers\SettingController.cs" />
     <Compile Include="Areas\Keepers\KeepersAreaRegistration.cs" />
     <Compile Include="Areas\Users\Controllers\AccountController.cs" />
     <Compile Include="Areas\Users\Controllers\HomeController.cs" />
@@ -358,6 +359,8 @@
     <Content Include="Areas\Keepers\Views\Shared\_ProfileBar.cshtml" />
     <Content Include="Areas\Users\Views\Shared\_ProfileBar.cshtml" />
     <Content Include="Areas\Admin\Views\Setting\Index.cshtml" />
+    <Content Include="Areas\Keepers\Views\Setting\Index.cshtml" />
+    <Content Include="Areas\Keepers\Views\Shared\ModalMessage.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\fullcalendar-init.js" />
     <Content Include="Scripts\fullcalendar.js" />

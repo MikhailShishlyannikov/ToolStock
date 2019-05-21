@@ -1,0 +1,74 @@
+﻿@model Sam.ToolStock.Model.ViewModels.ChangePasswordViewModel
+
+@{
+    ViewBag.Title = @Resources.Resource.Settings;
+}
+
+<div class="col-lg-12">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title">@Resources.Resource.ChangePassword</strong>
+                </div>
+                <div class="card-body row">
+                    @using (Html.BeginForm("ChangePassword", "Setting", FormMethod.Post, new { @class = "form-horizontal col" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                @Html.LabelFor(m => m.OldPassword, Resources.Resource.OldPassword, new { @class = "form-control-label" })
+                            </div>
+                            <div class="col-12 col-md-9">
+                                @Html.PasswordFor(m => m.OldPassword, new { @class = "form-control", placeholder = Resources.Resource.OldPassword })
+                                <small class="help-block form-text">@Resources.Resource.PleaseEnterYourOldPassword</small>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                @Html.LabelFor(m => m.NewPassword, Resources.Resource.NewPassword, new { @class = "form-control-label" })
+                            </div>
+                            <div class="col-12 col-md-9">
+                                @Html.PasswordFor(m => m.NewPassword, new { @class = "form-control", placeholder = Resources.Resource.NewPassword })
+                                <small class="help-block form-text">@Resources.Resource.PleaseEnterComplexPassword</small>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                @Html.LabelFor(m => m.ConfirmPassword, Resources.Resource.ConfirmPassword, new { @class = "form-control-label" })
+                            </div>
+                            <div class="col-12 col-md-9">
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = Resources.Resource.ConfirmPassword })
+                                <small class="help-block form-text">@Resources.Resource.PleaseEnterPasswordAgain</small>
+                            </div>
+                        </div>
+                        <div class="form-actions form-group">
+                            <button type="submit" class="btn btn-outline-secondary btn-block">@Resources.Resource.ChangePassword</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title">@Resources.Resource.LanguageSelection</strong>
+                </div>
+                <div class="card-body row">
+                    <div class="col col-md-3">
+                        <label for="select" class=" form-control-label">@Resources.Resource.Language</label>
+                    </div>
+                    <div class="col-12 col-md-9 dropdown">
+                        <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-outline-secondary btn-block">@Resources.Resource.ChooseLang</button>
+                        <div tabindex="-1" aria-hidden="true" role="menu" class="dropdown-menu col-11">
+                            @Html.ActionLink("English", "ChangeLang", "Setting", new { Lang = "en-US", ReturnUrl = Url.Encode(Request.RawUrl) }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Русский", "ChangeLang", "Setting", new { Lang = "ru-RU", ReturnUrl = Url.Encode(Request.RawUrl) }, new { @class = "dropdown-item" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

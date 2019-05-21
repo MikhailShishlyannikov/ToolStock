@@ -231,6 +231,7 @@
     <Compile Include="Areas\Keepers\KeepersAreaRegistration.cs" />
     <Compile Include="Areas\Users\Controllers\AccountController.cs" />
     <Compile Include="Areas\Users\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Users\Controllers\SettingController.cs" />
     <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
     <Compile Include="Attributes\MultipleButtonAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -361,6 +362,8 @@
     <Content Include="Areas\Admin\Views\Setting\Index.cshtml" />
     <Content Include="Areas\Keepers\Views\Setting\Index.cshtml" />
     <Content Include="Areas\Keepers\Views\Shared\ModalMessage.cshtml" />
+    <Content Include="Areas\Users\Views\Shared\ModalMessage.cshtml" />
+    <Content Include="Areas\Users\Views\Setting\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\fullcalendar-init.js" />
     <Content Include="Scripts\fullcalendar.js" />
@@ -468,9 +471,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Account\" />
-    <Folder Include="Areas\Keepers\Models\" />
     <Folder Include="Areas\Keepers\Views\Account\" />
-    <Folder Include="Areas\Users\Models\" />
     <Folder Include="Areas\Users\Views\Account\" />
   </ItemGroup>
   <ItemGroup>

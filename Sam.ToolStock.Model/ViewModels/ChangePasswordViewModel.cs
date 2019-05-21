@@ -1,12 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using FluentValidation.Attributes;
 
 namespace Sam.ToolStock.Model.ViewModels
 {
+    [Validator(typeof(ChangePasswordViewModel))]
     public class ChangePasswordViewModel
     {
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
         public string OldPassword { get; set; }
 
         [Required]

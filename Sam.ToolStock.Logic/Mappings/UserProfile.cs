@@ -66,6 +66,14 @@ namespace Sam.ToolStock.Logic.Mappings
                 .ForMember(u => u.Name, opt => opt.MapFrom(um => um.UserInfo.Name))
                 .ForMember(u => u.Patronymic, opt => opt.MapFrom(um => um.UserInfo.Patronymic))
                 .ForMember(u => u.Surname, opt => opt.MapFrom(um => um.UserInfo.Surname));
+
+            CreateMap<UserInfoModel, UserProfileViewModel>()
+                .ForMember(upvm => upvm.Role, opt => opt.Ignore())
+                .ForMember(upvm => upvm.Department, opt => opt.MapFrom(ui => ui.User.Department.Name))
+                .ForMember(upvm => upvm.Department, opt => opt.MapFrom(ui => ui.User.Stock == null ? null : ui.User.Stock.Name));
+
+            CreateMap<UserProfileViewModel, UserInfoModel>()
+                .ForMember(ui => ui.IsDeleted, opt => opt.Ignore());
         }
     }
 }

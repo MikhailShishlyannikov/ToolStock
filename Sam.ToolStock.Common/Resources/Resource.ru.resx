@@ -525,4 +525,7 @@
   <data name="Your" xml:space="preserve">
     <value>Ваш</value>
   </data>
+  <data name="UserProfilePage" xml:space="preserve">
+    <value>страницу профиля пользователя</value>
+  </data>
 </root>

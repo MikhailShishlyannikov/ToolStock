@@ -22,6 +22,8 @@ namespace Sam.ToolStock.Logic.Interfaces
 
         UserViewModel GetUser(string userId);
 
+        UserProfileViewModel GetUserProfile(string id);
+
         ProfileViewModel GetProfile(string userId);
 
         IEnumerable<TableUserViewModel> GetAllTableUser();
@@ -29,6 +31,8 @@ namespace Sam.ToolStock.Logic.Interfaces
         IEnumerable<string> GetRoles(string userId);
 
         bool Update(UserViewModel user);
+
+        void Update(UserProfileViewModel user);
 
         void Delete(UserViewModel user);
     }

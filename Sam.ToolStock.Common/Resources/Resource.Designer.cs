@@ -1177,6 +1177,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to the user profile page.
+        /// </summary>
+        public static string UserProfilePage {
+            get {
+                return ResourceManager.GetString("UserProfilePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Users.
         /// </summary>
         public static string Users {

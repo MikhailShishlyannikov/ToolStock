@@ -15,13 +15,17 @@ namespace Sam.ToolStock.Logic.Services
         private readonly IMapper _mapper;
         private readonly ApplicationUserManager _userManager;
         private readonly IRoleService _roleService;
+        private readonly IDepartmentService _departmentService;
+        private readonly IStockService _stockService;
         private readonly IUnitOfWork _unitOfWork;
 
-        public UserService(IMapper mapper, ApplicationUserManager userManager, IRoleService roleService, IUnitOfWork unitOfWork)
+        public UserService(IMapper mapper, ApplicationUserManager userManager, IRoleService roleService, IDepartmentService departmentService, IStockService stockService, IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
             _userManager = userManager;
             _roleService = roleService;
+            _departmentService = departmentService;
+            _stockService = stockService;
             _unitOfWork = unitOfWork;
         }
 
@@ -89,6 +93,17 @@ namespace Sam.ToolStock.Logic.Services
             return user;
         }
 
+        public UserProfileViewModel GetUserProfile(string userId)
+        {
+            var userModel = _unitOfWork.UserInfoRepository.GetById(userId);
+            var user = _mapper.Map<UserProfileViewModel>(userModel);
+            user.Role = _userManager.GetRoles(userId).First();
+            user.Department = _departmentService.Get(userModel.User.DepartmentId)?.Name;
+            user.Stock = _stockService.Get(userModel.User.StockId)?.Name;
+
+            return user;
+        }
+
         public ProfileViewModel GetProfile(string userId)
         {
             return _mapper.Map<ProfileViewModel>(_unitOfWork.UserInfoRepository.GetById(userId));
@@ -126,6 +141,14 @@ namespace Sam.ToolStock.Logic.Services
             _unitOfWork.Save();
 
             return true;
+        }
+
+        public void Update(UserProfileViewModel user)
+        {
+            var userInfoModel = _unitOfWork.UserInfoRepository.GetById(user.Id);
+            _mapper.Map(user, userInfoModel);
+            _unitOfWork.UserInfoRepository.Update(userInfoModel);
+            _unitOfWork.Save();
         }
 
         public void Delete(UserViewModel user)

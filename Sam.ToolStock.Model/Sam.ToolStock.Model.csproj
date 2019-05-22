@@ -88,6 +88,7 @@
     <Compile Include="Validation\ToolLogViewModelValidator.cs" />
     <Compile Include="Validation\ToolTypeViewModelValidator.cs" />
     <Compile Include="Validation\ToolViewModelValidator.cs" />
+    <Compile Include="Validation\UserProfileViewModeValidator.cs" />
     <Compile Include="Validation\UserViewModelValidator.cs" />
     <Compile Include="ViewModels\PaginationViewModel.cs" />
     <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="ViewModels\ToolLogViewModel.cs" />
     <Compile Include="ViewModels\ToolTypeViewModel.cs" />
     <Compile Include="ViewModels\ToolViewModel.cs" />
+    <Compile Include="ViewModels\UserProfileViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="ViewModels\DepartmentViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />

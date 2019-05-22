@@ -1,5 +1,8 @@
-﻿@using System.Web.Mvc.Html
-@model Sam.ToolStock.Model.ViewModels.UserViewModel
+﻿@model Sam.ToolStock.Model.ViewModels.UserProfileViewModel
+
+@{
+    ViewBag.Title = @Resources.Resource.MyProfile;
+}
 
 <div class="col-md-12">
     <aside class="profile-nav alt">
@@ -25,34 +28,21 @@
                         @Html.Raw(Resources.Resource.ShowUserMenuTitle)
                     </div>
                     <div class="card-body card-block">
-                        @using (Ajax.BeginForm("Update", null, new AjaxOptions { UpdateTargetId = "results" }, new { @class = "form-horizontal" }))
+                        @using (Html.BeginForm("Update", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
                         {
-                            <div class="row form-group">
-                                <div class="col col-md-3">
-                                    @Html.LabelFor(m => m.Id, new { @class = "form-control-lable" })
-                                </div>
-                                <div class="col-12 col-md-9">
-                                    @Html.TextBoxFor(m => m.Id, new
-                                    {
-                                        @class = "form-control",
-                                        placeholder = Resources.Resource.Disabled,
-                                        disabled = true
-                                    })
-                                </div>
-                            </div>
                             @Html.HiddenFor(m => m.Id)
                             <div class="row form-group">
                                 <div class="col col-md-3">
-                                    @Html.LabelFor(m => m.Name, new { @class = "form-control-label" })
+                                    @Html.LabelFor(m => m.Name, Resources.Resource.Name, new { @class = "form-control-label" })
                                 </div>
                                 <div class="col-12 col-md-9">
                                     @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
-                                    @Html.TextBoxFor(m => m.Name, new {@class = "form-control", placeholder = "User Name", value = Model.Name})
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "User Name", value = Model.Name })
                                 </div>
                             </div>
                             <div class="row form-group">
                                 <div class="col col-md-3">
-                                    @Html.LabelFor(m => m.Patronymic, new { @class = "form-control-label" })
+                                    @Html.LabelFor(m => m.Patronymic, Resources.Resource.Patronymic, new { @class = "form-control-label" })
                                 </div>
                                 <div class="col-12 col-md-9">
                                     @Html.ValidationMessageFor(m => m.Patronymic, "", new { @class = "text-danger" })
@@ -61,7 +51,7 @@
                             </div>
                             <div class="row form-group">
                                 <div class="col col-md-3">
-                                    @Html.LabelFor(m => m.Surname, new { @class = "form-control-label" })
+                                    @Html.LabelFor(m => m.Surname, Resources.Resource.Surname, new { @class = "form-control-label" })
                                 </div>
                                 <div class="col-12 col-md-9">
                                     @Html.ValidationMessageFor(m => m.Surname, "", new { @class = "text-danger" })
@@ -70,7 +60,7 @@
                             </div>
                             <div class="row form-group">
                                 <div class="col col-md-3">
-                                    @Html.LabelFor(m => m.Email, new { @class = "form-control-label" })
+                                    @Html.LabelFor(m => m.Email, Resources.Resource.Email, new { @class = "form-control-label" })
                                 </div>
                                 <div class="col-12 col-md-9">
                                     @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
@@ -79,7 +69,7 @@
                             </div>
                             <div class="row form-group">
                                 <div class="col col-md-3">
-                                    @Html.LabelFor(m => m.Phone, new { @class = "form-control-label" })
+                                    @Html.LabelFor(m => m.Phone, Resources.Resource.Phone, new { @class = "form-control-label" })
                                 </div>
                                 <div class="col-12 col-md-9">
                                     @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
@@ -88,35 +78,40 @@
                             </div>
                             <div class="row form-group">
                                 <div class="col col-md-3">
-                                    @Html.LabelFor(m => m.Role, new { @class = "form-control-label" })
+                                    @Html.LabelFor(m => m.Role, Resources.Resource.Role, new { @class = "form-control-label" })
                                 </div>
                                 <div class="col-12 col-md-9">
                                     @Html.ValidationMessageFor(m => m.Role, "", new { @class = "text-danger" })
-                                    @Html.DropDownListFor(m => m.Role, new SelectList(Model.Roles, "Name", "Name", Model.Role), new { @class = "form-control" })
+                                    @Html.TextBoxFor(m => m.Role, new { @class = "form-control", placeholder = Resources.Resource.Role, value = Model.Role, disabled = true })
                                 </div>
                             </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3">
-                                    @Html.LabelFor(m => m.DepartmentId, new { @class = "form-control-label" })
+                            if (Model.Department != null)
+                            {
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        @Html.LabelFor(m => m.Department, Resources.Resource.Department, new { @class = "form-control-label" })
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.ValidationMessageFor(m => m.Department, "", new { @class = "text-danger" })
+                                        @Html.TextBoxFor(m => m.Department, new { @class = "form-control", placeholder = Resources.Resource.Department, value = Model.Department, disabled = true })
+                                    </div>
                                 </div>
-                                <div class="col-12 col-md-9">
-                                    @Html.ValidationMessageFor(m => m.DepartmentId, "", new { @class = "text-danger" })
-                                    @Html.DropDownListFor(m => m.DepartmentId, new SelectList(Model.Departments, "Id", "Name", Model.DepartmentId), new { @class = "form-control" })
+                            }
+                            if (Model.Stock != null)
+                            {
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        @Html.LabelFor(m => m.Stock, Resources.Resource.Stock, new { @class = "form-control-label" })
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.ValidationMessageFor(m => m.Stock, "", new { @class = "text-danger" })
+                                        @Html.TextBoxFor(m => m.Stock, new { @class = "form-control", placeholder = Resources.Resource.Stock, value = Model.Stock, disabled = true })
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3">
-                                    @Html.LabelFor(m => m.StockId, new { @class = "form-control-label" })
-                                </div>
-                                <div class="col-12 col-md-9">
-                                    @Html.ValidationMessageFor(m => m.StockId, "", new { @class = "text-danger" })
-                                    @Html.DropDownListFor(m => m.StockId, new SelectList(Model.Stocks, "Id", "Name", Model.StockId), new { @class = "form-control" })
-                                </div>
-                            </div>
+                            }
                             <div class="form-actions form-group">
                                 <input type="submit" value=@Resources.Resource.Update name="Update" class="btn btn-primary">
                                 @Ajax.ActionLink(@Resources.Resource.Reset, "Reset", new { userid = Model.Id }, new AjaxOptions { UpdateTargetId = "results" }, new { @class = "btn btn-warning" })
-                                @Html.ActionLink(@Resources.Resource.Delete, "Delete", new { userid = Model.Id }, new { @class = "btn btn-danger" })
                             </div>
                         }
                     </div>

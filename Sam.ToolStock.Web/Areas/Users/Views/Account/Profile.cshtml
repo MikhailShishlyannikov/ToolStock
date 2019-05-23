@@ -1,0 +1,122 @@
+﻿@model Sam.ToolStock.Model.ViewModels.UserProfileViewModel
+
+@{
+    ViewBag.Title = @Resources.Resource.MyProfile;
+}
+
+<div class="col-md-12">
+    <aside class="profile-nav alt">
+        <section class="card">
+            <div class="card-header user-header alt bg-dark">
+                <div class="media">
+                    <div class="media-body">
+                        <h2 class="text-light display-6">
+                            @{
+                                var fullName = Model.Patronymic == null
+                                    ? Model.Name + " " + Model.Surname
+                                    : Model.Name + " " + Model.Patronymic + " " + Model.Surname;
+                            }
+                            @fullName
+                        </h2>
+                        <p>@Model.Role</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        @Html.Raw(Resources.Resource.ShowUserMenuTitle)
+                    </div>
+                    <div class="card-body card-block">
+                        @using (Html.BeginForm("Update", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+                        {
+                            @Html.HiddenFor(m => m.Id)
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    @Html.LabelFor(m => m.Name, Resources.Resource.Name, new { @class = "form-control-label" })
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "User Name", value = Model.Name })
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    @Html.LabelFor(m => m.Patronymic, Resources.Resource.Patronymic, new { @class = "form-control-label" })
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    @Html.ValidationMessageFor(m => m.Patronymic, "", new { @class = "text-danger" })
+                                    @Html.TextBoxFor(m => m.Patronymic, new { @class = "form-control", placeholder = "User Patronymic", value = Model.Patronymic })
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    @Html.LabelFor(m => m.Surname, Resources.Resource.Surname, new { @class = "form-control-label" })
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    @Html.ValidationMessageFor(m => m.Surname, "", new { @class = "text-danger" })
+                                    @Html.TextBoxFor(m => m.Surname, new { @class = "form-control", placeholder = "User Surname", value = Model.Surname })
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    @Html.LabelFor(m => m.Email, Resources.Resource.Email, new { @class = "form-control-label" })
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "User Email", value = Model.Email, type = "email" })
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    @Html.LabelFor(m => m.Phone, Resources.Resource.Phone, new { @class = "form-control-label" })
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+                                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", placeholder = "User Phone", value = Model.Phone, type = "tel" })
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    @Html.LabelFor(m => m.Role, Resources.Resource.Role, new { @class = "form-control-label" })
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    @Html.ValidationMessageFor(m => m.Role, "", new { @class = "text-danger" })
+                                    @Html.TextBoxFor(m => m.Role, new { @class = "form-control", placeholder = Resources.Resource.Role, value = Model.Role, disabled = true })
+                                </div>
+                            </div>
+                            if (Model.Department != null)
+                            {
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        @Html.LabelFor(m => m.Department, Resources.Resource.Department, new { @class = "form-control-label" })
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.ValidationMessageFor(m => m.Department, "", new { @class = "text-danger" })
+                                        @Html.TextBoxFor(m => m.Department, new { @class = "form-control", placeholder = Resources.Resource.Department, value = Model.Department, disabled = true })
+                                    </div>
+                                </div>
+                            }
+                            if (Model.Stock != null)
+                            {
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        @Html.LabelFor(m => m.Stock, Resources.Resource.Stock, new { @class = "form-control-label" })
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.ValidationMessageFor(m => m.Stock, "", new { @class = "text-danger" })
+                                        @Html.TextBoxFor(m => m.Stock, new { @class = "form-control", placeholder = Resources.Resource.Stock, value = Model.Stock, disabled = true })
+                                    </div>
+                                </div>
+                            }
+                            <div class="form-actions form-group">
+                                <input type="submit" value=@Resources.Resource.Update name="Update" class="btn btn-primary">
+                                @Html.ActionLink(@Resources.Resource.Reset, "Reset", new { userid = Model.Id }, new { @class = "btn btn-warning" })
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    </aside>
+</div>

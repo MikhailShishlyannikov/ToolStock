@@ -245,6 +245,7 @@
     <Compile Include="Handlers\LocalizationRedirectRouteHandler.cs" />
     <Compile Include="Handlers\LocalizedRouteHandler.cs" />
     <Compile Include="Handlers\RedirectHandler.cs" />
+    <Compile Include="Helpers\HelperExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -367,6 +368,12 @@
     <Content Include="Areas\Admin\Views\Account\Profile.cshtml" />
     <Content Include="Areas\Keepers\Views\Account\Profile.cshtml" />
     <Content Include="Areas\Users\Views\Account\Profile.cshtml" />
+    <Content Include="Areas\Admin\Views\Tool\Issue.cshtml" />
+    <Content Include="Areas\Admin\Views\Tool\GiveInForRepair.cshtml" />
+    <Content Include="Areas\Admin\Views\Tool\WriteOff.cshtml" />
+    <Content Include="Areas\Admin\Views\Tool\MoveToStock.cshtml" />
+    <Content Include="Areas\Admin\Views\Tool\ReturnFromRepair.cshtml" />
+    <Content Include="Areas\Admin\Views\Tool\ReturnFromUser.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\fullcalendar-init.js" />
     <Content Include="Scripts\fullcalendar.js" />

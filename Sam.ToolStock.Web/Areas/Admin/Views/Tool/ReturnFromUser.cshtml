@@ -1,0 +1,29 @@
+﻿@model Sam.ToolStock.Model.ViewModels.ReturnFromUserViewModel
+
+@{
+    ViewBag.Title = Resources.Resource.ReturnFromUser;
+}
+<div class="card">
+    <div class="card-header">
+        @Resources.Resource.ReturnFromUser @Model.UserName
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("ReturnFromUser", "Tool", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.HiddenFor(m => m.MaxAmount)
+            @Html.HiddenFor(m => m.StockId)
+            @Html.HiddenFor(m => m.ToolName)
+            @Html.HiddenFor(m => m.UserId)
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    @Html.LabelFor(m => m.Amount, Resources.Resource.Amount, new { @class = "form-control-label" })
+                </div>
+                <div class="col col-md-9">
+                    @Html.TextBoxFor(m => m.Amount, new { @class = "form-control", placeholder = Resources.Resource.Amount, value = Model.Amount })
+                    @Html.ValidationMessageFor(m => m.Amount)
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">@Resources.Resource.ReturnTool</button>
+        }
+    </div>
+</div>

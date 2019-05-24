@@ -528,4 +528,37 @@
   <data name="UserProfilePage" xml:space="preserve">
     <value>страницу профиля пользователя</value>
   </data>
+  <data name="GiveInForRepair" xml:space="preserve">
+    <value>Отдать в ремонт</value>
+  </data>
+  <data name="Issue" xml:space="preserve">
+    <value>Выдать</value>
+  </data>
+  <data name="IssueTool" xml:space="preserve">
+    <value>Выдать инструмент</value>
+  </data>
+  <data name="ToolActions" xml:space="preserve">
+    <value>Действия с инструментом</value>
+  </data>
+  <data name="WriteOff" xml:space="preserve">
+    <value>Списать</value>
+  </data>
+  <data name="YouDidNotChooseUser" xml:space="preserve">
+    <value>Вы не выбрали пользователя</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>Переместить</value>
+  </data>
+  <data name="MoveToStock" xml:space="preserve">
+    <value>Переместить на другой склад</value>
+  </data>
+  <data name="ReturnFromRepair" xml:space="preserve">
+    <value>Вернуть инструмент из ремонта</value>
+  </data>
+  <data name="ReturnFromUser" xml:space="preserve">
+    <value>Забрать инструмент у пользователя</value>
+  </data>
+  <data name="ReturnTool" xml:space="preserve">
+    <value>Вернуть интсрумент</value>
+  </data>
 </root>

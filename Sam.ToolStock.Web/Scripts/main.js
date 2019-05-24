@@ -95,6 +95,12 @@ jQuery(document).ready(function($) {
     //    var link = $(this).attr("id");
     //    $("#results").load(link);
     //});
+
+    $('[data-toggle-second="tooltip"]').tooltip();
+
+    $('.stop-propagation').on('click', function (e) {
+        e.stopPropagation();
+    });
 });
 
 jQuery(document).on('click', '.table-row', function () {

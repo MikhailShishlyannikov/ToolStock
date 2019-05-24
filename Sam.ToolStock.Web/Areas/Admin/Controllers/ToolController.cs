@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
+using Sam.ToolStock.Common;
 using Sam.ToolStock.Logic.Interfaces;
 using Sam.ToolStock.Model.ViewModels;
 
@@ -158,6 +159,184 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
             };
 
             return View(paginationViewModel);
+        }
+
+        public ActionResult Issue(string toolName, string stockId, int maxAmount)
+        {
+            var users = _userService.GetAll(false).OrderBy(u => u.FullName).ToList();
+            users.Insert(0, new UserViewModel { Id = new Guid().ToString(), Name = Resources.Resource.ChooseUser, Surname = "", });
+            const int defaultAmount = 1;
+
+            var issueToolViewModel = new IssueToolViewModel
+            {
+                ToolName = toolName,
+                StockId = stockId,
+                Amount = defaultAmount,
+                MaxAmount = maxAmount,
+                UserId = new Guid().ToString(),
+                Users = users
+            };
+
+            return View(issueToolViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Issue(IssueToolViewModel issueToolViewModel)
+        {
+            var users = _userService.GetAll(false).OrderBy(u => u.FullName).ToList();
+            users.Insert(0, new UserViewModel { Id = new Guid().ToString(), Name = Resources.Resource.ChooseUser, Surname = "", });
+            issueToolViewModel.Users = users;
+
+            if (!ModelState.IsValid)
+            {
+                return View(issueToolViewModel);
+            }
+
+            _toolService.IssueToUser(issueToolViewModel);
+
+
+            return RedirectToAction("ShowAll");
+        }
+
+        public ActionResult GiveInForRepair(string toolName, string stockId, int maxAmount)
+        {
+            var vm = new ActionsViewModel
+            {
+                ToolName = toolName,
+                StockId = stockId,
+                MaxAmount = maxAmount,
+                Amount = 1
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult GiveInForRepair(ActionsViewModel giveInForRepairViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(giveInForRepairViewModel);
+            }
+
+            _toolService.GiveInToRepair(giveInForRepairViewModel);
+
+            return RedirectToAction("ShowAll");
+        }
+
+        public ActionResult WriteOff(string toolName, string stockId, int maxAmount)
+        {
+            var vm = new ActionsViewModel
+            {
+                ToolName = toolName,
+                StockId = stockId,
+                MaxAmount = maxAmount,
+                Amount = 1
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult WriteOff(ActionsViewModel writeOffViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(writeOffViewModel);
+            }
+
+            _toolService.WriteOff(writeOffViewModel);
+
+            return RedirectToAction("ShowAll");
+        }
+
+        public ActionResult MoveToStock(string toolName, string stockId, int maxAmount)
+        {
+            var stocks = _stockService.GetAll(false).OrderBy(u => u.Name).ToList();
+            const int defaultAmount = 1;
+
+            var moveToStockToolViewModel = new MoveToStockViewModel()
+            {
+                ToolName = toolName,
+                StockId = stockId,
+                Amount = defaultAmount,
+                MaxAmount = maxAmount,
+                Stocks = stocks
+            };
+
+            return View(moveToStockToolViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult MoveToStock(MoveToStockViewModel moveToStockViewModel)
+        {
+            var stocks = _stockService.GetAll(false).OrderBy(u => u.Name).ToList();
+            moveToStockViewModel.Stocks = stocks;
+
+            if (!ModelState.IsValid)
+            {
+                return View(moveToStockViewModel);
+            }
+
+            _toolService.MoveToStock(moveToStockViewModel);
+
+
+            return RedirectToAction("ShowAll");
+        }
+
+        public ActionResult ReturnFromRepair(string toolName, string stockId, int maxAmount)
+        {
+            var vm = new ActionsViewModel
+            {
+                ToolName = toolName,
+                StockId = stockId,
+                MaxAmount = maxAmount,
+                Amount = 1
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult ReturnFromRepair(ActionsViewModel returnFromRepairViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(returnFromRepairViewModel);
+            }
+
+            _toolService.ReturnFromRepair(returnFromRepairViewModel);
+
+            return RedirectToAction("ShowAll");
+        }
+
+        public ActionResult ReturnFromUser(string toolName, string stockId, int maxAmount, string userId)
+        {
+            var user = _userService.GetUser(userId);
+            var vm = new ReturnFromUserViewModel
+            {
+                ToolName = toolName,
+                StockId = stockId,
+                MaxAmount = maxAmount,
+                Amount = 1,
+                UserId = userId,
+                UserName = user.FullName
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult ReturnFromUser(ReturnFromUserViewModel returnFromUserViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(returnFromUserViewModel);
+            }
+
+            _toolService.ReturnFromUser(returnFromUserViewModel);
+
+            return RedirectToAction("ShowAll");
         }
     }
 }

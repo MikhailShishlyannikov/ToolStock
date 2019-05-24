@@ -528,4 +528,37 @@
   <data name="UserProfilePage" xml:space="preserve">
     <value>the user profile page</value>
   </data>
+  <data name="GiveInForRepair" xml:space="preserve">
+    <value>Give in for repair</value>
+  </data>
+  <data name="Issue" xml:space="preserve">
+    <value>Issue</value>
+  </data>
+  <data name="IssueTool" xml:space="preserve">
+    <value>Issue the tool</value>
+  </data>
+  <data name="ToolActions" xml:space="preserve">
+    <value>Tool Actions</value>
+  </data>
+  <data name="WriteOff" xml:space="preserve">
+    <value>Write off</value>
+  </data>
+  <data name="YouDidNotChooseUser" xml:space="preserve">
+    <value>You didn't choose any user</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>Move</value>
+  </data>
+  <data name="MoveToStock" xml:space="preserve">
+    <value>Move to another stock</value>
+  </data>
+  <data name="ReturnFromRepair" xml:space="preserve">
+    <value>Return the tool from repair</value>
+  </data>
+  <data name="ReturnFromUser" xml:space="preserve">
+    <value>Return the tool from a user</value>
+  </data>
+  <data name="ReturnTool" xml:space="preserve">
+    <value>Return tool</value>
+  </data>
 </root>

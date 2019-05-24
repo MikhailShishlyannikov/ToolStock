@@ -493,6 +493,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Give in for repair.
+        /// </summary>
+        public static string GiveInForRepair {
+            get {
+                return ResourceManager.GetString("GiveInForRepair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home Page.
         /// </summary>
         public static string HomePage {
@@ -511,11 +520,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Issue.
+        /// </summary>
+        public static string Issue {
+            get {
+                return ResourceManager.GetString("Issue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Issued To A User.
         /// </summary>
         public static string IssuedToUser {
             get {
                 return ResourceManager.GetString("IssuedToUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Issue the tool.
+        /// </summary>
+        public static string IssueTool {
+            get {
+                return ResourceManager.GetString("IssueTool", resourceCulture);
             }
         }
         
@@ -669,6 +696,24 @@ namespace Resources {
         public static string ModalPageMessageUpdate {
             get {
                 return ResourceManager.GetString("ModalPageMessageUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move.
+        /// </summary>
+        public static string Move {
+            get {
+                return ResourceManager.GetString("Move", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move to another stock.
+        /// </summary>
+        public static string MoveToStock {
+            get {
+                return ResourceManager.GetString("MoveToStock", resourceCulture);
             }
         }
         
@@ -943,11 +988,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Return the tool from repair.
+        /// </summary>
+        public static string ReturnFromRepair {
+            get {
+                return ResourceManager.GetString("ReturnFromRepair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Return the tool from a user.
+        /// </summary>
+        public static string ReturnFromUser {
+            get {
+                return ResourceManager.GetString("ReturnFromUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Return to.
         /// </summary>
         public static string ReturnTo {
             get {
                 return ResourceManager.GetString("ReturnTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Return tool.
+        /// </summary>
+        public static string ReturnTool {
+            get {
+                return ResourceManager.GetString("ReturnTool", resourceCulture);
             }
         }
         
@@ -1065,6 +1137,15 @@ namespace Resources {
         public static string Tool {
             get {
                 return ResourceManager.GetString("Tool", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool Actions.
+        /// </summary>
+        public static string ToolActions {
+            get {
+                return ResourceManager.GetString("ToolActions", resourceCulture);
             }
         }
         
@@ -1213,6 +1294,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Write off.
+        /// </summary>
+        public static string WriteOff {
+            get {
+                return ResourceManager.GetString("WriteOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Written Off.
         /// </summary>
         public static string WrittenOff {
@@ -1245,6 +1335,15 @@ namespace Resources {
         public static string YouDidNotChooseToolType {
             get {
                 return ResourceManager.GetString("YouDidNotChooseToolType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You didn&apos;t choose any user.
+        /// </summary>
+        public static string YouDidNotChooseUser {
+            get {
+                return ResourceManager.GetString("YouDidNotChooseUser", resourceCulture);
             }
         }
         

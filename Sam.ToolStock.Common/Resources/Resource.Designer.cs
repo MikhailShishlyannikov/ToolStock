@@ -511,6 +511,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to If the status is IssuedToUser, you must assign a user.
+        /// </summary>
+        public static string IfStatusIsIssuedToUserYouMustAssignUser {
+            get {
+                return ResourceManager.GetString("IfStatusIsIssuedToUserYouMustAssignUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In order to assign a user, you must set the status to IssuedToUser.
+        /// </summary>
+        public static string InOrderToAssignUserYouMustSetStatusToIssuedToUser {
+            get {
+                return ResourceManager.GetString("InOrderToAssignUserYouMustSetStatusToIssuedToUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to In The Stock.
         /// </summary>
         public static string InTheStock {
@@ -1128,6 +1146,24 @@ namespace Resources {
         public static string Surname {
             get {
                 return ResourceManager.GetString("Surname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The system already has a tool with that name. Its manufacturer is {0}..
+        /// </summary>
+        public static string SystemAlreadyHasToolWithThatNameManufacturer {
+            get {
+                return ResourceManager.GetString("SystemAlreadyHasToolWithThatNameManufacturer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The system already has a tool with that name. Its type is {0}..
+        /// </summary>
+        public static string SystemAlreadyHasToolWithThatNameToolType {
+            get {
+                return ResourceManager.GetString("SystemAlreadyHasToolWithThatNameToolType", resourceCulture);
             }
         }
         

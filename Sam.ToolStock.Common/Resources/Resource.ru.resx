@@ -561,4 +561,16 @@
   <data name="ReturnTool" xml:space="preserve">
     <value>Вернуть интсрумент</value>
   </data>
+  <data name="IfStatusIsIssuedToUserYouMustAssignUser" xml:space="preserve">
+    <value>Если статус равен IssuedToUser вы должны назначить пользователя</value>
+  </data>
+  <data name="InOrderToAssignUserYouMustSetStatusToIssuedToUser" xml:space="preserve">
+    <value>Для того чтобы назначить пользователя, вы должны установить статус в значение IssuedToUser</value>
+  </data>
+  <data name="SystemAlreadyHasToolWithThatNameManufacturer" xml:space="preserve">
+    <value>В системе уже есть инструмент с таким именем. Его производитель {0}.</value>
+  </data>
+  <data name="SystemAlreadyHasToolWithThatNameToolType" xml:space="preserve">
+    <value>В системе уже есть инструмент с таким именем. Его тип {0}.</value>
+  </data>
 </root>

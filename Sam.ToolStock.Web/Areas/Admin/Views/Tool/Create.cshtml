@@ -27,7 +27,7 @@
                 </div>
                 <div class="col col-sm-10">
                     @Html.ValidationMessageFor(m => m.Manufacturer)
-                    @Html.TextBoxFor(m => m.Manufacturer, new { @class = "form-control", placeholder = Resources.Resource.Manufacturer })
+                    @Html.TextBoxFor(m => m.Manufacturer, new { @class = "form-control", placeholder = Resources.Resource.Manufacturer, value = Model.Manufacturer })
                 </div>
             </div>
             <div class="row form-group">

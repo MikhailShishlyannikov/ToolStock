@@ -561,4 +561,16 @@
   <data name="ReturnTool" xml:space="preserve">
     <value>Return tool</value>
   </data>
+  <data name="IfStatusIsIssuedToUserYouMustAssignUser" xml:space="preserve">
+    <value>If the status is IssuedToUser, you must assign a user</value>
+  </data>
+  <data name="InOrderToAssignUserYouMustSetStatusToIssuedToUser" xml:space="preserve">
+    <value>In order to assign a user, you must set the status to IssuedToUser</value>
+  </data>
+  <data name="SystemAlreadyHasToolWithThatNameManufacturer" xml:space="preserve">
+    <value>The system already has a tool with that name. Its manufacturer is {0}.</value>
+  </data>
+  <data name="SystemAlreadyHasToolWithThatNameToolType" xml:space="preserve">
+    <value>The system already has a tool with that name. Its type is {0}.</value>
+  </data>
 </root>

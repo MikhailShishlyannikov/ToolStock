@@ -63,32 +63,56 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(ToolViewModel toolViewModel)
         {
+            toolViewModel.Name = toolViewModel.Name.Trim();
+            toolViewModel.Manufacturer = toolViewModel.Manufacturer.Trim();
+
             if (!ModelState.IsValid)
             {
-                var toolTypes = _toolTypeService.GetAll().ToList();
-                toolTypes.Add(new ToolTypeViewModel
-                {
-                    Id = new Guid().ToString(),
-                    Name = Resources.Resource.ChooseToolType
-                });
+                SetInToolCollections(toolViewModel);
 
-                var stocks = _stockService.GetAll(false).ToList();
-                stocks.Add(new StockViewModel
-                {
-                    Id = new Guid().ToString(),
-                    Name = Resources.Resource.ChooseStock
-                });
+                return View(toolViewModel);
+            }
 
-                var users = _userService.GetAll(false).OrderBy(u => u.Name).ToList();
-                users.Insert(0, new UserViewModel
-                {
-                    Id = new Guid().ToString(),
-                    Name = Resources.Resource.ChooseUser
-                });
+            if (toolViewModel.Status == Statuses.IssuedToUser && toolViewModel.UserId == new Guid().ToString())
+            {
+                ModelState.AddModelError("UserId", Resources.Resource.IfStatusIsIssuedToUserYouMustAssignUser);
 
-                toolViewModel.ToolTypes = toolTypes;
-                toolViewModel.Stocks = stocks;
-                toolViewModel.Users = users;
+                SetInToolCollections(toolViewModel);
+
+                return View(toolViewModel);
+            }
+
+            if (toolViewModel.Status != Statuses.IssuedToUser && toolViewModel.UserId != new Guid().ToString())
+            {
+                ModelState.AddModelError("Status", Resources.Resource.InOrderToAssignUserYouMustSetStatusToIssuedToUser);
+
+                SetInToolCollections(toolViewModel);
+
+                return View(toolViewModel);
+            }
+
+            var checkedTool = _toolService.GetByName(toolViewModel.Name).FirstOrDefault();
+
+            if (checkedTool != null && checkedTool.Manufacturer != toolViewModel.Manufacturer)
+            {
+                ModelState.AddModelError("Manufacturer",
+                    string.Format(Resources.Resource.SystemAlreadyHasToolWithThatNameManufacturer, checkedTool.Manufacturer));
+
+                SetInToolCollections(toolViewModel);
+
+                return View(toolViewModel);
+            }
+
+            if (checkedTool != null && checkedTool.ToolTypeId != toolViewModel.ToolTypeId)
+            {
+                var toolType = _toolTypeService.Get(checkedTool.ToolTypeId);
+
+                ModelState.AddModelError("ToolTypeId",
+                    string.Format(Resources.Resource.SystemAlreadyHasToolWithThatNameManufacturer, toolType.Name));
+
+                SetInToolCollections(toolViewModel);
+
+                toolViewModel.ToolTypeId = toolType.Id;
 
                 return View(toolViewModel);
             }
@@ -337,6 +361,36 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
             _toolService.ReturnFromUser(returnFromUserViewModel);
 
             return RedirectToAction("ShowAll");
+        }
+
+        private ToolViewModel SetInToolCollections(ToolViewModel toolViewModel)
+        {
+            var toolTypes = _toolTypeService.GetAll().ToList();
+            toolTypes.Add(new ToolTypeViewModel
+            {
+                Id = new Guid().ToString(),
+                Name = Resources.Resource.ChooseToolType
+            });
+
+            var stocks = _stockService.GetAll(false).ToList();
+            stocks.Add(new StockViewModel
+            {
+                Id = new Guid().ToString(),
+                Name = Resources.Resource.ChooseStock
+            });
+
+            var users = _userService.GetAll(false).OrderBy(u => u.Name).ToList();
+            users.Insert(0, new UserViewModel
+            {
+                Id = new Guid().ToString(),
+                Name = Resources.Resource.ChooseUser
+            });
+
+            toolViewModel.ToolTypes = toolTypes;
+            toolViewModel.Stocks = stocks;
+            toolViewModel.Users = users;
+
+            return toolViewModel;
         }
     }
 }

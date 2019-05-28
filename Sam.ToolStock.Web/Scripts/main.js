@@ -86,16 +86,6 @@ jQuery(document).ready(function($) {
 
     // -------------------------------------------------
 
-    //$(".table-row").click(function() {
-    //    window.document.location = $(this).data("href");
-    //});
-    
-    //$(".table-row").click(function (e) {
-    //    e.preventDefault();
-    //    var link = $(this).attr("id");
-    //    $("#results").load(link);
-    //});
-
     $('[data-toggle-second="tooltip"]').tooltip();
 
     $('.stop-propagation').on('click', function (e) {

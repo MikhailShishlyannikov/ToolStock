@@ -232,6 +232,7 @@
     <Compile Include="Areas\Users\Controllers\AccountController.cs" />
     <Compile Include="Areas\Users\Controllers\HomeController.cs" />
     <Compile Include="Areas\Users\Controllers\SettingController.cs" />
+    <Compile Include="Areas\Users\Controllers\UserController.cs" />
     <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
     <Compile Include="Attributes\MultipleButtonAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -374,6 +375,7 @@
     <Content Include="Areas\Admin\Views\Tool\MoveToStock.cshtml" />
     <Content Include="Areas\Admin\Views\Tool\ReturnFromRepair.cshtml" />
     <Content Include="Areas\Admin\Views\Tool\ReturnFromUser.cshtml" />
+    <Content Include="Areas\Users\Views\User\Show.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\fullcalendar-init.js" />
     <Content Include="Scripts\fullcalendar.js" />

@@ -10,7 +10,7 @@ namespace Sam.ToolStock.Logic.Interfaces
 
         IEnumerable<ToolViewModel> GetAll(bool showDeleted);
 
-        IEnumerable<ToolCountViewModel> GetAllToolCounts();
+        IEnumerable<ToolCountViewModel> GetAllToolCounts(bool showDeleted);
 
         IEnumerable<ToolViewModel> GetByName(string toolName);
 

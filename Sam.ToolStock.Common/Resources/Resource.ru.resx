@@ -573,4 +573,7 @@
   <data name="SystemAlreadyHasToolWithThatNameToolType" xml:space="preserve">
     <value>В системе уже есть инструмент с таким именем. Его тип {0}.</value>
   </data>
+  <data name="UserInformation" xml:space="preserve">
+    <value>Информация о пользователе</value>
+  </data>
 </root>

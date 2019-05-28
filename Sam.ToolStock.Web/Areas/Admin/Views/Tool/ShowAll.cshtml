@@ -194,7 +194,7 @@
                                                                         else
                                                                         {
                                                                             <strong>@Resources.Resource.UnderRepair: </strong> <span class="badge badge-warning">@stock.UnderRepair</span>
-                                                                            <a href=@Url.Action("ReturnFromRepair", new {toolName = tool.Name, stockId = stock.Id, maxAmount = stock.InStock}) class="btn btn-primary btn-sm" data-toggle-second="tooltip" data-placement="top" title="@Resources.Resource.ReturnFromRepair">
+                                                                            <a href=@Url.Action("ReturnFromRepair", new {toolName = tool.Name, stockId = stock.Id, maxAmount = stock.UnderRepair}) class="btn btn-primary btn-sm" data-toggle-second="tooltip" data-placement="top" title="@Resources.Resource.ReturnFromRepair">
                                                                                 <i class="fa fa-reply-all"></i>
                                                                             </a>
                                                                         }

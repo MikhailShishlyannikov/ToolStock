@@ -573,4 +573,7 @@
   <data name="SystemAlreadyHasToolWithThatNameToolType" xml:space="preserve">
     <value>The system already has a tool with that name. Its type is {0}.</value>
   </data>
+  <data name="UserInformation" xml:space="preserve">
+    <value>User information</value>
+  </data>
 </root>

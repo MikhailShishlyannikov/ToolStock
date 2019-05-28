@@ -144,7 +144,7 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
             )
         {
 
-            var tools = _toolService.GetAllToolCounts().ToList();
+            var tools = _toolService.GetAllToolCounts(true).ToList();
             var toolTypes = _toolTypeService.GetAll().ToList();
             var manufacturers = tools.Select(t => t.Manufacturer).Distinct().ToList();
 

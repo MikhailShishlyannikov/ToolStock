@@ -579,4 +579,7 @@
   <data name="ChooseManufacturer" xml:space="preserve">
     <value>Choose a manufacturer</value>
   </data>
+  <data name="YourAccountHasBeenBlocked" xml:space="preserve">
+    <value>Your account has been blocked.</value>
+  </data>
 </root>

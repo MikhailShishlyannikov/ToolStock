@@ -579,4 +579,7 @@
   <data name="ChooseManufacturer" xml:space="preserve">
     <value>Выберите производителя</value>
   </data>
+  <data name="YourAccountHasBeenBlocked" xml:space="preserve">
+    <value>Ваш аккаунт был заблокирован.</value>
+  </data>
 </root>

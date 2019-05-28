@@ -37,14 +37,20 @@ namespace Sam.ToolStock.Web.Controllers
                 return View(loginViewModel);
             }
 
+            var user = _userService.GetUser(loginViewModel);
+
+            if (user.IsDeleted)
+            {
+                ModelState.AddModelError("", Resources.Resource.YourAccountHasBeenBlocked);
+                return View(loginViewModel);
+            }
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = _signInService.PasswordSignIn(loginViewModel);
-
             switch (result)
             {
                 case SignInStatus.Success:
-                    var user = _userService.GetUser(loginViewModel);
                     var roles = _userService.GetRoles(user.Id);
 
                     if (roles.Contains("Admin"))
@@ -93,7 +99,7 @@ namespace Sam.ToolStock.Web.Controllers
                 // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                 // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                return RedirectToAction("Index", new {});
+                return RedirectToAction("Index", new {controller = "Home", area = "Users"});
 
             }
             AddErrors(result);

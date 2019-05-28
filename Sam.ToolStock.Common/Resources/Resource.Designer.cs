@@ -1438,6 +1438,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your account has been blocked..
+        /// </summary>
+        public static string YourAccountHasBeenBlocked {
+            get {
+                return ResourceManager.GetString("YourAccountHasBeenBlocked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your department.
         /// </summary>
         public static string YourDepartment {

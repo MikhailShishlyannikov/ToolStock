@@ -139,10 +139,18 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
             int page = 1, 
             int pageSize = 6, 
             string searchString = "",
-            string manufacturer = "Choose a manufacturer", 
-            string toolTypeId = "Choose a tool type"
+            string manufacturer = null, 
+            string toolTypeId = null
             )
         {
+            if (manufacturer == null)
+            {
+                manufacturer = Resources.Resource.ChooseManufacturer;
+            }
+            if (toolTypeId == null)
+            {
+                toolTypeId = Resources.Resource.ChooseToolType;
+            }
 
             var tools = _toolService.GetAllToolCounts(true).ToList();
             var toolTypes = _toolTypeService.GetAll().ToList();
@@ -153,21 +161,21 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
             {
                 tools = tools.Where(t => t.Name.Contains(searchString)).ToList();
             }
-            if (manufacturer != "Choose a manufacturer")
+            if (manufacturer != Resources.Resource.ChooseManufacturer)
             {
                 tools = tools.Where(t => t.Manufacturer == manufacturer).ToList();
             }
-            if (toolTypeId != "Choose a tool type")
+            if (toolTypeId != Resources.Resource.ChooseToolType)
             {
                 tools = tools.Where(t => t.ToolTypeName == toolTypes.FirstOrDefault(tt => tt.Id == toolTypeId)?.Name).ToList();
-                toolTypes.Insert(0, new ToolTypeViewModel { Id = "Choose a tool type", Name = "Choose a tool type" });
+                toolTypes.Insert(0, new ToolTypeViewModel { Id = Resources.Resource.ChooseToolType, Name = Resources.Resource.ChooseToolType });
             }
             else
             {
                 toolTypes.Insert(0, new ToolTypeViewModel { Id = toolTypeId, Name = toolTypeId });
             }
 
-            manufacturers.Insert(0, "Choose a manufacturer");
+            manufacturers.Insert(0, Resources.Resource.ChooseManufacturer);
 
             var toolsPerPages = tools.Skip((page - 1) * pageSize).Take(pageSize).ToList();
             var paginationViewModel = new PaginationViewModel

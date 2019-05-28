@@ -576,4 +576,7 @@
   <data name="UserInformation" xml:space="preserve">
     <value>Информация о пользователе</value>
   </data>
+  <data name="ChooseManufacturer" xml:space="preserve">
+    <value>Выберите производителя</value>
+  </data>
 </root>

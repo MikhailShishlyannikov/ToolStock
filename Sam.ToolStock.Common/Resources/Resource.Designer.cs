@@ -196,6 +196,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose a manufacturer.
+        /// </summary>
+        public static string ChooseManufacturer {
+            get {
+                return ResourceManager.GetString("ChooseManufacturer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose a stock.
         /// </summary>
         public static string ChooseStock {

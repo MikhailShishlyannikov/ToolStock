@@ -133,6 +133,12 @@ namespace Sam.ToolStock.Logic.Services
             var userInfoModel = _unitOfWork.UserInfoRepository.GetById(user.Id);
             var userModel = _userManager.FindById(user.Id);
 
+            if (!_userManager.IsInRole(user.Id, user.Role))
+            {
+                _userManager.RemoveFromRole(userModel.Id, _userManager.GetRoles(user.Id).First());
+                _userManager.AddToRole(user.Id, user.Role);
+            }
+
             _mapper.Map(user, userModel);
             _mapper.Map(user, userInfoModel);
 

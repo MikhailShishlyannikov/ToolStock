@@ -39,7 +39,7 @@ namespace Sam.ToolStock.Web.Controllers
 
             var user = _userService.GetUser(loginViewModel);
 
-            if (user.IsDeleted)
+            if (user != null && user.IsDeleted)
             {
                 ModelState.AddModelError("", Resources.Resource.YourAccountHasBeenBlocked);
                 return View(loginViewModel);

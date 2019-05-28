@@ -182,7 +182,7 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
             {
                 PageNumber = page,
                 PageSize = pageSize,
-                TotalItems = tools.Count(),
+                TotalItems = tools.Count,
                 ToolCountViewModels = toolsPerPages,
                 Manufacturer = manufacturer,
                 Manufacturers = manufacturers,

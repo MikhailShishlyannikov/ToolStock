@@ -1,0 +1,26 @@
+﻿@model Sam.ToolStock.Model.ViewModels.MenuViewModel
+
+@{
+    if (Model.StockName == "Central tool stock")
+    {
+        <li class="menu-title">@Resources.Resource.ToolTypes</li><!-- /.menu-title -->
+        <li>
+            <a href=@Url.Action("Create", "ToolType")><i class="menu-icon fa fa-gears"></i><i class="menu-icon fa fa-plus-square"></i>@Resources.Resource.CreateToolType</a>
+        </li>
+        <li>
+            <a href=@Url.Action("ShowAll", "ToolType")><i class="menu-icon fa fa-gears"></i>@Resources.Resource.AllToolTypes</a>
+        </li>
+    }
+}
+<li class="menu-title">@Resources.Resource.Tools</li><!-- /.menu-title -->
+@{
+    if (Model.StockName == "Central tool stock")
+    {
+        <li>
+            <a href=@Url.Action("Create", "Home")><i class="menu-icon fa fa-gear"></i><i class="menu-icon fa fa-plus-square"></i>@Resources.Resource.CreateTools</a>
+        </li>
+    }
+}
+<li>
+    <a href=@Url.Action("Index", "Home")><i class="menu-icon fa fa-gear"></i>@Resources.Resource.AllTools</a>
+</li>

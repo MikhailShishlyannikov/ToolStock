@@ -227,7 +227,9 @@
     <Compile Include="Areas\Admin\Controllers\ToolTypeController.cs" />
     <Compile Include="Areas\Keepers\Controllers\AccountController.cs" />
     <Compile Include="Areas\Keepers\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Keepers\Controllers\MenuController.cs" />
     <Compile Include="Areas\Keepers\Controllers\SettingController.cs" />
+    <Compile Include="Areas\Keepers\Controllers\ToolTypeController.cs" />
     <Compile Include="Areas\Keepers\KeepersAreaRegistration.cs" />
     <Compile Include="Areas\Users\Controllers\AccountController.cs" />
     <Compile Include="Areas\Users\Controllers\HomeController.cs" />
@@ -356,7 +358,6 @@
     <Content Include="Areas\Keepers\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Users\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Keepers\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Keepers\Views\Home\Index.cshtml" />
     <Content Include="Areas\Users\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Users\Views\Home\Index.cshtml" />
     <Content Include="Areas\Keepers\Views\Shared\_ProfileBar.cshtml" />
@@ -376,6 +377,18 @@
     <Content Include="Areas\Admin\Views\Tool\ReturnFromRepair.cshtml" />
     <Content Include="Areas\Admin\Views\Tool\ReturnFromUser.cshtml" />
     <Content Include="Areas\Users\Views\User\Show.cshtml" />
+    <Content Include="Areas\Keepers\Views\Menu\Show.cshtml" />
+    <Content Include="Areas\Keepers\Views\ToolType\Create.cshtml" />
+    <Content Include="Areas\Keepers\Views\ToolType\Rename.cshtml" />
+    <Content Include="Areas\Keepers\Views\ToolType\ShowAll.cshtml" />
+    <Content Include="Areas\Keepers\Views\Home\Create.cshtml" />
+    <Content Include="Areas\Keepers\Views\Home\GiveInForRepair.cshtml" />
+    <Content Include="Areas\Keepers\Views\Home\Issue.cshtml" />
+    <Content Include="Areas\Keepers\Views\Home\MoveToStock.cshtml" />
+    <Content Include="Areas\Keepers\Views\Home\ReturnFromRepair.cshtml" />
+    <Content Include="Areas\Keepers\Views\Home\ReturnFromUser.cshtml" />
+    <Content Include="Areas\Keepers\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Keepers\Views\Home\WriteOff.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\fullcalendar-init.js" />
     <Content Include="Scripts\fullcalendar.js" />

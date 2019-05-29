@@ -95,6 +95,7 @@
     <Compile Include="Validation\UserProfileViewModeValidator.cs" />
     <Compile Include="Validation\UserViewModelValidator.cs" />
     <Compile Include="ViewModels\ActionsViewModel.cs" />
+    <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\MoveToStockViewModel.cs" />
     <Compile Include="ViewModels\PaginationViewModel.cs" />
     <Compile Include="ViewModels\ChangePasswordViewModel.cs" />

@@ -1,0 +1,28 @@
+﻿@model Sam.ToolStock.Model.ViewModels.ToolTypeViewModel
+
+@{
+    ViewBag.Title = @Resources.Resource.ToolTypeCreating;
+}
+
+<div class="card col-12">
+    <div class="card-header">
+        @Resources.Resource.Create <strong>@Resources.Resource.ToolType</strong>
+    </div>
+    <div class="card-body card-block">
+        @using (Html.BeginForm("Create", "ToolType", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <div class="row form-group">
+                <div class="col col-sm-1">
+                    @Html.LabelFor(m => m.Name, new { @class = "form-control-label" })
+                </div>
+                <div class="col col-sm-11">
+                    @Html.ValidationMessageFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = Resources.Resource.Name })
+                </div>
+            </div>
+            <div class="form-actions form-group">
+                <input type="submit" value=@Resources.Resource.Create name="Create" class="btn btn-primary">
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,83 @@
+﻿@using Sam.ToolStock.Common
+@model Sam.ToolStock.Model.ViewModels.ToolViewModel
+
+@{
+    ViewBag.Title = Resources.Resource.CreateTool;
+}
+
+<div class="card col-12">
+    <div class="card-header">
+        @Resources.Resource.Create <strong>@Resources.Resource.Tool</strong>
+    </div>
+    <div class="card-body card-block">
+        @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <div class="row form-group">
+                <div class="col col-sm-2">
+                    @Html.LabelFor(m => m.Name, new { @class = "form-control-label" })
+                </div>
+                <div class="col col-sm-10">
+                    @Html.ValidationMessageFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = Resources.Resource.Name })
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-sm-2">
+                    @Html.LabelFor(m => m.Manufacturer, new { @class = "form-control-label" })
+                </div>
+                <div class="col col-sm-10">
+                    @Html.ValidationMessageFor(m => m.Manufacturer)
+                    @Html.TextBoxFor(m => m.Manufacturer, new { @class = "form-control", placeholder = Resources.Resource.Manufacturer, value = Model.Manufacturer })
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-sm-2">
+                    @Html.LabelFor(m => m.Amount, new { @class = "form-control-label" })
+                </div>
+                <div class="col col-sm-3">
+                    @Html.TextBoxFor(m => m.Amount, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Amount)
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-sm-2">
+                    @Html.LabelFor(m => m.ToolTypeId, Resources.Resource.ToolType, new { @class = "form-control-label" })
+                </div>
+                <div class="col col-sm-4">
+                    @Html.DropDownListFor(
+                        m => m.ToolTypeId, new SelectList(Model.ToolTypes, "Id", "Name", Model.ToolTypeId), new {@class = "form-control"})
+                    @Html.ValidationMessageFor(m => m.ToolTypeId)
+                </div>
+                <div class="col col-sm-2">
+                    @Html.LabelFor(m => m.StockId, Resources.Resource.Stock, new { @class = "form-control-label" })
+                </div>
+                <div class="col col-sm-4">
+                    @Html.DropDownListFor(
+                        m => m.StockId, new SelectList(Model.Stocks, "Id", "Name", Model.StockId), new {@class = "form-control"})
+                    @Html.ValidationMessageFor(m => m.StockId)
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-sm-2">
+                    @Html.LabelFor(m => m.UserId, Resources.Resource.User, new { @class = "form-control-label" })
+                </div>
+                <div class="col col-sm-4">
+                    @Html.DropDownListFor(
+                        m => m.UserId, new SelectList(Model.Users, "Id", "FullName", Model.UserId), new {@class = "form-control"})
+                    @Html.ValidationMessageFor(m => m.UserId)
+                </div>
+                <div class="col col-sm-2">
+                    @Html.LabelFor(m => m.Status, Resources.Resource.Status, new { @class = "form-control-label" })
+                </div>
+                <div class="col col-sm-4">
+                    @Html.DropDownListFor(o => o.Status, Enum.GetValues(typeof(Statuses)).Cast<Statuses>
+                        ().Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() }), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Status)
+                </div>
+            </div>
+            <div class="form-actions form-group">
+                <input type="submit" value=@Resources.Resource.Create name="Create" class="btn btn-primary">
+            </div>
+        }
+    </div>
+</div>

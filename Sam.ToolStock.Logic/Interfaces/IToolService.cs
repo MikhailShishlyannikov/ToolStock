@@ -12,6 +12,8 @@ namespace Sam.ToolStock.Logic.Interfaces
 
         IEnumerable<ToolCountViewModel> GetAllToolCounts(bool showDeleted);
 
+        IEnumerable<ToolCountViewModel> GetAllToolCounts(bool showDeleted, string stockId);
+
         IEnumerable<ToolViewModel> GetByName(string toolName);
 
         void IssueToUser(IssueToolViewModel toolActionsViewModel);

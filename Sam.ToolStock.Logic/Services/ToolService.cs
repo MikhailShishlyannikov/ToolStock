@@ -55,10 +55,25 @@ namespace Sam.ToolStock.Logic.Services
 
         public IEnumerable<ToolCountViewModel> GetAllToolCounts(bool showDeleted)
         {
+            return GetAllToolCounts(showDeleted, null);
+        }
+
+        public IEnumerable<ToolCountViewModel> GetAllToolCounts(bool showDeleted, string stockId)
+        {
             IEnumerable<ToolModel> toolModels;
-            toolModels = showDeleted
-                ? _unitOfWork.ToolRepository.GetAll()
-                : _unitOfWork.ToolRepository.GetWhere(t => t.IsDeleted == false);
+
+            if (stockId == null)
+            {
+                toolModels = showDeleted
+                    ? _unitOfWork.ToolRepository.GetAll()
+                    : _unitOfWork.ToolRepository.GetWhere(t => t.IsDeleted == false);
+            }
+            else
+            {
+                toolModels = showDeleted
+                    ? _unitOfWork.ToolRepository.GetWhere(t => t.StockId == stockId)
+                    : _unitOfWork.ToolRepository.GetWhere(t => t.IsDeleted == false && t.StockId == stockId);
+            }
 
             var toolCounts = toolModels.GroupBy(t => t.Name)
                 .Select(tc => new ToolCountViewModel

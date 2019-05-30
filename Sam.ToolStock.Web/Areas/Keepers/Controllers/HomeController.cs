@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using Sam.ToolStock.Common;
 using Sam.ToolStock.Logic.Interfaces;
 using Sam.ToolStock.Model.ViewModels;
@@ -152,7 +153,7 @@ namespace Sam.ToolStock.Web.Areas.Keepers.Controllers
                 toolTypeId = Resources.Resource.ChooseToolType;
             }
 
-            var tools = _toolService.GetAllToolCounts(true).ToList();
+            var tools = _toolService.GetAllToolCounts(true, _userService.GetUser(User.Identity.GetUserId()).StockId).ToList();
             var toolTypes = _toolTypeService.GetAll().ToList();
             var manufacturers = tools.Select(t => t.Manufacturer).Distinct().ToList();
 

@@ -582,4 +582,7 @@
   <data name="YourAccountHasBeenBlocked" xml:space="preserve">
     <value>Your account has been blocked.</value>
   </data>
+  <data name="BorrowedTools" xml:space="preserve">
+    <value>Borrowed tools</value>
+  </data>
 </root>

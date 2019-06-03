@@ -88,6 +88,27 @@ namespace Sam.ToolStock.Logic.Services
             return toolCounts;
         }
 
+        public IEnumerable<ToolCountViewModel> GetAllBorrowedToolCounts(bool showDeleted, string userId)
+        {
+            IEnumerable<ToolModel> toolModels;
+
+                toolModels = showDeleted
+                    ? _unitOfWork.ToolRepository.GetWhere(t => t.UserId == userId)
+                    : _unitOfWork.ToolRepository.GetWhere(t => t.IsDeleted == false && t.UserId == userId);
+
+            var toolCounts = toolModels.GroupBy(t => t.Name)
+                .Select(tc => new ToolCountViewModel
+                {
+                    Count = tc.Count(),
+                    Name = tc.Key,
+                    Manufacturer = tc.First().Manufacturer,
+                    ToolTypeName = tc.FirstOrDefault()?.ToolType.Name,
+                    Tools = _mapper.Map<IEnumerable<ToolViewModel>>(tc.Where(t => t.Name == tc.Key))
+                }).ToList();
+
+            return toolCounts;
+        }
+
         public IEnumerable<ToolViewModel> GetByName(string toolName)
         {
             return _mapper.Map<IEnumerable<ToolViewModel>>(

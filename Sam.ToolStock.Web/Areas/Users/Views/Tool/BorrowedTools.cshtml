@@ -1,8 +1,7 @@
-﻿@using Sam.ToolStock.Common
-@model Sam.ToolStock.Model.ViewModels.PaginationViewModel
+﻿@model Sam.ToolStock.Model.ViewModels.PaginationViewModel
 
 @{
-    ViewBag.Title = Resources.Resource.AllTools;
+    ViewBag.Title = Resources.Resource.BorrowedTools;
 
     var outerCounter = 0;
 }
@@ -14,7 +13,7 @@
                 <div class="card col-12">
                     <div class="card-body">
                         <div class="col-md-10 offset-md-1">
-                            @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { @class = "form-horizontal" }))
+                            @using (Html.BeginForm("BorrowedTools", "Tool", FormMethod.Get, new { @class = "form-horizontal" }))
                             {
                                 <div class="row form-group">
                                     <div class="col col-md-12">
@@ -34,7 +33,7 @@
                                                 <button class="btn btn-primary"><i class="fa fa-search"></i> @Resources.Resource.Search</button>
                                             </div>
                                             <div class="input-group-btn">
-                                                @Html.ActionLink(@Resources.Resource.Reset, "Index", "", new { @class = "btn btn-danger" })
+                                                @Html.ActionLink(@Resources.Resource.Reset, "BorrowedTools", "", new { @class = "btn btn-danger" })
                                             </div>
                                         </div>
                                     </div>
@@ -90,91 +89,25 @@
                                     <div class="card-body">
                                         <div class="row">
                                             @{
-                                                var active = "active";
-                                                var show = "show";
                                                 var stocks = tool.Tools.GroupBy(t => t.StockId)
                                                     .Select(x => new
                                                     {
                                                         Id = x.FirstOrDefault()?.Stock.Id,
                                                         Name = x.FirstOrDefault()?.Stock.Name,
-                                                        Count = x.Count(),
-                                                        InStock = x.Count(t => t.Status == Statuses.InStock),
-                                                        UnderRepair = x.Count(t => t.Status == Statuses.UnderRepair),
-                                                        IssuedToUser = x.Count(t => t.Status == Statuses.IssuedToUser),
-                                                        Users = x.Where(t => t.Status == Statuses.IssuedToUser).Select(t => t.User)
-                                                            .GroupBy(y => y.FullName)
-                                                            .Select(z => new
-                                                            {
-                                                                Id = z.FirstOrDefault()?.Id,
-                                                                FullName = z.FirstOrDefault()?.FullName,
-                                                                Count = z.Count()
-                                                            })
+                                                        Count = x.Count()
                                                     })
                                                     .ToList();
-                                                var listTab = "list-tab" + outerCounter;
-                                                var navTabContent = "nav-tabContent" + outerCounter;
-                                                var innerCounter = 0;
                                             }
-                                            <div class="col-3">
-                                                <div class="list-group" id=@listTab role="tablist">
+                                            <div class="col-12">
+                                                <ul class="nav justify-content-center">
                                                     @foreach (var stock in stocks)
                                                     {
-                                                        var id = $"list-stock{outerCounter}{innerCounter}-list";
-                                                        var href = $"#list-stock{outerCounter}{innerCounter}";
-                                                        var ariaControls = $"stock{outerCounter}{innerCounter}";
-
-                                                        <a class="list-group-item list-group-item-info @active" id=@id data-toggle="list" href=@href role="tab" aria-controls=@ariaControls>
-                                                            @stock.Name <span class="badge badge-secondary">@stock.Count</span>
-                                                        </a>
-
-                                                        innerCounter++;
-                                                        active = "";
+                                                        <li class="nav-item alert alert-success">
+                                                            <strong class="nav-link ">@stock.Name <span class="badge badge-secondary">@stock.Count</span></strong>
+                                                        </li>
                                                     }
-                                                </div>
-                                            </div>
-                                            <div class="col-9">
-                                                <div class="tab-content" id=@navTabContent>
-                                                    @{
-                                                        innerCounter = 0;
-                                                        active = "active";
-                                                        foreach (var stock in stocks)
-                                                        {
-                                                            var id = $"list-stock{outerCounter}{innerCounter}";
-                                                            var ariaLabelledby = $"list-stock{outerCounter}{innerCounter}-list";
 
-                                                            <div class="tab-pane fade @show @active" id=@id role="tabpanel" aria-labelledby=@ariaLabelledby>
-                                                                <div class="row alert-warning border">
-                                                                    <div class="col-4">
-                                                                            <strong>@Resources.Resource.InTheStock: </strong>
-                                                                            <span class="badge badge-warning">@stock.InStock</span>
-                                                                    </div>
-                                                                    <div class="col-4">
-                                                                            <strong>@Resources.Resource.UnderRepair: </strong> <span class="badge badge-warning">@stock.UnderRepair</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row alert-success border">
-                                                                    <div class="col-4 text-right">
-                                                                        <strong>@Resources.Resource.IssuedToUser: </strong> <span class="badge badge-warning">@stock.IssuedToUser</span>
-                                                                    </div>
-                                                                    <div class="col-4">
-                                                                        <ul>
-                                                                            @foreach (var user in stock.Users)
-                                                                            {
-                                                                                <li>
-                                                                                    @Ajax.ActionLink(user.FullName, "Show", "User" , new {userId = user.Id}, new AjaxOptions{ HttpMethod = "GET", UpdateTargetId = "qwe", InsertionMode = InsertionMode.Replace}, new{ data_toggle = "modal", data_target = "#scrollModal" })
-                                                                                    <span class="badge badge-warning">@user.Count</span>
-                                                                                </li>
-                                                                            }
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            innerCounter++;
-                                                            active = "";
-                                                            show = "";
-                                                        }
-                                                    }
-                                                </div>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -194,13 +127,13 @@
                             <span></span>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href=@Url.Action("Index", new {page = Model.PageNumber, pageSize = 6})>6</a>
+                            <a class="nav-link active" href=@Url.Action("BorrowedTools", new {page = Model.PageNumber, pageSize = 6})>6</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href=@Url.Action("Index", new {page = Model.PageNumber, pageSize = 10})>10</a>
+                            <a class="nav-link" href=@Url.Action("BorrowedTools", new {page = Model.PageNumber, pageSize = 10})>10</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href=@Url.Action("Index", new {page = Model.PageNumber, pageSize = 15})>15</a>
+                            <a class="nav-link" href=@Url.Action("BorrowedTools", new {page = Model.PageNumber, pageSize = 15})>15</a>
                         </li>
                     </ul>
                 </div>
@@ -216,7 +149,7 @@
                             else
                             {
                                 <li class="page-item">
-                                    <a class="page-link" href=@Url.Action("Index", new {page = Model.PageNumber - 1})>@Resources.Resource.Previous</a>
+                                    <a class="page-link" href=@Url.Action("BorrowedTools", new {page = Model.PageNumber - 1})>@Resources.Resource.Previous</a>
                                 </li>
                             }
                             for (var i = 1; i <= Model.TotalPages; i++)
@@ -231,7 +164,7 @@
                                 }
                                 else
                                 {
-                                    <li class="page-item"><a class="page-link" href=@Url.Action("Index", new {page = i})>@i</a></li>
+                                    <li class="page-item"><a class="page-link" href=@Url.Action("BorrowedTools", new {page = i})>@i</a></li>
                                 }
                             }
                             if (Model.PageNumber == Model.TotalPages)
@@ -243,7 +176,7 @@
                             else
                             {
                                 <li class="page-item">
-                                    <a class="page-link" href=@Url.Action("Index", new {page = Model.PageNumber + 1})>@Resources.Resource.Next</a>
+                                    <a class="page-link" href=@Url.Action("BorrowedTools", new {page = Model.PageNumber + 1})>@Resources.Resource.Next</a>
                                 </li>
                             }
                         }
@@ -257,9 +190,7 @@
 <div class="modal fade" id="scrollModal" tabindex="-1" role="dialog" aria-labelledby="scrollmodalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div id="qwe" class="modal-content">
-            
+
         </div>
     </div>
 </div>
-
-@*@Html.Partial()*@

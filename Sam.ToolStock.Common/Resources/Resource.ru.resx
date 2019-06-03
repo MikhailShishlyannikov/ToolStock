@@ -582,4 +582,7 @@
   <data name="YourAccountHasBeenBlocked" xml:space="preserve">
     <value>Ваш аккаунт был заблокирован.</value>
   </data>
+  <data name="BorrowedTools" xml:space="preserve">
+    <value>Заимствованные инструменты</value>
+  </data>
 </root>

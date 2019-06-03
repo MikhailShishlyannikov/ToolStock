@@ -160,6 +160,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Borrowed tools.
+        /// </summary>
+        public static string BorrowedTools {
+            get {
+                return ResourceManager.GetString("BorrowedTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change Password.
         /// </summary>
         public static string ChangePassword {

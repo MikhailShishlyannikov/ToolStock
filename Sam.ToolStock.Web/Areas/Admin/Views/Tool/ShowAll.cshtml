@@ -16,293 +16,199 @@
                     @Html.ActionLink(@Resources.Resource.CreateNewTool, "Create", null, new { @class = "btn btn-primary ml-auto" })
                 </div>
             </div>
-            <div class="row">
-                <div class="card col-12">
-                    <div class="card-body">
-                        <div class="col-md-10 offset-md-1">
-                            @using (Html.BeginForm("ShowAll", "Tool", FormMethod.Get, new { @class = "form-horizontal" }))
-                            {
-                                <div class="row form-group">
-                                    <div class="col col-md-12">
-                                        <div class="input-group">
-                                            @Html.HiddenFor(m => m.PageNumber)
-                                            @Html.HiddenFor(m => m.PageSize)
-                                            @Html.TextBoxFor(m => m.searchString, new { @class = "form-control", placeholder = @Resources.Resource.Tool })
-                                            <div class="input-group-prepend">
-                                                @Html.DropDownListFor(
-                                                    m => m.Manufacturer, new SelectList(Model.Manufacturers, Model.Manufacturer), new {@class = "form-control input-group-text" })
-                                            </div>
-                                            <div class="input-group-prepend">
-                                                @Html.DropDownListFor(
-                                                    m => m.toolTypeId, new SelectList(Model.ToolTypes, "Id", "Name", Model.toolTypeId), new {@class = "form-control  input-group-text" })
-                                            </div>
-                                            <div class="input-group-btn">
-                                                <button class="btn btn-primary"><i class="fa fa-search"></i> @Resources.Resource.Search</button>
-                                            </div>
-                                            <div class="input-group-btn">
-                                                @Html.ActionLink(@Resources.Resource.Reset, "ShowAll", "Tool", new { @class = "btn btn-danger" })
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-                        </div>
+            @{
+                Html.RenderPartial("Searching", Model);
+            }
+        </div>
+    <div class="accordion" id="accordionExample275">
+        @{
+            if (Model.ToolCountViewModels?.Count() == 0)
+            {
+                <div class="card">
+                    <div class="card-header text-center">
+                        Nothing found
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="accordion" id="accordionExample275">
-            @{
-                if (Model.ToolCountViewModels?.Count() == 0)
+            }
+            else
+            {
+                if (Model.ToolCountViewModels != null)
                 {
-                    <div class="card">
-                        <div class="card-header text-center">
-                            Nothing found
-                        </div>
-                    </div>
-                }
-                else
-                {
-                    if (Model.ToolCountViewModels != null)
+                    foreach (var tool in Model.ToolCountViewModels)
                     {
-                        foreach (var tool in Model.ToolCountViewModels)
-                        {
-                            var headingId = "h" + outerCounter;
-                            var collapseId = "c" + outerCounter++;
-                            <div class="card z-depth-0 bordered">
-                                <div class="card-header" id=@headingId>
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <button class="btn btn-secondary btn-sm" type="button" data-toggle="collapse" data-target="#@collapseId"
-                                                    aria-expanded="true" aria-controls=@collapseId>
-                                                <strong>@Resources.Resource.Name:</strong> @tool.Name
-                                            </button>
-                                        </div>
-                                        <div class="col-3">
-                                            @Resources.Resource.Manufacturer: @tool.Manufacturer
-                                        </div>
-                                        <div class="col-4">
-                                            @Resources.Resource.ToolType: @tool.ToolTypeName
-                                        </div>
-                                        <div class="col-2">
-                                            <p class="text-right">
-                                                @Resources.Resource.Amount: <span class="badge badge-primary">@tool.Count</span>
-                                            </p>
-                                        </div>
+                        var headingId = "h" + outerCounter;
+                        var collapseId = "c" + outerCounter++;
+                        <div class="card z-depth-0 bordered">
+                            <div class="card-header" id=@headingId>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <button class="btn btn-secondary btn-sm" type="button" data-toggle="collapse" data-target="#@collapseId"
+                                                aria-expanded="true" aria-controls=@collapseId>
+                                            <strong>@Resources.Resource.Name:</strong> @tool.Name
+                                        </button>
+                                    </div>
+                                    <div class="col-3">
+                                        @Resources.Resource.Manufacturer: @tool.Manufacturer
+                                    </div>
+                                    <div class="col-4">
+                                        @Resources.Resource.ToolType: @tool.ToolTypeName
+                                    </div>
+                                    <div class="col-2">
+                                        <p class="text-right">
+                                            @Resources.Resource.Amount: <span class="badge badge-primary">@tool.Count</span>
+                                        </p>
                                     </div>
                                 </div>
-                                <div id=@collapseId class="collapse" aria-labelledby=@headingId
-                                     data-parent="#accordionExample275">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            @{
-                                                var active = "active";
-                                                var show = "show";
-                                                var stocks = tool.Tools.GroupBy(t => t.StockId)
-                                                    .Select(x => new
-                                                    {
-                                                        Id = x.FirstOrDefault()?.Stock.Id,
-                                                        Name = x.FirstOrDefault()?.Stock.Name,
-                                                        Count = x.Count(),
-                                                        InStock = x.Count(t => t.Status == Statuses.InStock),
-                                                        UnderRepair = x.Count(t => t.Status == Statuses.UnderRepair),
-                                                        IssuedToUser = x.Count(t => t.Status == Statuses.IssuedToUser),
-                                                        WrittenOff = x.Count(t => t.Status == Statuses.WrittenOff),
-                                                        Users = x.Where(t => t.Status == Statuses.IssuedToUser).Select(t => t.User)
-                                                            .GroupBy(y => y.FullName)
-                                                            .Select(z => new
-                                                            {
-                                                                Id = z.FirstOrDefault()?.Id,
-                                                                FullName = z.FirstOrDefault()?.FullName,
-                                                                Count = z.Count()
-                                                            })
-                                                    })
-                                                    .ToList();
-                                                var listTab = "list-tab" + outerCounter;
-                                                var navTabContent = "nav-tabContent" + outerCounter;
-                                                var innerCounter = 0;
-                                            }
-                                            <div class="col-3">
-                                                <div class="list-group" id=@listTab role="tablist">
-                                                    @foreach (var stock in stocks)
-                                                    {
-                                                        var id = $"list-stock{outerCounter}{innerCounter}-list";
-                                                        var href = $"#list-stock{outerCounter}{innerCounter}";
-                                                        var ariaControls = $"stock{outerCounter}{innerCounter}";
-
-                                                        <a class="list-group-item list-group-item-info @active" id=@id data-toggle="list" href=@href role="tab" aria-controls=@ariaControls>
-                                                            @stock.Name <span class="badge badge-secondary">@stock.Count</span>
-                                                        </a>
-
-                                                        innerCounter++;
-                                                        active = "";
-                                                    }
-                                                </div>
-                                            </div>
-                                            <div class="col-9">
-                                                <div class="tab-content" id=@navTabContent>
-                                                    @{
-                                                        innerCounter = 0;
-                                                        active = "active";
-                                                        foreach (var stock in stocks)
+                            </div>
+                            <div id=@collapseId class="collapse" aria-labelledby=@headingId
+                                 data-parent="#accordionExample275">
+                                <div class="card-body">
+                                    <div class="row">
+                                        @{
+                                            var active = "active";
+                                            var show = "show";
+                                            var stocks = tool.Tools.GroupBy(t => t.StockId)
+                                                .Select(x => new
+                                                {
+                                                    Id = x.FirstOrDefault()?.Stock.Id,
+                                                    Name = x.FirstOrDefault()?.Stock.Name,
+                                                    Count = x.Count(),
+                                                    InStock = x.Count(t => t.Status == Statuses.InStock),
+                                                    UnderRepair = x.Count(t => t.Status == Statuses.UnderRepair),
+                                                    IssuedToUser = x.Count(t => t.Status == Statuses.IssuedToUser),
+                                                    WrittenOff = x.Count(t => t.Status == Statuses.WrittenOff),
+                                                    Users = x.Where(t => t.Status == Statuses.IssuedToUser).Select(t => t.User)
+                                                        .GroupBy(y => y.FullName)
+                                                        .Select(z => new
                                                         {
-                                                            var id = $"list-stock{outerCounter}{innerCounter}";
-                                                            var ariaLabelledby = $"list-stock{outerCounter}{innerCounter}-list";
+                                                            Id = z.FirstOrDefault()?.Id,
+                                                            FullName = z.FirstOrDefault()?.FullName,
+                                                            Count = z.Count()
+                                                        })
+                                                })
+                                                .ToList();
+                                            var listTab = "list-tab" + outerCounter;
+                                            var navTabContent = "nav-tabContent" + outerCounter;
+                                            var innerCounter = 0;
+                                        }
+                                        <div class="col-3">
+                                            <div class="list-group" id=@listTab role="tablist">
+                                                @foreach (var stock in stocks)
+                                                {
+                                                    var id = $"list-stock{outerCounter}{innerCounter}-list";
+                                                    var href = $"#list-stock{outerCounter}{innerCounter}";
+                                                    var ariaControls = $"stock{outerCounter}{innerCounter}";
 
-                                                            <div class="tab-pane fade @show @active" id=@id role="tabpanel" aria-labelledby=@ariaLabelledby>
-                                                                <div class="row alert-warning border">
-                                                                    <div class="col-4">
-                                                                        @if (stock.InStock == 0)
-                                                                        {
-                                                                            <strong>@Resources.Resource.InTheStock: </strong>
-                                                                            <span class="badge badge-warning">@stock.InStock</span>
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            <div class="row">
-                                                                                <div class="col">
-                                                                                    <div class="row">
-                                                                                        <div class="col">
-                                                                                            <strong>@Resources.Resource.InTheStock: </strong> <span class="badge badge-warning">@stock.InStock</span>
-                                                                                        </div>
+                                                    <a class="list-group-item list-group-item-info @active" id=@id data-toggle="list" href=@href role="tab" aria-controls=@ariaControls>
+                                                        @stock.Name <span class="badge badge-secondary">@stock.Count</span>
+                                                    </a>
+
+                                                    innerCounter++;
+                                                    active = "";
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="col-9">
+                                            <div class="tab-content" id=@navTabContent>
+                                                @{
+                                                    innerCounter = 0;
+                                                    active = "active";
+                                                    foreach (var stock in stocks)
+                                                    {
+                                                        var id = $"list-stock{outerCounter}{innerCounter}";
+                                                        var ariaLabelledby = $"list-stock{outerCounter}{innerCounter}-list";
+
+                                                        <div class="tab-pane fade @show @active" id=@id role="tabpanel" aria-labelledby=@ariaLabelledby>
+                                                            <div class="row alert-warning border">
+                                                                <div class="col-4">
+                                                                    @if (stock.InStock == 0)
+                                                                    {
+                                                                        <strong>@Resources.Resource.InTheStock: </strong>
+                                                                        <span class="badge badge-warning">@stock.InStock</span>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <div class="row">
+                                                                            <div class="col">
+                                                                                <div class="row">
+                                                                                    <div class="col">
+                                                                                        <strong>@Resources.Resource.InTheStock: </strong> <span class="badge badge-warning">@stock.InStock</span>
                                                                                     </div>
-                                                                                    <div class="row">
-                                                                                        <div class="col btn-group">
-                                                                                            <a href=@Url.Action("Issue", new {toolName = tool.Name, stockId = stock.Id, maxAmount = stock.InStock}) class="btn btn-primary btn-sm" data-toggle-second="tooltip" data-placement="top" title="@Resources.Resource.IssueTool">
-                                                                                                <i class="fa fa-share"></i>
-                                                                                            </a>
-                                                                                            <a href=@Url.Action("GiveInForRepair", new {toolName = tool.Name, stockId = stock.Id, maxAmount = stock.InStock}) class="btn btn-primary btn-sm" data-toggle-second="tooltip" data-placement="top" title="@Resources.Resource.GiveInForRepair">
-                                                                                                <i class="fa fa-wrench"></i>
-                                                                                            </a>
-                                                                                            <a href=@Url.Action("WriteOff", new {toolName = tool.Name, stockId = stock.Id, maxAmount = stock.InStock}) class="btn btn-primary btn-sm" data-toggle-second="tooltip" data-placement="top" title="@Resources.Resource.WriteOff">
-                                                                                                <i class="fa fa-gavel"></i>
-                                                                                            </a>
-                                                                                            <a href=@Url.Action("MoveToStock", new {toolName = tool.Name, stockId = stock.Id, maxAmount = stock.InStock}) class="btn btn-primary btn-sm" data-toggle-second="tooltip" data-placement="top" title="@Resources.Resource.MoveToStock">
-                                                                                                <i class="fa fa-exchange"></i>
-                                                                                            </a>
-                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <div class="col btn-group">
+                                                                                        <a href=@Url.Action("Issue", new {toolName = tool.Name, stockId = stock.Id, maxAmount = stock.InStock}) class="btn btn-primary btn-sm" data-toggle-second="tooltip" data-placement="top" title="@Resources.Resource.IssueTool">
+                                                                                            <i class="fa fa-share"></i>
+                                                                                        </a>
+                                                                                        <a href=@Url.Action("GiveInForRepair", new {toolName = tool.Name, stockId = stock.Id, maxAmount = stock.InStock}) class="btn btn-primary btn-sm" data-toggle-second="tooltip" data-placement="top" title="@Resources.Resource.GiveInForRepair">
+                                                                                            <i class="fa fa-wrench"></i>
+                                                                                        </a>
+                                                                                        <a href=@Url.Action("WriteOff", new {toolName = tool.Name, stockId = stock.Id, maxAmount = stock.InStock}) class="btn btn-primary btn-sm" data-toggle-second="tooltip" data-placement="top" title="@Resources.Resource.WriteOff">
+                                                                                            <i class="fa fa-gavel"></i>
+                                                                                        </a>
+                                                                                        <a href=@Url.Action("MoveToStock", new {toolName = tool.Name, stockId = stock.Id, maxAmount = stock.InStock}) class="btn btn-primary btn-sm" data-toggle-second="tooltip" data-placement="top" title="@Resources.Resource.MoveToStock">
+                                                                                            <i class="fa fa-exchange"></i>
+                                                                                        </a>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        }
-                                                                    </div>
-                                                                    <div class="col-4">
-                                                                        @if (stock.UnderRepair == 0)
-                                                                        {
-                                                                            <strong>@Resources.Resource.UnderRepair: </strong> <span class="badge badge-warning">@stock.UnderRepair</span>
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            <strong>@Resources.Resource.UnderRepair: </strong> <span class="badge badge-warning">@stock.UnderRepair</span>
-                                                                            <a href=@Url.Action("ReturnFromRepair", new {toolName = tool.Name, stockId = stock.Id, maxAmount = stock.UnderRepair}) class="btn btn-primary btn-sm" data-toggle-second="tooltip" data-placement="top" title="@Resources.Resource.ReturnFromRepair">
-                                                                                <i class="fa fa-reply-all"></i>
-                                                                            </a>
-                                                                        }
-                                                                    </div>
-                                                                    <div class="col-4">
-                                                                        <strong>@Resources.Resource.WrittenOff: </strong> <span class="badge badge-warning">@stock.WrittenOff</span>
-                                                                    </div>
+                                                                        </div>
+                                                                    }
                                                                 </div>
-                                                                <div class="row alert-success border">
-                                                                    <div class="col-4 text-right">
-                                                                        <strong>@Resources.Resource.IssuedToUser: </strong> <span class="badge badge-warning">@stock.IssuedToUser</span>
-                                                                    </div>
-                                                                    <div class="col-4">
-                                                                        <ul>
-                                                                            @foreach (var user in stock.Users)
-                                                                            {
-                                                                                <li>
-                                                                                    @user.FullName<span class="badge badge-warning">@user.Count</span>
-                                                                                    <a href=@Url.Action("ReturnFromUser", new {toolName = tool.Name, stockId = stock.Id, maxAmount = user.Count, userId = user.Id}) class="btn btn-primary btn-sm" data-toggle-second="tooltip" data-placement="top" title="@Resources.Resource.ReturnFromUser">
-                                                                                        <i class="fa fa-reply"></i>
-                                                                                    </a>
-                                                                                </li>
-                                                                            }
-                                                                        </ul>
-                                                                    </div>
+                                                                <div class="col-4">
+                                                                    @if (stock.UnderRepair == 0)
+                                                                    {
+                                                                        <strong>@Resources.Resource.UnderRepair: </strong> <span class="badge badge-warning">@stock.UnderRepair</span>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <strong>@Resources.Resource.UnderRepair: </strong> <span class="badge badge-warning">@stock.UnderRepair</span>
+                                                                        <a href=@Url.Action("ReturnFromRepair", new {toolName = tool.Name, stockId = stock.Id, maxAmount = stock.UnderRepair}) class="btn btn-primary btn-sm" data-toggle-second="tooltip" data-placement="top" title="@Resources.Resource.ReturnFromRepair">
+                                                                            <i class="fa fa-reply-all"></i>
+                                                                        </a>
+                                                                    }
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <strong>@Resources.Resource.WrittenOff: </strong> <span class="badge badge-warning">@stock.WrittenOff</span>
                                                                 </div>
                                                             </div>
-                                                            innerCounter++;
-                                                            active = "";
-                                                            show = "";
-                                                        }
+                                                            <div class="row alert-success border">
+                                                                <div class="col-4 text-right">
+                                                                    <strong>@Resources.Resource.IssuedToUser: </strong> <span class="badge badge-warning">@stock.IssuedToUser</span>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <ul>
+                                                                        @foreach (var user in stock.Users)
+                                                                        {
+                                                                            <li>
+                                                                                @user.FullName<span class="badge badge-warning">@user.Count</span>
+                                                                                <a href=@Url.Action("ReturnFromUser", new {toolName = tool.Name, stockId = stock.Id, maxAmount = user.Count, userId = user.Id}) class="btn btn-primary btn-sm" data-toggle-second="tooltip" data-placement="top" title="@Resources.Resource.ReturnFromUser">
+                                                                                    <i class="fa fa-reply"></i>
+                                                                                </a>
+                                                                            </li>
+                                                                        }
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        innerCounter++;
+                                                        active = "";
+                                                        show = "";
                                                     }
-                                                </div>
+                                                }
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        }
+                        </div>
                     }
                 }
             }
-        </div>
-        <nav aria-label="Page navigation example">
-            <div class="row">
-                <div class="col-9">
-                    <ul class="nav justify-content-end">
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">@Resources.Resource.AmountOfElements:</a>
-                            <span></span>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href=@Url.Action("ShowAll", new {page = Model.PageNumber, pageSize = 6})>6</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href=@Url.Action("ShowAll", new {page = Model.PageNumber, pageSize = 10})>10</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href=@Url.Action("ShowAll", new {page = Model.PageNumber, pageSize = 15})>15</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-3">
-                    <ul class="pagination justify-content-end">
-                        @{
-                            if (Model.PageNumber == 1)
-                            {
-                                <li class="page-item disabled">
-                                    <span class="page-link">@Resources.Resource.Previous</span>
-                                </li>
-                            }
-                            else
-                            {
-                                <li class="page-item">
-                                    <a class="page-link" href=@Url.Action("ShowAll", new {page = Model.PageNumber - 1})>@Resources.Resource.Previous</a>
-                                </li>
-                            }
-                            for (var i = 1; i <= Model.TotalPages; i++)
-                            {
-                                if (i == Model.PageNumber)
-                                {
-                                    <li class="page-item active" aria-current="page">
-                                        <span class="page-link">
-                                            @i<span class="sr-only">(current)</span>
-                                        </span>
-                                    </li>
-                                }
-                                else
-                                {
-                                    <li class="page-item"><a class="page-link" href=@Url.Action("ShowAll", new {page = i})>@i</a></li>
-                                }
-                            }
-                            if (Model.PageNumber == Model.TotalPages)
-                            {
-                                <li class="page-item disabled">
-                                    <span class="page-link">@Resources.Resource.Next</span>
-                                </li>
-                            }
-                            else
-                            {
-                                <li class="page-item">
-                                    <a class="page-link" href=@Url.Action("ShowAll", new {page = Model.PageNumber + 1})>@Resources.Resource.Next</a>
-                                </li>
-                            }
-                        }
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        }
+    </div>
+    @{
+        Html.RenderPartial("Pagination", Model);
+    }
     </div>
 </div>

@@ -1,0 +1,36 @@
+﻿@model Sam.ToolStock.Model.ViewModels.PaginationViewModel
+
+<div class="row">
+    <div class="card col-12">
+        <div class="card-body">
+            <div class="col-md-10 offset-md-1">
+                @using (Html.BeginForm("ShowAll", "Tool", FormMethod.Get, new { @class = "form-horizontal" }))
+                {
+                    <div class="row form-group">
+                        <div class="col col-md-12">
+                            <div class="input-group">
+                                @Html.HiddenFor(m => m.PageNumber)
+                                @Html.HiddenFor(m => m.PageSize)
+                                @Html.TextBoxFor(m => m.searchString, new { @class = "form-control", placeholder = @Resources.Resource.Tool })
+                                <div class="input-group-prepend">
+                                    @Html.DropDownListFor(
+                                        m => m.Manufacturer, new SelectList(Model.Manufacturers, Model.Manufacturer), new {@class = "form-control input-group-text" })
+                                </div>
+                                <div class="input-group-prepend">
+                                    @Html.DropDownListFor(
+                                        m => m.toolTypeId, new SelectList(Model.ToolTypes, "Id", "Name", Model.toolTypeId), new {@class = "form-control  input-group-text" })
+                                </div>
+                                <div class="input-group-btn">
+                                    <button class="btn btn-primary"><i class="fa fa-search"></i> @Resources.Resource.Search</button>
+                                </div>
+                                <div class="input-group-btn">
+                                    @Html.ActionLink(@Resources.Resource.Reset, "ShowAll", "Tool", new { @class = "btn btn-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

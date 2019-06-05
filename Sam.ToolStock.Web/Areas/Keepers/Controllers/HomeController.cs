@@ -191,6 +191,11 @@ namespace Sam.ToolStock.Web.Areas.Keepers.Controllers
                 ToolTypes = toolTypes
             };
 
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("Pagination", paginationViewModel);
+            }
+
             return View(paginationViewModel);
         }
 

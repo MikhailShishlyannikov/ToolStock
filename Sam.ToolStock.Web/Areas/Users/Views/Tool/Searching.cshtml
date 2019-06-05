@@ -4,7 +4,7 @@
     <div class="card col-12">
         <div class="card-body">
             <div class="col-md-10 offset-md-1">
-                @using (Ajax.BeginForm("ShowAll", "Tool", new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "results" }))
+                @using (Ajax.BeginForm("BorrowedTools", "Tool", new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "results" }))
                 {
                     <div class="row form-group">
                         <div class="col col-md-12">
@@ -14,17 +14,17 @@
                                 @Html.TextBoxFor(m => m.searchString, new { @class = "form-control", placeholder = @Resources.Resource.Tool })
                                 <div class="input-group-prepend">
                                     @Html.DropDownListFor(
-                                        m => m.Manufacturer, new SelectList(Model.Manufacturers, Model.Manufacturer), new {@class = "form-control input-group-text"})
+                                        m => m.Manufacturer, new SelectList(Model.Manufacturers, Model.Manufacturer), new {@class = "form-control input-group-text" })
                                 </div>
                                 <div class="input-group-prepend">
                                     @Html.DropDownListFor(
-                                        m => m.toolTypeId, new SelectList(Model.ToolTypes, "Id", "Name", Model.toolTypeId), new {@class = "form-control  input-group-text"})
+                                        m => m.toolTypeId, new SelectList(Model.ToolTypes, "Id", "Name", Model.toolTypeId), new {@class = "form-control  input-group-text" })
                                 </div>
                                 <div class="input-group-btn">
                                     <button class="btn btn-primary"><i class="fa fa-search"></i> @Resources.Resource.Search</button>
                                 </div>
                                 <div class="input-group-btn">
-                                    <input class = "btn btn-danger" type="button" value=@Resources.Resource.Reset class="btn btn-default" onclick="ClearAllFilter('@Url.Action("ShowAll", "Tool")', '@Resources.Resource.ChooseManufacturer', '@Resources.Resource.ChooseToolType')" />
+                                    <input class="btn btn-danger" type="button" value=@Resources.Resource.Reset class="btn btn-default" onclick="ClearAllFilter('@Url.Action("BorrowedTools", "Tool")', '@Resources.Resource.ChooseManufacturer', '@Resources.Resource.ChooseToolType')" />
                                 </div>
                             </div>
                         </div>

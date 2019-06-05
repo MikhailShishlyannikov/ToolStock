@@ -1,0 +1,67 @@
+﻿@model IList<Sam.ToolStock.Model.ViewModels.ToolCountViewModel>
+
+<div class="accordion" id="accordionExample275">
+    @{
+        if (Model.Count == 0)
+        {
+            <div class="card">
+                <div class="card-header text-center">
+                    Nothing found
+                </div>
+            </div>
+        }
+        else
+        {
+            if (Model != null)
+            {
+                for (var i = 0; i < Model.Count; i++)
+                {
+                    var tool = Model[i];
+                    var headingId = "h" + i;
+                    var collapseId = "c" + i;
+                    <div class="card z-depth-0 bordered">
+                        <div class="card-header" id=@headingId>
+                            <div class="row">
+                                <div class="col-3">
+                                    <button class="btn btn-secondary btn-sm" type="button" data-toggle="collapse" data-target="#@collapseId"
+                                            aria-expanded="true" aria-controls=@collapseId>
+                                        <strong>@Resources.Resource.Name:</strong> @tool.Name
+                                    </button>
+                                </div>
+                                <div class="col-3">
+                                    @Resources.Resource.Manufacturer: @tool.Manufacturer
+                                </div>
+                                <div class="col-4">
+                                    @Resources.Resource.ToolType: @tool.ToolTypeName
+                                </div>
+                                <div class="col-2">
+                                    <p class="text-right">
+                                        @Resources.Resource.Amount: <span class="badge badge-primary">@tool.Count</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id=@collapseId class="collapse" aria-labelledby=@headingId
+                             data-parent="#accordionExample275">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <ul class="nav justify-content-center">
+                                            @foreach (var stock in tool.StockCountViewModels)
+                                            {
+                                                <li class="nav-item alert alert-success">
+                                                    <strong class="nav-link ">@stock.Name <span class="badge badge-secondary">@stock.ToolAmount</span></strong>
+                                                </li>
+                                            }
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        }
+    }
+</div>

@@ -395,6 +395,17 @@
     <Content Include="Areas\Users\Views\Tool\BorrowedTools.cshtml" />
     <Content Include="Areas\Admin\Views\Tool\Searching.cshtml" />
     <Content Include="Areas\Admin\Views\Tool\Pagination.cshtml" />
+    <Content Include="Areas\Admin\Views\Tool\ToolList.cshtml" />
+    <Content Include="Areas\Keepers\Views\Home\Searching.cshtml" />
+    <Content Include="Areas\Keepers\Views\Home\Pagination.cshtml" />
+    <Content Include="Areas\Keepers\Views\Home\ToolList.cshtml" />
+    <Content Include="Areas\Users\Views\Home\Searching.cshtml" />
+    <Content Include="Areas\Users\Views\Home\Pagination.cshtml" />
+    <Content Include="Areas\Users\Views\Home\ToolList.cshtml" />
+    <Content Include="Areas\Users\Views\Shared\_UserInfo.cshtml" />
+    <Content Include="Areas\Users\Views\Tool\Searching.cshtml" />
+    <Content Include="Areas\Users\Views\Tool\Pagination.cshtml" />
+    <Content Include="Areas\Users\Views\Tool\ToolList.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\fullcalendar-init.js" />
     <Content Include="Scripts\fullcalendar.js" />

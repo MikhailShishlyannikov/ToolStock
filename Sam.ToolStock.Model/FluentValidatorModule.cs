@@ -10,8 +10,6 @@ namespace Sam.ToolStock.Model
         {
             AssemblyScanner.FindValidatorsInAssembly(Assembly.GetExecutingAssembly())
                 .ForEach(match => Bind(match.InterfaceType).To(match.ValidatorType));
-            //AssemblyScanner.FindValidatorsInAssemblyContaining<OfficeModelValidator>()
-            //    .ForEach(match => Bind(match.InterfaceType).To(match.ValidatorType));
         }
     }
 }

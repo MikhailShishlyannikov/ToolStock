@@ -1,0 +1,124 @@
+﻿@model IList<Sam.ToolStock.Model.ViewModels.ToolCountViewModel>
+
+<div class="accordion" id="accordionExample275">
+    @{
+        if (Model?.Count() == 0)
+        {
+            <div class="card">
+                <div class="card-header text-center">
+                    Nothing found
+                </div>
+            </div>
+        }
+        else
+        {
+            if (Model != null)
+            {
+                for (var i = 0; i < Model.Count; i++)
+                {
+                    var tool = Model[i];
+                    var headingId = "h" + i;
+                    var collapseId = "c" + i;
+                    <div class="card z-depth-0 bordered">
+                        <div class="card-header" id=@headingId>
+                            <div class="row">
+                                <div class="col-3">
+                                    <button class="btn btn-secondary btn-sm" type="button" data-toggle="collapse" data-target="#@collapseId"
+                                            aria-expanded="true" aria-controls=@collapseId>
+                                        <strong>@Resources.Resource.Name:</strong> @tool.Name
+                                    </button>
+                                </div>
+                                <div class="col-3">
+                                    @Resources.Resource.Manufacturer: @tool.Manufacturer
+                                </div>
+                                <div class="col-4">
+                                    @Resources.Resource.ToolType: @tool.ToolTypeName
+                                </div>
+                                <div class="col-2">
+                                    <p class="text-right">
+                                        @Resources.Resource.Amount: <span class="badge badge-primary">@tool.Count</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id=@collapseId class="collapse" aria-labelledby=@headingId data-parent="#accordionExample275">
+                            <div class="card-body">
+                                <div class="row">
+                                    @{
+                                        var active = "active";
+                                        var show = "show";
+                                        var listTab = "list-tab" + i;
+                                        var navTabContent = "nav-tabContent" + i;
+                                    }
+                                    <div class="col-3">
+                                        <div class="list-group" id=@listTab role="tablist">
+                                            @for (var j = 0; j < tool.StockCountViewModels.Count; j++)
+                                            {
+                                                var stock = tool.StockCountViewModels[j];
+                                                var id = $"list-stock{i}{j}-list";
+                                                var href = $"#list-stock{i}{j}";
+                                                var ariaControls = $"stock{i}{j}";
+
+                                                <a class="list-group-item list-group-item-info @active" id=@id data-toggle="list" href=@href role="tab" aria-controls=@ariaControls>
+                                                    @stock.Name <span class="badge badge-secondary">@stock.ToolAmount</span>
+                                                </a>
+
+                                                active = "";
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="tab-content" id=@navTabContent>
+                                            @{
+                                                active = "active";
+                                                for (var j = 0; j < tool.StockCountViewModels.Count; j++)
+                                                {
+                                                    var stock = tool.StockCountViewModels[j];
+                                                    var id = $"list-stock{i}{j}";
+                                                    var ariaLabelledby = $"list-stock{i}{j}-list";
+
+                                                    <div class="tab-pane fade @show @active" id=@id role="tabpanel" aria-labelledby=@ariaLabelledby>
+                                                        <div class="row alert-warning border">
+                                                            <div class="col-4">
+                                                                    <strong>@Resources.Resource.InTheStock: </strong>
+                                                                    <span class="badge badge-warning">@stock.InStockToolAmount</span>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                    <strong>@Resources.Resource.UnderRepair: </strong> <span class="badge badge-warning">@stock.UnderRepairToolAmount</span>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <strong>@Resources.Resource.WrittenOff: </strong> <span class="badge badge-warning">@stock.WrittenOffToolAmount</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row alert-success border">
+                                                            <div class="col-4 text-right">
+                                                                <strong>@Resources.Resource.IssuedToUser: </strong> <span class="badge badge-warning">@stock.IssuedToUserToolAmount</span>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <ul>
+                                                                    @foreach (var user in stock.UserCountViewModels)
+                                                                    {
+                                                                        <li>
+                                                                            @Ajax.ActionLink(user.FullName, "Show", "User" , new {userId = user.UserId}, new AjaxOptions{ HttpMethod = "GET", UpdateTargetId = "userInfo", InsertionMode = InsertionMode.Replace}, new{ data_toggle = "modal", data_target = "#scrollModal" })
+                                                                            <span class="badge badge-warning">@user.ToolAmount</span>
+                                                                        </li>
+                                                                    }
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    active = "";
+                                                    show = "";
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        }
+    }
+</div>

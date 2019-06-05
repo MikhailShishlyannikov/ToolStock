@@ -9,6 +9,6 @@ namespace Sam.ToolStock.Model.ViewModels
         public string Manufacturer { get; set; }
         public string ToolTypeName { get; set; }
 
-        public IEnumerable<ToolViewModel> Tools { get; set; }
+        public IList<StockCountViewModel> StockCountViewModels { get; set; }
     }
 }

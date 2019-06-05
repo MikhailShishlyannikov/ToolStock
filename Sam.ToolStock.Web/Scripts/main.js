@@ -91,9 +91,26 @@ jQuery(document).ready(function($) {
     $('.stop-propagation').on('click', function (e) {
         e.stopPropagation();
     });
+
+
 });
 
 jQuery(document).on('click', '.table-row', function () {
     var route = $(this).attr("id");
     $("#results").load(route);
 })
+
+var ClearAllFilter = function (url, manufacturer, toolTypeId) {
+    $.ajax({
+        type: "GET",
+        url: url,
+        success: function (html) {
+            $('#results').html(html);
+            $('#PageNumber').val(1);
+            $('#PageSize').val(6);
+            $('#searchString').val("");
+            $('#Manufacturer').val(manufacturer);
+            $('#toolTypeId').val(toolTypeId);
+        }
+    });
+}

@@ -16,6 +16,6 @@ namespace Sam.ToolStock.Model.ViewModels
         public string toolTypeId { get; set; }
         public IList<ToolTypeViewModel> ToolTypes { get; set; }
 
-        public IEnumerable<ToolCountViewModel> ToolCountViewModels { get; set; }
+        public IList<ToolCountViewModel> ToolCountViewModels { get; set; }
     }
 }

@@ -13,13 +13,13 @@
                     <span></span>
                 </li>
                 <li class="nav-item">
-                    @Ajax.ActionLink("6", "ShowAll", new { pageSize = 6, Model.searchString, manufacturer = Model.Manufacturer, Model.toolTypeId }, new AjaxOptions{HttpMethod = "GET", UpdateTargetId = "results"}, new { @class = "nav-link active" })
+                    @Ajax.ActionLink("6", "Index", new { pageSize = 6, Model.searchString, manufacturer = Model.Manufacturer, Model.toolTypeId }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "results" }, new { @class = "nav-link active" })
                 </li>
                 <li class="nav-item">
-                    @Ajax.ActionLink("10", "ShowAll", new { pageSize = 10, Model.searchString, manufacturer = Model.Manufacturer, Model.toolTypeId }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "results" }, new { @class = "nav-link" })
+                    @Ajax.ActionLink("10", "Index", new { pageSize = 10, Model.searchString, manufacturer = Model.Manufacturer, Model.toolTypeId }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "results" }, new { @class = "nav-link" })
                 </li>
                 <li class="nav-item">
-                    @Ajax.ActionLink("15", "ShowAll", new { pageSize = 15, Model.searchString, manufacturer = Model.Manufacturer, Model.toolTypeId }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "results" }, new { @class = "nav-link" })
+                    @Ajax.ActionLink("15", "Index", new { pageSize = 15, Model.searchString, manufacturer = Model.Manufacturer, Model.toolTypeId }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "results" }, new { @class = "nav-link" })
                 </li>
             </ul>
         </div>
@@ -37,7 +37,7 @@
                         <li class="page-item">
                             @Ajax.ActionLink(
                                 Resources.Resource.Previous,
-                                "ShowAll",
+                                "Index",
                                 new
                                 {
                                     page = Model.PageNumber - 1,
@@ -50,7 +50,7 @@
                                 {
                                     HttpMethod = "GET",
                                     UpdateTargetId = "results"
-                                }, 
+                                },
                                 new { @class = "page-link" }
                                 )
                         </li>
@@ -70,7 +70,7 @@
                             <li class="page-item">
                                 @Ajax.ActionLink(
                                     i.ToString(),
-                                    "ShowAll",
+                                    "Index",
                                     new
                                     {
                                         page = i,
@@ -83,7 +83,7 @@
                                     {
                                         HttpMethod = "GET",
                                         UpdateTargetId = "results"
-                                    }, 
+                                    },
                                     new { @class = "page-link" }
                                     )
                             </li>
@@ -100,7 +100,7 @@
                         <li class="page-item">
                             @Ajax.ActionLink(
                                 Resources.Resource.Next,
-                                "ShowAll",
+                                "Index",
                                 new
                                 {
                                     page = Model.PageNumber + 1,

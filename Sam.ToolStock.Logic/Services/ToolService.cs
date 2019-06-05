@@ -82,19 +82,37 @@ namespace Sam.ToolStock.Logic.Services
                     Name = tc.Key,
                     Manufacturer = tc.First().Manufacturer,
                     ToolTypeName = tc.FirstOrDefault()?.ToolType.Name,
-                    Tools = _mapper.Map<IEnumerable<ToolViewModel>>(tc.Where(t => t.Name == tc.Key))
-                }).ToList();
-
+                    StockCountViewModels = _mapper.Map<IEnumerable<ToolViewModel>>(
+                            tc.Where(t => t.Name == tc.Key))
+                        .GroupBy(t => t.StockId)
+                        .Select(x => new StockCountViewModel
+                        {
+                            StockId = x.FirstOrDefault()?.Stock.Id,
+                            Name = x.FirstOrDefault()?.Stock.Name,
+                            ToolAmount = x.Count(),
+                            InStockToolAmount = x.Count(t => t.Status == Statuses.InStock),
+                            UnderRepairToolAmount = x.Count(t => t.Status == Statuses.UnderRepair),
+                            IssuedToUserToolAmount = x.Count(t => t.Status == Statuses.IssuedToUser),
+                            WrittenOffToolAmount = x.Count(t => t.Status == Statuses.WrittenOff),
+                            UserCountViewModels = x.Where(t => t.Status == Statuses.IssuedToUser)
+                                .Select(t => t.User)
+                                .GroupBy(y => y.FullName)
+                                .Select(z => new UserCountViewModel
+                                {
+                                    UserId = z.FirstOrDefault()?.Id,
+                                    FullName = z.FirstOrDefault()?.FullName,
+                                    ToolAmount = z.Count()
+                                }).ToList()
+                        }).ToList()
+                });
             return toolCounts;
         }
 
         public IEnumerable<ToolCountViewModel> GetAllBorrowedToolCounts(bool showDeleted, string userId)
         {
-            IEnumerable<ToolModel> toolModels;
-
-                toolModels = showDeleted
-                    ? _unitOfWork.ToolRepository.GetWhere(t => t.UserId == userId)
-                    : _unitOfWork.ToolRepository.GetWhere(t => t.IsDeleted == false && t.UserId == userId);
+            var toolModels = showDeleted
+                ? _unitOfWork.ToolRepository.GetWhere(t => t.UserId == userId)
+                : _unitOfWork.ToolRepository.GetWhere(t => t.IsDeleted == false && t.UserId == userId);
 
             var toolCounts = toolModels.GroupBy(t => t.Name)
                 .Select(tc => new ToolCountViewModel
@@ -103,8 +121,29 @@ namespace Sam.ToolStock.Logic.Services
                     Name = tc.Key,
                     Manufacturer = tc.First().Manufacturer,
                     ToolTypeName = tc.FirstOrDefault()?.ToolType.Name,
-                    Tools = _mapper.Map<IEnumerable<ToolViewModel>>(tc.Where(t => t.Name == tc.Key))
-                }).ToList();
+                    StockCountViewModels = _mapper.Map<IEnumerable<ToolViewModel>>(
+                            tc.Where(t => t.Name == tc.Key))
+                        .GroupBy(t => t.StockId)
+                        .Select(x => new StockCountViewModel
+                        {
+                            StockId = x.FirstOrDefault()?.Stock.Id,
+                            Name = x.FirstOrDefault()?.Stock.Name,
+                            ToolAmount = x.Count(),
+                            InStockToolAmount = x.Count(t => t.Status == Statuses.InStock),
+                            UnderRepairToolAmount = x.Count(t => t.Status == Statuses.UnderRepair),
+                            IssuedToUserToolAmount = x.Count(t => t.Status == Statuses.IssuedToUser),
+                            WrittenOffToolAmount = x.Count(t => t.Status == Statuses.WrittenOff),
+                            UserCountViewModels = x.Where(t => t.Status == Statuses.IssuedToUser)
+                                .Select(t => t.User)
+                                .GroupBy(y => y.FullName)
+                                .Select(z => new UserCountViewModel
+                                {
+                                    UserId = z.FirstOrDefault()?.Id,
+                                    FullName = z.FirstOrDefault()?.FullName,
+                                    ToolAmount = z.Count()
+                                }).ToList()
+                        }).ToList()
+                });
 
             return toolCounts;
         }

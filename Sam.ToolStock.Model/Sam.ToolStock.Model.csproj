@@ -109,6 +109,7 @@
     <Compile Include="ViewModels\ToolLogViewModel.cs" />
     <Compile Include="ViewModels\ToolTypeViewModel.cs" />
     <Compile Include="ViewModels\ToolViewModel.cs" />
+    <Compile Include="ViewModels\UserInfoViewModel.cs" />
     <Compile Include="ViewModels\UserProfileViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="ViewModels\DepartmentViewModel.cs" />

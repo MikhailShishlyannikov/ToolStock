@@ -93,7 +93,7 @@ namespace Sam.ToolStock.Logic.Services
 
         public void Dispose()
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
     }
 }

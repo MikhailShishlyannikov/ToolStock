@@ -38,6 +38,7 @@ namespace Sam.ToolStock.Web
                 "~/Scripts/jquery.validate.js",
                 "~/Scripts/jquery.unobtrusive-ajax.js",
                 "~/Scripts/jquery.validate.unobtrusive.js",
+                "~/Scripts/jQuery.tmpl.js",
                 "~/Scripts/modernizr-{version}.js",
                 "~/Scripts/bootstrap.bundle.js",
                 "~/Scripts/jquery.matchHeight.js",

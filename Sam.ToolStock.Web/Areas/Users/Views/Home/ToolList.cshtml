@@ -94,12 +94,13 @@
                                                             <div class="col-4 text-right">
                                                                 <strong>@Resources.Resource.IssuedToUser: </strong> <span class="badge badge-warning">@stock.IssuedToUserToolAmount</span>
                                                             </div>
-                                                            <div class="col-4">
+                                                            <div class="col-5">
                                                                 <ul>
                                                                     @foreach (var user in stock.UserCountViewModels)
                                                                     {
                                                                         <li>
-                                                                            @Ajax.ActionLink(user.FullName, "Show", "User" , new {userId = user.UserId}, new AjaxOptions{ HttpMethod = "GET", UpdateTargetId = "userInfo", InsertionMode = InsertionMode.Replace}, new{ data_toggle = "modal", data_target = "#scrollModal" })
+                                                                            <a href="#" id='@user.UserId' class="userInfo" data-toggle = "modal", data-target = "#scrollModal">@user.FullName</a>
+                                                                            @*@Ajax.ActionLink(user.FullName, "Show", "User", new {userId = user.UserId}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "userInfo", InsertionMode = InsertionMode.Replace}, new {data_toggle = "modal", data_target = "#scrollModal"})*@
                                                                             <span class="badge badge-warning">@user.ToolAmount</span>
                                                                         </li>
                                                                     }

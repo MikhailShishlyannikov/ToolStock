@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using System;
+using FluentValidation;
 using Sam.ToolStock.Common.Constants;
 using Sam.ToolStock.Model.ViewModels;
 
@@ -42,8 +43,10 @@ namespace Sam.ToolStock.Model.Validation
                 .Equal(rvm => rvm.Password)
                 .WithMessage(Resources.Resource.RegisterConfirmPasswordEqualPassword);
 
-            RuleFor(rvm => rvm.DepartmentId)
+            RuleFor(svm => svm.DepartmentId)
                 .NotEmpty()
+                .NotEqual(new Guid().ToString())
+                .WithMessage(Resources.Resource.YouDidNotChooseDepartment)
                 .WithName(Resources.Resource.YourDepartment);
         }
     }

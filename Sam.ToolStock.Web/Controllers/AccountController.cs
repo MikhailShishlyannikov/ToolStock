@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -74,9 +75,20 @@ namespace Sam.ToolStock.Web.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            var departments = new SelectList(_departmentService.GetAll(), "Id", "Name");
-            ViewBag.Departments = departments;
-            return View();
+            var departments = _departmentService.GetAll(false).ToList();
+            departments.Insert(0, new DepartmentViewModel
+            {
+                Id = new Guid().ToString(),
+                Name = Resources.Resource.ChooseDepartment
+            });
+
+            var registerViewModel = new RegisterViewModel
+            {
+                DepartmentId = new Guid().ToString(),
+                Departments = departments
+            };
+
+            return View(registerViewModel);
         }
 
         [HttpPost]
@@ -84,7 +96,19 @@ namespace Sam.ToolStock.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterViewModel registerViewModel)
         {
-            if (!ModelState.IsValid) return View(registerViewModel);
+            if (!ModelState.IsValid)
+            {
+                var departments = _departmentService.GetAll(false).ToList();
+                departments.Insert(0, new DepartmentViewModel
+                {
+                    Id = new Guid().ToString(),
+                    Name = Resources.Resource.ChooseDepartment
+                });
+
+                registerViewModel.Departments = departments;
+
+                return View(registerViewModel);
+            }
 
             var result = _userService.Create(registerViewModel);
 

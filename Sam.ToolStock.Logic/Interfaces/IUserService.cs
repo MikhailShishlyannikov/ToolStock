@@ -28,6 +28,8 @@ namespace Sam.ToolStock.Logic.Interfaces
 
         IEnumerable<TableUserViewModel> GetAllTableUser();
 
+        UserInfoViewModel GetUserInfo(string id);
+
         IEnumerable<string> GetRoles(string userId);
 
         bool Update(UserViewModel user);

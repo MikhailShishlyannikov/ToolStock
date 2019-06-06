@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using FluentValidation.Mvc;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
@@ -9,6 +10,7 @@ using Ninject.Web.Common;
 using Ninject.Web.Common.WebHost;
 using Sam.ToolStock.IoC;
 using Sam.ToolStock.Web.Factories;
+using WebApiContrib.IoC.Ninject;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Sam.ToolStock.Web.NInjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(Sam.ToolStock.Web.NInjectWebCommon), "Stop")]
@@ -51,6 +53,7 @@ namespace Sam.ToolStock.Web
 
                     RegisterServices(kernel);
                     ValidationConfiguration(kernel);
+                    GlobalConfiguration.Configuration.DependencyResolver = new NinjectResolver(kernel);
                 return kernel;
                 }
                 catch

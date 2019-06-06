@@ -92,7 +92,25 @@ jQuery(document).ready(function($) {
         e.stopPropagation();
     });
 
+    var result = $('#userInfo');
 
+    $('#results').on('click', '.userInfo', function (e) {
+    //$('.userInfo').click(function (e) {
+        $.ajax({
+            type: 'GET',
+            url: '/api/Info/' + e.target.id,
+            dataType: 'json',
+            success: function (data, textStatus, xhr) {
+                $("#userInfo").empty();
+                $("#userInfoTemplate").tmpl(data).appendTo("#userInfo");
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }  
+
+        });
+
+    });
 });
 
 jQuery(document).on('click', '.table-row', function () {

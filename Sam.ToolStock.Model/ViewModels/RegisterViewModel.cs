@@ -1,4 +1,5 @@
-﻿using FluentValidation.Attributes;
+﻿using System.Collections.Generic;
+using FluentValidation.Attributes;
 
 namespace Sam.ToolStock.Model.ViewModels
 {
@@ -20,5 +21,7 @@ namespace Sam.ToolStock.Model.ViewModels
         public string ConfirmPassword { get; set; }
 
         public string DepartmentId { get; set; }
+
+        public IEnumerable<DepartmentViewModel> Departments { get; set; }
     }
 }

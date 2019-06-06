@@ -74,6 +74,9 @@ namespace Sam.ToolStock.Logic.Mappings
 
             CreateMap<UserProfileViewModel, UserInfoModel>()
                 .ForMember(ui => ui.IsDeleted, opt => opt.Ignore());
+
+            CreateMap<UserInfoModel, UserInfoViewModel>()
+                .ForMember(uivm => uivm.Role, opt => opt.Ignore());
         }
     }
 }

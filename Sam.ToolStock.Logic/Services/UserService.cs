@@ -120,6 +120,19 @@ namespace Sam.ToolStock.Logic.Services
             return tableUsers;
         }
 
+        public UserInfoViewModel GetUserInfo(string id)
+        {
+            var userModel = GetUser(id);
+            var userInfoModel = _unitOfWork.UserInfoRepository.GetById(id);
+            var userInfoViewModel = _mapper.Map<UserInfoViewModel>(userInfoModel);
+
+            userInfoViewModel.Role = GetRoles(id).FirstOrDefault();
+            userInfoViewModel.DepartmentName = _departmentService.Get(userModel.DepartmentId).Name;
+            userInfoViewModel.StockName = _stockService.Get(userModel.StockId)?.Name;
+
+            return userInfoViewModel;
+        }
+
         public IEnumerable<string> GetRoles(string userId)
         {
             return _userManager.GetRoles(userId);
@@ -165,7 +178,7 @@ namespace Sam.ToolStock.Logic.Services
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private IEnumerable<UserInfoModel> GetUserInfoAll()

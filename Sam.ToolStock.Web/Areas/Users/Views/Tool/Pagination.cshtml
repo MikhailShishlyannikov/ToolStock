@@ -1,8 +1,9 @@
 ﻿@model Sam.ToolStock.Model.ViewModels.PaginationViewModel
-
-@{
-    Html.RenderPartial("ToolList", Model.ToolCountViewModels);
-}
+<div id="toolList">
+    @{
+        Html.RenderPartial("ToolList", Model.ToolCountViewModels);
+    }
+</div>
 
 <nav aria-label="Page navigation example">
     <div class="row">

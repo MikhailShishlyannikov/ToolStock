@@ -1,7 +1,160 @@
 ﻿<div class="modal fade" id="scrollModal" tabindex="-1" role="dialog" aria-labelledby="scrollmodalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div id="qwe" class="modal-content">
-
+        <div id="userInfo" class="modal-content">
+            
         </div>
     </div>
 </div>
+
+<script id="userInfoTemplate" type="text/x-jQuery-tmpl">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="col-md-12">
+            <aside class="profile-nav alt">
+                <section class="card">
+                    <div class="card-header user-header alt bg-dark">
+                        <div class="media">
+                            <div class="media-body">
+                                <h2 class="text-light display-6">
+                                    ${FullName}
+                                    @*@{
+                var fullName = Model.Patronymic == null
+                    ? Model.Name + " " + Model.Surname
+                    : Model.Name + " " + Model.Patronymic + " " + Model.Surname;
+            }
+            @fullName*@
+                                </h2>
+                                ${Role}
+                                @*<p>@Model.Role</p>*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                @Resources.Resource.UserInformation
+                            </div>
+                            <div class="card-body card-block">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-3 text-right">
+                                                @Resources.Resource.Name
+                                            </div>
+                                            <div class="col-9">
+                                                ${Name}
+                                                @*@Model.Name*@
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {{if Patronymic}}
+                                    <li class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-3 text-right">
+                                                @Resources.Resource.Patronymic
+                                            </div>
+                                            <div class="col-9">
+                                                ${Patronymic}
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {{/if}}
+                                    @*@{
+            if (Model.Patronymic != null)
+            {
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-3 text-right">
+                            @Resources.Resource.Patronymic
+                        </div>
+                        <div class="col-9">
+                            @Model.Patronymic
+                        </div>
+                    </div>
+                </li>
+            }
+        }*@
+                                    <li class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-3 text-right">
+                                                @Resources.Resource.Surname
+                                            </div>
+                                            <div class="col-9">
+                                                ${Surname}
+                                                @*@Model.Surname*@
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-3 text-right">
+                                                @Resources.Resource.Email
+                                            </div>
+                                            <div class="col-9">
+                                                ${Email}
+                                                @*@Model.Email*@
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-3 text-right">
+                                                @Resources.Resource.Phone
+                                            </div>
+                                            <div class="col-9">
+                                                ${Phone}
+                                                @*@Model.Phone*@
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-3 text-right">
+                                                @Resources.Resource.Department
+                                            </div>
+                                            <div class="col-9">
+                                                ${DepartmentName}
+                                                @*@Model.Departments.FirstOrDefault(d => d.Id == Model.DepartmentId).Name*@
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {{if StockName}}
+                                    <li class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-3 text-right">
+                                                @Resources.Resource.Stock
+                                            </div>
+                                            <div class="col-9">
+                                                ${StockName}
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {{/if}}
+                                    @*@{
+            if (Model.StockId != null && Model.StockId != new Guid().ToString())
+            {
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-3 text-right">
+                            @Resources.Resource.Stock
+                        </div>
+                        <div class="col-9">
+                            @Model.Stocks.FirstOrDefault(d => d.Id == Model.StockId).Name
+                        </div>
+                    </div>
+                </li>
+            }
+        }*@
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </div>
+</script>

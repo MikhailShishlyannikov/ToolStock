@@ -6,6 +6,7 @@ using Sam.ToolStock.Model.ViewModels;
 
 namespace Sam.ToolStock.Web.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class HomeController : Controller
     {
         private readonly IUserService _userService;

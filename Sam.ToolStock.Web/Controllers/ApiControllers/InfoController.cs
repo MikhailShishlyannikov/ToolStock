@@ -5,6 +5,7 @@ using Sam.ToolStock.Model.ViewModels;
 namespace Sam.ToolStock.Web.Controllers.ApiControllers
 {
     [RoutePrefix("api/Info")]
+    [Authorize]
     public class InfoController : ApiController
     {
         private readonly IUserService _userService;

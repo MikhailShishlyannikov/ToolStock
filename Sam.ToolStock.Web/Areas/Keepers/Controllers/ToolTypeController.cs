@@ -4,6 +4,7 @@ using Sam.ToolStock.Model.ViewModels;
 
 namespace Sam.ToolStock.Web.Areas.Keepers.Controllers
 {
+    [Authorize(Roles = "Stock keeper")]
     public class ToolTypeController : Controller
     {
         private readonly IToolTypeService _toolTypeService;

@@ -6,6 +6,7 @@ using Sam.ToolStock.Model.ViewModels;
 
 namespace Sam.ToolStock.Web.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class StockController : Controller
     {
         private readonly IStockService _stockService;

@@ -7,6 +7,7 @@ using Sam.ToolStock.Model.ViewModels;
 
 namespace Sam.ToolStock.Web.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class SettingController : Controller
     {
         private readonly ApplicationUserManager _userManager;

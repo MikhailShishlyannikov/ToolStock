@@ -6,6 +6,7 @@ using Sam.ToolStock.Model.ViewModels;
 
 namespace Sam.ToolStock.Web.Areas.Keepers.Controllers
 {
+    [Authorize(Roles = "Stock keeper")]
     public class AccountController : Controller
     {
         private readonly IUserService _userService;

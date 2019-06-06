@@ -3,6 +3,7 @@ using System.Web.Mvc;
 
 namespace Sam.ToolStock.Web.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         public ActionResult Index()

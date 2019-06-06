@@ -25,5 +25,15 @@ namespace Sam.ToolStock.Web.Areas.Keepers.Controllers
 
             return PartialView(vm);
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _userService.Dispose();
+                _stockService.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }

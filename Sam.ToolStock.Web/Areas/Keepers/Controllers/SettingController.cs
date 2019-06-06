@@ -70,6 +70,16 @@ namespace Sam.ToolStock.Web.Areas.Keepers.Controllers
             return View("Index", model);
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _userManager.Dispose();
+                _signInManager.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
         private void AddErrors(IdentityResult result)
         {
             foreach (var error in result.Errors)

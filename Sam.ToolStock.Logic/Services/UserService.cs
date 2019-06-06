@@ -12,6 +12,7 @@ namespace Sam.ToolStock.Logic.Services
 {
     public class UserService : IUserService
     {
+        private bool _disposed;
         private readonly IMapper _mapper;
         private readonly ApplicationUserManager _userManager;
         private readonly IRoleService _roleService;
@@ -178,7 +179,23 @@ namespace Sam.ToolStock.Logic.Services
 
         public void Dispose()
         {
-            //throw new NotImplementedException();
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed) return;
+            if (disposing)
+            {
+                _unitOfWork.Dispose();
+                _userManager.Dispose();
+                _departmentService.Dispose();
+                _roleService.Dispose();
+                _stockService.Dispose();
+            }
+
+            _disposed = true;
         }
 
         private IEnumerable<UserInfoModel> GetUserInfoAll()

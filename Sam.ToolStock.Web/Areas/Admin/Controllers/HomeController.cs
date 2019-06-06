@@ -78,6 +78,18 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _departmentService.Dispose();
+                _userService.Dispose();
+                _roleService.Dispose();
+                _stockService.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
         private UserViewModel GetRoles(UserViewModel user)
         {
             user.Roles = _roleService.GetAll();

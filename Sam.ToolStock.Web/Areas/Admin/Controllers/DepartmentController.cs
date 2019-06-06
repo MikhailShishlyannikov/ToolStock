@@ -171,5 +171,14 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
 
             return View("ModalMessage", message);
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _departmentService.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }

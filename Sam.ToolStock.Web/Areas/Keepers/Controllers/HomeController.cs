@@ -377,6 +377,18 @@ namespace Sam.ToolStock.Web.Areas.Keepers.Controllers
             return RedirectToAction("Index");
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _userService.Dispose();
+                _stockService.Dispose();
+                _toolService.Dispose();
+                _toolTypeService.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
         private ToolViewModel SetInToolCollections(ToolViewModel toolViewModel)
         {
             var toolTypes = _toolTypeService.GetAll().ToList();

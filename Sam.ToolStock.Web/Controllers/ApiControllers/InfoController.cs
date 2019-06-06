@@ -14,13 +14,21 @@ namespace Sam.ToolStock.Web.Controllers.ApiControllers
             _userService = userService;
         }
 
-        // GET: Users/User
         [HttpGet, Route("{id}")]
         public UserInfoViewModel Show(string id)
         {
             var userInfo = _userService.GetUserInfo(id);
 
             return userInfo;
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _userService.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

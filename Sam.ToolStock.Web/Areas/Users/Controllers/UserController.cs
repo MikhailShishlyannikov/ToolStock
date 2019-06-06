@@ -51,6 +51,18 @@ namespace Sam.ToolStock.Web.Areas.Users.Controllers
             return user;
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _departmentService.Dispose();
+                _stockService.Dispose();
+                _userService.Dispose();
+                _roleService.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
         private UserViewModel GetStocks(UserViewModel user)
         {
             var stocks = _stockService.GetAll().ToList();

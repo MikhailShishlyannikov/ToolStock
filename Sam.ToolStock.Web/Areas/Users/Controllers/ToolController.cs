@@ -74,5 +74,15 @@ namespace Sam.ToolStock.Web.Areas.Users.Controllers
 
             return View(paginationViewModel);
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _toolService.Dispose();
+                _toolTypeService.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }

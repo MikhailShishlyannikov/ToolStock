@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Microsoft.AspNet.Identity.Owin;
 using Sam.ToolStock.Logic.Interfaces;
 using Sam.ToolStock.Model.ViewModels;
@@ -7,6 +8,7 @@ namespace Sam.ToolStock.Logic.Services
 {
     public class SignInService : ISignInService
     {
+        private bool _disposed;
         private readonly ApplicationSignInManager _signInManager;
         private readonly ApplicationUserManager _userManager;
 
@@ -30,7 +32,20 @@ namespace Sam.ToolStock.Logic.Services
 
         public void Dispose()
         {
-            throw new System.NotImplementedException();
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed) return;
+            if (disposing)
+            {
+                _signInManager.Dispose();
+                _userManager.Dispose();
+            }
+
+            _disposed = true;
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Sam.ToolStock.Logic.Services
 {
     public class RoleService : IRoleService
     {
+        private bool _disposed;
         private readonly ApplicationRoleManager _roleManager;
         private readonly IMapper _mapper;
 
@@ -25,7 +26,19 @@ namespace Sam.ToolStock.Logic.Services
 
         public void Dispose()
         {
-            //throw new NotImplementedException();
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed) return;
+            if (disposing)
+            {
+                _roleManager.Dispose();
+            }
+
+            _disposed = true;
         }
     }
 }

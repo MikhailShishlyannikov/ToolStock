@@ -64,5 +64,14 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
             HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", new {area = "", controller = "Home"});
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _userService.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }

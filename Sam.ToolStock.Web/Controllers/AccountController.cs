@@ -133,6 +133,17 @@ namespace Sam.ToolStock.Web.Controllers
 
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _departmentService.Dispose();
+                _signInService.Dispose();
+                _userService.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
         private void AddErrors(IdentityResult result)
         {
             foreach (var error in result.Errors)

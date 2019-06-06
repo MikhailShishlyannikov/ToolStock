@@ -11,6 +11,7 @@ namespace Sam.ToolStock.Logic.Services
 {
     public class StockService : IStockService
     {
+        private bool _disposed;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
@@ -93,7 +94,19 @@ namespace Sam.ToolStock.Logic.Services
 
         public void Dispose()
         {
-            //throw new System.NotImplementedException();
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed) return;
+            if (disposing)
+            {
+                _unitOfWork.Dispose();
+            }
+
+            _disposed = true;
         }
     }
 }

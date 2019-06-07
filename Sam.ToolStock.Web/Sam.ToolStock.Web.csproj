@@ -253,6 +253,7 @@
     <Compile Include="Attributes\MultipleButtonAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApiControllers\InfoController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\AreaRegistrationContextExtensions.cs" />
     <Compile Include="Extensions\RouteCollectionExtensions.cs" />
@@ -285,6 +286,8 @@
     <Content Include="Content\Images\bg.jpg" />
     <Content Include="Content\Images\favicon.ico" />
     <Content Include="Content\Images\Logo.png" />
+    <Content Include="Content\Images\no-avatar.jpg" />
+    <Content Include="Content\Images\user.jpg" />
     <Content Include="Content\jqvmap.css" />
     <Content Include="Content\jqvmap.min.css" />
     <Content Include="Content\normalize.css" />
@@ -292,6 +295,7 @@
     <Content Include="Content\pe-icon-7-stroke.css" />
     <Content Include="Content\pe-icon-7-stroke.min.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\ErrorPage.css" />
     <Content Include="Content\themify-icons.css" />
     <Content Include="Content\themify-icons.min.css" />
     <Content Include="Content\weather-icons.css" />
@@ -530,6 +534,9 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Error\Error404.cshtml" />
+    <None Include="Views\Error\Error500.cshtml" />
+    <Content Include="Views\Shared\_ErrorLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

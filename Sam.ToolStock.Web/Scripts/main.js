@@ -111,6 +111,12 @@ jQuery(document).ready(function($) {
         });
 
     });
+
+    //$(function () {
+    //    setTimeout(function () {
+    //        $('#ErrorPage').removeClass('loading');
+    //    }, 1000);
+    //});
 });
 
 jQuery(document).on('click', '.table-row', function () {
@@ -132,3 +138,4 @@ var ClearAllFilter = function (url, manufacturer, toolTypeId) {
         }
     });
 }
+

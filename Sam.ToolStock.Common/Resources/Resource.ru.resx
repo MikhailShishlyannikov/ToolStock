@@ -585,4 +585,10 @@
   <data name="BorrowedTools" xml:space="preserve">
     <value>Заимствованные инструменты</value>
   </data>
+  <data name="ThisPageCouldNotBeFound" xml:space="preserve">
+    <value>Ой! Эта страница не может быть найдена</value>
+  </data>
+  <data name="UnexpectedError" xml:space="preserve">
+    <value>Неожиданная ошибка</value>
+  </data>
 </root>

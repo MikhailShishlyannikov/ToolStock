@@ -1186,6 +1186,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Oops! This Page Could Not Be Found.
+        /// </summary>
+        public static string ThisPageCouldNotBeFound {
+            get {
+                return ResourceManager.GetString("ThisPageCouldNotBeFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tool.
         /// </summary>
         public static string Tool {
@@ -1263,6 +1272,15 @@ namespace Resources {
         public static string UnderRepair {
             get {
                 return ResourceManager.GetString("UnderRepair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unexpected Error.
+        /// </summary>
+        public static string UnexpectedError {
+            get {
+                return ResourceManager.GetString("UnexpectedError", resourceCulture);
             }
         }
         

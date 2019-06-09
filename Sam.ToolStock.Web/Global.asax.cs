@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Sam.ToolStock.Web.Handlers;
 
 namespace Sam.ToolStock.Web
 {
@@ -18,6 +15,9 @@ namespace Sam.ToolStock.Web
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            log4net.Config.XmlConfigurator.Configure();
+            GlobalFilters.Filters.Add(new ExecuteCustomErrorHandler());
 
             //TODO: сделать сдесь отлов ошибок, все что не попало в ExceptionFilter(он отрабатывает только в action)
         }

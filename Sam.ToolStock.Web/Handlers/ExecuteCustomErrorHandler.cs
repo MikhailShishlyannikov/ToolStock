@@ -12,7 +12,6 @@ namespace Sam.ToolStock.Web.Handlers
         public void OnException(ExceptionContext filterContext)
         {
             Log.Error("Unhandled exception logged in Application." + Environment.NewLine +
-                      //"User : " + AuthenticationHelper.GetCurrentAuthenticatedUserName() + Environment.NewLine +
                       "Page : " + HttpContext.Current.Request.Url.AbsoluteUri, filterContext.Exception);
 
         }

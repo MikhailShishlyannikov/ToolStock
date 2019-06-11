@@ -39,7 +39,6 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        //[MultipleButton(Name = "action", Argument = "Update")]
         public ActionResult Update(UserViewModel user)
         {
             if (!ModelState.IsValid)
@@ -57,7 +56,6 @@ namespace Sam.ToolStock.Web.Areas.Admin.Controllers
 
             var message = new ModalMessageViewModel
             {
-                //Message = $"User {user.Id} was updated successfully!",
                 Message = string.Format(Resources.Resource.ModalPageMessageUpdate, Resources.Resource.User, user.Id),
                 MessageType = "success",
                 PageName = Resources.Resource.UsersPage,

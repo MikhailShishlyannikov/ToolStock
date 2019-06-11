@@ -116,8 +116,11 @@
                             </div>
                             <div class="form-actions form-group">
                                 <input type="submit" value=@Resources.Resource.Update name="Update" class="btn btn-primary">
-                                @Ajax.ActionLink(@Resources.Resource.Reset, "Reset", new { userid = Model.Id }, new AjaxOptions { UpdateTargetId = "results" }, new { @class = "btn btn-warning" })
-                                @Html.ActionLink(@Resources.Resource.Delete, "Delete", new { userid = Model.Id }, new { @class = "btn btn-danger" })
+                                @Ajax.ActionLink(Resources.Resource.Reset, "Reset", new { userid = Model.Id }, new AjaxOptions { UpdateTargetId = "results" }, new { @class = "btn btn-warning" })
+                                @if (Model.Role != "Admin")
+                                {
+                                    @Html.ActionLink(Resources.Resource.Delete, "Delete", new { userid = Model.Id }, new { @class = "btn btn-danger" })
+                                }
                             </div>
                         }
                     </div>

@@ -26,8 +26,7 @@ namespace Sam.ToolStock.DataProvider.Initializers
                     Manufacturer = "SECO",
                     Status = Statuses.InStock,
                     ToolTypeId = toolContext.ToolTypes.First(tt => tt.Name == "Sharp solid end mills").Id,
-                    StockId = toolContext.Stocks.First(s => s.Name == "Central tool stock").Id,
-                    UserId = rManager.FindByName("Admin").Users.First().UserId
+                    StockId = toolContext.Stocks.First(s => s.Name == "Central tool stock").Id
                 },
                 new ToolModel
                 {
@@ -36,8 +35,7 @@ namespace Sam.ToolStock.DataProvider.Initializers
                     Manufacturer = "SECO",
                     Status = Statuses.InStock,
                     ToolTypeId = toolContext.ToolTypes.First(tt => tt.Name == "Solid end mills with a corner radius").Id,
-                    StockId = toolContext.Stocks.First(s => s.Name == "Central tool stock").Id,
-                    UserId = rManager.FindByName("Admin").Users.First().UserId
+                    StockId = toolContext.Stocks.First(s => s.Name == "Central tool stock").Id
                 },
                 new ToolModel
                 {
@@ -46,8 +44,7 @@ namespace Sam.ToolStock.DataProvider.Initializers
                     Manufacturer = "SECO",
                     Status = Statuses.InStock,
                     ToolTypeId = toolContext.ToolTypes.First(tt => tt.Name == "Ball-nose solid end mills").Id,
-                    StockId = toolContext.Stocks.First(s => s.Name == "Central tool stock").Id,
-                    UserId = rManager.FindByName("Admin").Users.First().UserId
+                    StockId = toolContext.Stocks.First(s => s.Name == "Central tool stock").Id
                 },
                 new ToolModel
                 {
@@ -66,8 +63,7 @@ namespace Sam.ToolStock.DataProvider.Initializers
                     Manufacturer = "SECO",
                     Status = Statuses.InStock,
                     ToolTypeId = toolContext.ToolTypes.First(tt => tt.Name == "Shrinkfit holders").Id,
-                    StockId = toolContext.Stocks.First(s => s.Name == "Central tool stock").Id,
-                    UserId = rManager.FindByName("Admin").Users.First().UserId
+                    StockId = toolContext.Stocks.First(s => s.Name == "Central tool stock").Id
                 },
                 new ToolModel
                 {
@@ -76,8 +72,7 @@ namespace Sam.ToolStock.DataProvider.Initializers
                     Manufacturer = "SECO",
                     Status = Statuses.InStock,
                     ToolTypeId = toolContext.ToolTypes.First(tt => tt.Name == "Universal drill chucks").Id,
-                    StockId = toolContext.Stocks.First(s => s.Name == "Central tool stock").Id,
-                    UserId = rManager.FindByName("Admin").Users.First().UserId
+                    StockId = toolContext.Stocks.First(s => s.Name == "Central tool stock").Id
                 },
                 new ToolModel
                 {
@@ -86,8 +81,7 @@ namespace Sam.ToolStock.DataProvider.Initializers
                     Manufacturer = "Guhring",
                     Status = Statuses.InStock,
                     ToolTypeId = toolContext.ToolTypes.First(tt => tt.Name == "Sharp solid end mills").Id,
-                    StockId = toolContext.Stocks.First(s => s.Name == "Central tool stock").Id,
-                    UserId = rManager.FindByName("Admin").Users.First().UserId
+                    StockId = toolContext.Stocks.First(s => s.Name == "Central tool stock").Id
                 },
                 new ToolModel
                 {
@@ -96,8 +90,7 @@ namespace Sam.ToolStock.DataProvider.Initializers
                     Manufacturer = "Guhring",
                     Status = Statuses.InStock,
                     ToolTypeId = toolContext.ToolTypes.First(tt => tt.Name == "Drills").Id,
-                    StockId = toolContext.Stocks.First(s => s.Name == "Central tool stock").Id,
-                    UserId = rManager.FindByName("Admin").Users.First().UserId
+                    StockId = toolContext.Stocks.First(s => s.Name == "Central tool stock").Id
                 }
             };
 

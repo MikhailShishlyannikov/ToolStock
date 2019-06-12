@@ -430,6 +430,8 @@
     <Content Include="Areas\Users\Views\Tool\Searching.cshtml" />
     <Content Include="Areas\Users\Views\Tool\Pagination.cshtml" />
     <Content Include="Areas\Users\Views\Tool\ToolList.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\ToolStock - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\fullcalendar-init.js" />
     <Content Include="Scripts\fullcalendar.js" />
@@ -543,6 +545,7 @@
     <Content Include="Views\Error\Error404.cshtml" />
     <None Include="Views\Error\Error500.cshtml" />
     <Content Include="Views\Shared\_ErrorLayout.cshtml" />
+    <Content Include="Views\Shared\Error500.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

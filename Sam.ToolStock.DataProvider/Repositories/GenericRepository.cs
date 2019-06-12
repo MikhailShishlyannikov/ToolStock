@@ -36,7 +36,7 @@ namespace Sam.ToolStock.DataProvider.Repositories
 
         public virtual IEnumerable<TEntity> GetWhere(Func<TEntity, bool> predicate)
         {
-            return _toolContext.Set<TEntity>().Where(predicate);
+            return _toolContext.Set<TEntity>().Where(predicate).ToList();
         }
 
         public virtual IEnumerable<TEntity> GetWithInclude(params Expression<Func<TEntity, object>>[] includeProperties)
